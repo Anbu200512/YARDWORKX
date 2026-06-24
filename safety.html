@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToolHive — Safety</title>
+  <meta name="description" content="Safety guidelines and resources." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    html { scroll-behavior: smooth; }
+
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-in-up { animation: fade-in-up 0.8s ease-out forwards; }
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+
+    .text-gradient { background: linear-gradient(135deg, #F97316, #FBBF24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .text-muted { color: #1E293B !important; }
+    body.dark-mode .text-muted { color: #CCCCCC !important; }
+
+    body.dark-mode { background: #000000 !important; color: #FFFFFF !important; }
+    body.dark-mode #mainNav { background: rgba(0,0,0,0.85) !important; backdrop-filter: blur(12px) !important; border-color: rgba(255,255,255,0.08) !important; }
+    body.dark-mode #mobilePanel { background: #111111 !important; border-color: rgba(255,255,255,0.08) !important; }
+    body.dark-mode #footer footer { background: #000000 !important; }
+    body.dark-mode #themeToggle, body.dark-mode #rtlToggle, body.dark-mode #mobileMenuBtn, body.dark-mode #mobileCloseBtn { background: #F8FAFC !important; border-color: #E2E4E9 !important; }
+    body.dark-mode #themeToggle i, body.dark-mode #rtlToggle i, body.dark-mode #mobileMenuBtn i, body.dark-mode #mobileCloseBtn i { color: #000000 !important; }
+    body.dark-mode .text-\[#F97316\] { color: #FFFFFF !important; }
+    body.dark-mode h1, body.dark-mode h2, body.dark-mode h3,
+    body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 { color: #FFFFFF !important; }
+    body.dark-mode p { color: #FFFFFF !important; }
+    body.dark-mode .text-\[#334155\] { color: #FFFFFF !important; }
+    body.dark-mode .text-\[#475569\] { color: #FFFFFF !important; }
+    body.dark-mode .text-white { color: #FFFFFF !important; }
+    body.dark-mode .text-white\/60, body.dark-mode .text-white\/70, body.dark-mode .text-white\/90 { color: #FFFFFF !important; }
+    body.dark-mode .text-\[#0F172A\], body.dark-mode .text-\[#151515\] { color: #FFFFFF !important; }
+    body.dark-mode .text-gradient { background: linear-gradient(135deg, #F97316, #FBBF24) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important; }
+    body.dark-mode .bg-\[#F97316\] .text-\[#0F172A\],
+    body.dark-mode .bg-\[#F97316\] .text-\[#151515\] { color: #0F172A !important; }
+
+    body.dark-mode .bg-white { background: #000000 !important; }
+    body.dark-mode .bg-white\/95 { background: #000000 !important; }
+    body.dark-mode .bg-\[#F8FAFC\] { background: #000000 !important; }
+    body.dark-mode .bg-\[#0F172A\] { background: #000000 !important; }
+    body.dark-mode .border-\[#E2E4E9\] { border-color: rgba(255,255,255,0.08) !important; }
+
+    body.dark-mode .shadow-sm, body.dark-mode .shadow-md, body.dark-mode .shadow-lg,
+    body.dark-mode .shadow-xl, body.dark-mode .shadow-2xl { box-shadow: 0 0 0 1px rgba(255,255,255,0.06) !important; }
+
+    body.dark-mode .safety-card { background: #111111 !important; border-color: #2a2a2a !important; }
+    body.dark-mode .guide-card { background: #111111 !important; border-color: #2a2a2a !important; }
+
+    ::selection { background: rgba(234, 179, 8, 0.35); color: #0F172A; }
+    ::-moz-selection { background: rgba(234, 179, 8, 0.35); color: #0F172A; }
+    html, body { margin: 0; padding: 0; }
+    button, a, input, select { outline-offset: 2px; }
+    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid #F97316; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; }
+    }
+    body.dark-mode main, body.dark-mode section { background: #000 !important; }
+    body.dark-mode .bg-white, body.dark-mode .bg-\[\#F8FAFC\], body.dark-mode .bg-white\/95,
+    body.dark-mode .bg-white\/90, body.dark-mode .bg-white\/80 { background: #000 !important; }
+    body.dark-mode .safety-card, body.dark-mode .guide-card { background: #111111 !important; border-color: #2a2a2a !important; }
+    body.dark-mode .rounded-2xl, body.dark-mode .rounded-3xl { border-color: rgba(255,255,255,0.08) !important; }
+  </style>
+</head>
+<body class="bg-white text-[#F97316] antialiased overflow-x-hidden">
+  <div id="navbar"></div>
+
+  <main>
+    <!-- HERO -->
+    <section class="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden">
+      <div class="absolute inset-0 bg-[#0F172A]"></div>
+      <div class="absolute inset-0 opacity-[0.15] pointer-events-none">
+        <img src="https://images.unsplash.com/photo-1541888946425-d81bbd40a9b2?w=1920&q=80" alt="" class="w-full h-full object-cover">
+      </div>
+      <div class="relative max-w-4xl mx-auto px-5 sm:px-8 w-full text-center">
+        <span class="inline-flex items-center gap-2 bg-[#F97316]/10 backdrop-blur-sm rounded-full px-4 py-1.5 text-[11px] font-semibold text-[#F97316] border border-[#F97316]/20 mb-5">
+          <i class="fa-solid fa-hard-hat"></i>
+          <span>Safety</span>
+        </span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">
+          Safety <span class="text-gradient">First</span>, Always
+        </h1>
+        <p class="text-white/60 text-sm md:text-base max-w-xl mx-auto mb-6 leading-relaxed">
+          Every rental includes pre-inspection, operator guides, and 24/7 support. Your safety is our standard.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="#guidelines" class="bg-[#F97316] hover:bg-[#EA580C] text-[#0F172A] font-bold px-6 py-3 rounded-xl transition-all shadow-lg shadow-[#F97316]/25 flex items-center gap-2 text-sm">
+            <i class="fa-solid fa-book"></i> View Guidelines
+          </a>
+          <a href="contact.html" class="bg-white/5 backdrop-blur-sm border border-white/15 hover:bg-white/10 hover:border-white/30 text-white font-semibold px-6 py-3 rounded-xl transition-all flex items-center gap-2 text-sm">
+            <i class="fa-regular fa-circle-question"></i> Safety Questions
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="py-16 md:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 -mt-24 relative z-20">
+          <div class="safety-card bg-white border border-[#E2E4E9] rounded-2xl p-6 text-center">
+            <span class="text-3xl font-black text-[#F97316]">12+</span>
+            <p class="text-xs font-semibold text-muted mt-1">Years Injury-Free</p>
+          </div>
+          <div class="safety-card bg-white border border-[#E2E4E9] rounded-2xl p-6 text-center">
+            <span class="text-3xl font-black text-[#F97316]">100%</span>
+            <p class="text-xs font-semibold text-muted mt-1">Pre-Rental Inspection Rate</p>
+          </div>
+          <div class="safety-card bg-white border border-[#E2E4E9] rounded-2xl p-6 text-center">
+            <span class="text-3xl font-black text-[#F97316]">5,000+</span>
+            <p class="text-xs font-semibold text-muted mt-1">Operators Trained</p>
+          </div>
+          <div class="safety-card bg-white border border-[#E2E4E9] rounded-2xl p-6 text-center">
+            <span class="text-3xl font-black text-[#F97316]">24/7</span>
+            <p class="text-xs font-semibold text-muted mt-1">Safety Support Line</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GUIDELINES -->
+    <section id="guidelines" class="py-16 md:py-24 bg-[#F8FAFC]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Stay Safe</span>
+          <h2 class="text-3xl md:text-4xl font-black text-[#F97316] dm-white mt-2">Operator <span class="text-gradient">Guidelines</span></h2>
+          <p class="text-muted mt-3">Follow these essential safety practices on every job site.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="guide-card bg-white border border-[#E2E4E9] rounded-2xl overflow-hidden">
+            <div class="h-44 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b2?w=800&q=80" alt="Inspection" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5">
+              <h3 class="text-base font-bold text-[#0F172A] dm-white mb-2">Pre-Operation Inspection</h3>
+              <p class="text-sm text-muted leading-relaxed">Walk around the machine. Check fluid levels, tires/tracks, lights, hydraulics, and safety decals before starting.</p>
+            </div>
+          </div>
+          <div class="guide-card bg-white border border-[#E2E4E9] rounded-2xl overflow-hidden">
+            <div class="h-44 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80" alt="PPE" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5">
+              <h3 class="text-base font-bold text-[#0F172A] dm-white mb-2">Wear Proper PPE</h3>
+              <p class="text-sm text-muted leading-relaxed">Hard hat, high-vis vest, steel-toe boots, gloves, and hearing protection are mandatory on all job sites.</p>
+            </div>
+          </div>
+          <div class="guide-card bg-white border border-[#E2E4E9] rounded-2xl overflow-hidden">
+            <div class="h-44 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80" alt="Load limits" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5">
+              <h3 class="text-base font-bold text-[#0F172A] dm-white mb-2">Know Load Limits</h3>
+              <p class="text-sm text-muted leading-relaxed">Never exceed rated capacity. Factor in attachments, terrain, and dynamic loads. When in doubt, ask.</p>
+            </div>
+          </div>
+          <div class="guide-card bg-white border border-[#E2E4E9] rounded-2xl overflow-hidden">
+            <div class="h-44 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1625602869048-3a6d53e382ba?w=800&q=80" alt="Hazards" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5">
+              <h3 class="text-base font-bold text-[#0F172A] dm-white mb-2">Hazard Awareness</h3>
+              <p class="text-sm text-muted leading-relaxed">Watch for overhead power lines, underground utilities, uneven ground, and nearby workers. Mark the zone.</p>
+            </div>
+          </div>
+          <div class="guide-card bg-white border border-[#E2E4E9] rounded-2xl overflow-hidden">
+            <div class="h-44 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80" alt="Fuel" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5">
+              <h3 class="text-base font-bold text-[#0F172A] dm-white mb-2">Fuel & Shutdown</h3>
+              <p class="text-sm text-muted leading-relaxed">Shut down completely before refueling. No smoking. Let the engine cool before checking fluids or storing.</p>
+            </div>
+          </div>
+          <div class="guide-card bg-white border border-[#E2E4E9] rounded-2xl overflow-hidden">
+            <div class="h-44 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1590272456521-1bbe160c68a9?w=800&q=80" alt="Report" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5">
+              <h3 class="text-base font-bold text-[#0F172A] dm-white mb-2">Report Incidents</h3>
+              <p class="text-sm text-muted leading-relaxed">Report all near misses, damage, or injuries immediately. Call our 24/7 safety line — we're here to help.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PPE -->
+    <section class="py-16 md:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Gear Up</span>
+          <h2 class="text-3xl md:text-4xl font-black text-[#F97316] dm-white mt-2">Required <span class="text-gradient">PPE</span></h2>
+          <p class="text-muted mt-3">Always wear the following when operating or working near heavy equipment.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="guide-card bg-white border border-[#E2E4E9] rounded-2xl p-6 text-center">
+            <div class="w-16 h-16 rounded-2xl bg-[#F97316]/10 flex items-center justify-center mx-auto mb-3">
+              <i class="fa-solid fa-hard-hat text-3xl text-[#F97316]"></i>
+            </div>
+            <h3 class="text-sm font-bold text-[#0F172A] dm-white">Hard Hat</h3>
+            <p class="text-xs text-muted mt-1">ANSI Z89.1 rated</p>
+          </div>
+          <div class="guide-card bg-white border border-[#E2E4E9] rounded-2xl p-6 text-center">
+            <div class="w-16 h-16 rounded-2xl bg-[#F97316]/10 flex items-center justify-center mx-auto mb-3">
+              <i class="fa-solid fa-vest text-3xl text-[#F97316]"></i>
+            </div>
+            <h3 class="text-sm font-bold text-[#0F172A] dm-white">High-Vis Vest</h3>
+            <p class="text-xs text-muted mt-1">Class 2 or 3</p>
+          </div>
+          <div class="guide-card bg-white border border-[#E2E4E9] rounded-2xl p-6 text-center">
+            <div class="w-16 h-16 rounded-2xl bg-[#F97316]/10 flex items-center justify-center mx-auto mb-3">
+              <i class="fa-solid fa-shoe-prints text-3xl text-[#F97316]"></i>
+            </div>
+            <h3 class="text-sm font-bold text-[#0F172A] dm-white">Steel-Toe Boots</h3>
+            <p class="text-xs text-muted mt-1">ASTM F2413</p>
+          </div>
+          <div class="guide-card bg-white border border-[#E2E4E9] rounded-2xl p-6 text-center">
+            <div class="w-16 h-16 rounded-2xl bg-[#F97316]/10 flex items-center justify-center mx-auto mb-3">
+              <i class="fa-solid fa-ear-listen text-3xl text-[#F97316]"></i>
+            </div>
+            <h3 class="text-sm font-bold text-[#0F172A] dm-white">Hearing Protection</h3>
+            <p class="text-xs text-muted mt-1">NRR 25+ rating</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSPECTION PROCESS (split layout) -->
+    <section class="py-16 md:py-24 bg-[#F8FAFC]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Our Process</span>
+          <h2 class="text-3xl md:text-4xl font-black text-[#F97316] dm-white mt-2">Pre-Rental <span class="text-gradient">Inspection</span></h2>
+          <p class="text-muted mt-3">Every machine goes through a rigorous 37-point check before it leaves our yard.</p>
+        </div>
+        <div class="space-y-10">
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div class="rounded-2xl overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b2?w=800&q=80" alt="Fluid check" class="w-full h-72 object-cover">
+            </div>
+            <div>
+              <span class="text-[#F97316] font-black text-7xl leading-none opacity-20">01</span>
+              <h3 class="text-xl font-bold text-[#0F172A] dm-white mt-2">Fluid & Mechanical Check</h3>
+              <p class="text-sm text-muted mt-2 leading-relaxed">Oil, coolant, hydraulic fluid, and fuel levels are checked and topped off. Belts, hoses, and filters are inspected for wear. Any component below spec is replaced before rental.</p>
+              <ul class="mt-4 space-y-2 text-sm text-muted">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#F97316] text-xs"></i> Engine oil & coolant levels</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#F97316] text-xs"></i> Hydraulic system pressure test</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#F97316] text-xs"></i> Air filter & fuel filter condition</li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-8 items-center md:flex-row-reverse">
+            <div class="md:order-2 rounded-2xl overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1590272456521-1bbe160c68a9?w=800&q=80" alt="Safety decals" class="w-full h-72 object-cover">
+            </div>
+            <div class="md:order-1">
+              <span class="text-[#F97316] font-black text-7xl leading-none opacity-20">02</span>
+              <h3 class="text-xl font-bold text-[#0F172A] dm-white mt-2">Safety Systems & Decals</h3>
+              <p class="text-sm text-muted mt-2 leading-relaxed">All safety guards, lights, backup alarms, and decals are verified. Seat belts, ROPS structures, and fire extinguishers are confirmed present and functional.</p>
+              <ul class="mt-4 space-y-2 text-sm text-muted">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#F97316] text-xs"></i> Backup alarm & beacon lights</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#F97316] text-xs"></i> Seat belt & ROPS integrity</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#F97316] text-xs"></i> Safety decals & emergency shut-off</li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div class="rounded-2xl overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80" alt="Test run" class="w-full h-72 object-cover">
+            </div>
+            <div>
+              <span class="text-[#F97316] font-black text-7xl leading-none opacity-20">03</span>
+              <h3 class="text-xl font-bold text-[#0F172A] dm-white mt-2">Operational Test Run</h3>
+              <p class="text-sm text-muted mt-2 leading-relaxed">Every machine is started, cycled through all functions, and test-driven. Controls, gauges, and performance are verified before the unit is cleared for rental.</p>
+              <ul class="mt-4 space-y-2 text-sm text-muted">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#F97316] text-xs"></i> Full cycle test on all controls</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#F97316] text-xs"></i> Gauge & dashboard verification</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#F97316] text-xs"></i> Brake & steering response check</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAINING (image cards) -->
+    <section class="py-16 md:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Learn</span>
+          <h2 class="text-3xl md:text-4xl font-black text-[#F97316] dm-white mt-2">Safety <span class="text-gradient">Training</span></h2>
+          <p class="text-muted mt-3">On-site and online courses for operators of all experience levels.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="guide-card bg-white border border-[#E2E4E9] rounded-3xl overflow-hidden lift-card">
+            <div class="h-52 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=800&q=80" alt="Excavator training" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#F97316]/10 text-[#F97316]">HEAVY</span>
+                <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">CERTIFIED</span>
+              </div>
+              <h3 class="text-lg font-bold text-[#0F172A] dm-white">Heavy Equipment Operator</h3>
+              <p class="text-sm text-muted mt-1 leading-relaxed">Hands-on training covering excavators, bulldozers, loaders, and graders. Includes safety procedures, load handling, and job site best practices.</p>
+              <div class="flex items-center justify-between mt-4 pt-4 border-t border-[#E2E4E9]">
+                <span class="text-xs font-semibold text-muted"><i class="fa-regular fa-clock mr-1"></i> 3 days</span>
+                <a href="contact.html" class="text-[#F97316] font-bold text-xs hover:underline">Enroll →</a>
+              </div>
+            </div>
+          </div>
+          <div class="guide-card bg-white border border-[#E2E4E9] rounded-3xl overflow-hidden lift-card">
+            <div class="h-52 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1611282293683-5d0021030151?w=800&q=80" alt="Safety training" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#3B82F6]/10 text-[#3B82F6]">GENERAL</span>
+                <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">OSHA</span>
+              </div>
+              <h3 class="text-lg font-bold text-[#0F172A] dm-white">Job Site Safety & OSHA</h3>
+              <p class="text-sm text-muted mt-1 leading-relaxed">OSHA-compliant safety certification covering hazard identification, PPE requirements, emergency response, and site communication protocols.</p>
+              <div class="flex items-center justify-between mt-4 pt-4 border-t border-[#E2E4E9]">
+                <span class="text-xs font-semibold text-muted"><i class="fa-regular fa-clock mr-1"></i> 1 day</span>
+                <a href="contact.html" class="text-[#F97316] font-bold text-xs hover:underline">Enroll →</a>
+              </div>
+            </div>
+          </div>
+          <div class="guide-card bg-white border border-[#E2E4E9] rounded-3xl overflow-hidden lift-card">
+            <div class="h-52 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1626808642875-0aa545482dfb?w=800&q=80" alt="Forklift training" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#8B5CF6]/10 text-[#8B5CF6]">HANDLING</span>
+                <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">CERTIFIED</span>
+              </div>
+              <h3 class="text-lg font-bold text-[#0F172A] dm-white">Forklift & Aerial Lift</h3>
+              <p class="text-sm text-muted mt-1 leading-relaxed">Certification for forklifts, scissor lifts, and boom lifts. Covers load capacity, stability, pre-op inspection, and safe operating procedures.</p>
+              <div class="flex items-center justify-between mt-4 pt-4 border-t border-[#E2E4E9]">
+                <span class="text-xs font-semibold text-muted"><i class="fa-regular fa-clock mr-1"></i> 2 days</span>
+                <a href="contact.html" class="text-[#F97316] font-bold text-xs hover:underline">Enroll →</a>
+              </div>
+            </div>
+          </div>
+          <div class="guide-card bg-white border border-[#E2E4E9] rounded-3xl overflow-hidden lift-card">
+            <div class="h-52 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1597676859930-ad94c8816a6c?w=800&q=80" alt="Confined space" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#EF4444]/10 text-[#EF4444]">SPECIAL</span>
+                <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">OSHA</span>
+              </div>
+              <h3 class="text-lg font-bold text-[#0F172A] dm-white">Confined Space & Rescue</h3>
+              <p class="text-sm text-muted mt-1 leading-relaxed">Specialized training for confined space entry, atmospheric monitoring, ventilation, and non-entry rescue procedures per OSHA 1910.146.</p>
+              <div class="flex items-center justify-between mt-4 pt-4 border-t border-[#E2E4E9]">
+                <span class="text-xs font-semibold text-muted"><i class="fa-regular fa-clock mr-1"></i> 1 day</span>
+                <a href="contact.html" class="text-[#F97316] font-bold text-xs hover:underline">Enroll →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOB SITE SCENARIOS (image overlay grid) -->
+    <section class="py-16 md:py-24 bg-[#F8FAFC]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">On Site</span>
+          <h2 class="text-3xl md:text-4xl font-black text-[#F97316] dm-white mt-2">Know Your <span class="text-gradient">Surroundings</span></h2>
+          <p class="text-muted mt-3">Different job sites come with different hazards. Stay alert and stay safe.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="relative rounded-2xl overflow-hidden h-64 group cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bbd40a9b2?w=600&q=80" alt="Construction site" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <div class="flex items-center gap-2 mb-1">
+                <i class="fa-solid fa-triangle-exclamation text-[#F97316] text-xs"></i>
+                <span class="text-[10px] font-bold text-white/80 tracking-widest uppercase">Construction</span>
+              </div>
+              <h3 class="text-white font-bold text-sm">Overhead hazards, moving vehicles, and uneven terrain are the top risks on active construction sites.</h3>
+            </div>
+          </div>
+          <div class="relative rounded-2xl overflow-hidden h-64 group cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Road work" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <div class="flex items-center gap-2 mb-1">
+                <i class="fa-solid fa-triangle-exclamation text-[#F97316] text-xs"></i>
+                <span class="text-[10px] font-bold text-white/80 tracking-widest uppercase">Road Work</span>
+              </div>
+              <h3 class="text-white font-bold text-sm">Traffic control, flaggers, and high-vis PPE are critical. Keep equipment away from live lanes.</h3>
+            </div>
+          </div>
+          <div class="relative rounded-2xl overflow-hidden h-64 group cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1625602869048-3a6d53e382ba?w=600&q=80" alt="Demolition" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <div class="flex items-center gap-2 mb-1">
+                <i class="fa-solid fa-triangle-exclamation text-[#F97316] text-xs"></i>
+                <span class="text-[10px] font-bold text-white/80 tracking-widest uppercase">Demolition</span>
+              </div>
+              <h3 class="text-white font-bold text-sm">Structural instability, dust, flying debris, and buried utilities make demolition especially high-risk.</h3>
+            </div>
+          </div>
+          <div class="relative rounded-2xl overflow-hidden h-64 group cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1590272456521-1bbe160c68a9?w=600&q=80" alt="Trenching" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <div class="flex items-center gap-2 mb-1">
+                <i class="fa-solid fa-triangle-exclamation text-[#F97316] text-xs"></i>
+                <span class="text-[10px] font-bold text-white/80 tracking-widest uppercase">Excavation</span>
+              </div>
+              <h3 class="text-white font-bold text-sm">Cave-ins, struck-by, and hazardous atmospheres. Always use trench boxes and monitor air quality.</h3>
+            </div>
+          </div>
+          <div class="relative rounded-2xl overflow-hidden h-64 group cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80" alt="Warehouse" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <div class="flex items-center gap-2 mb-1">
+                <i class="fa-solid fa-triangle-exclamation text-[#F97316] text-xs"></i>
+                <span class="text-[10px] font-bold text-white/80 tracking-widest uppercase">Warehouse</span>
+              </div>
+              <h3 class="text-white font-bold text-sm">Pedestrian traffic, racking stability, and blind corners. Use spotters and keep speeds low.</h3>
+            </div>
+          </div>
+          <div class="relative rounded-2xl overflow-hidden h-64 group cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1578262825743-a199d7c8e7f6?w=600&q=80" alt="Night work" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <div class="flex items-center gap-2 mb-1">
+                <i class="fa-solid fa-triangle-exclamation text-[#F97316] text-xs"></i>
+                <span class="text-[10px] font-bold text-white/80 tracking-widest uppercase">Night Work</span>
+              </div>
+              <h3 class="text-white font-bold text-sm">Reduced visibility, fatigue, and cold weather risks. Ensure all lights and reflective gear are on.</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 md:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative rounded-3xl overflow-hidden">
+          <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bbd40a9b2?w=1200&q=80" alt="" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0F172A]/95 via-[#0F172A]/85 to-[#0F172A]/70"></div>
+          </div>
+          <div class="relative z-10 p-8 md:p-14">
+            <div class="max-w-2xl">
+              <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Stay Informed</span>
+              <h2 class="text-3xl md:text-4xl font-black text-white leading-tight mt-2">Download Our Safety Guide</h2>
+              <p class="text-white/60 mt-3 leading-relaxed">Get the complete YardWorkx safety manual with pre-op checklists, load charts, and emergency procedures.</p>
+              <div class="flex flex-wrap gap-3 mt-8">
+                <a href="#" class="inline-flex items-center gap-2 bg-[#F97316] hover:bg-[#EA580C] text-[#0F172A] font-bold px-7 py-3.5 rounded-xl transition-all shadow-lg shadow-[#F97316]/25">
+                  <i class="fa-solid fa-download"></i> Download PDF
+                </a>
+                <a href="contact.html" class="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white font-semibold px-7 py-3.5 rounded-xl transition-all">
+                  <i class="fa-regular fa-circle-question"></i> Ask a Safety Expert
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="js/navbar.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/footer.js"></script>
+</body>
+</html>

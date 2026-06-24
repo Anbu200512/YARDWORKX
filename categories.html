@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YardWorkx — Equipment Categories</title>
+  <meta name="description" content="Browse equipment categories — heavy machinery, power tools, hand tools, landscaping, and safety gear available for rent." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    html { scroll-behavior: smooth; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slide-in-left {
+      from { opacity: 0; transform: translateX(-60px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slide-in-right {
+      from { opacity: 0; transform: translateX(60px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes scale-in {
+      from { opacity: 0; transform: scale(0.85); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes nav-line {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(200%); }
+    }
+    @keyframes spin-slow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-float-delayed { animation: float 6s ease-in-out 2s infinite; }
+    .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+    .animate-fade-in-up { animation: fade-in-up 0.8s ease-out forwards; }
+    .animate-slide-in-left { animation: slide-in-left 0.8s ease-out forwards; }
+    .animate-slide-in-right { animation: slide-in-right 0.8s ease-out forwards; }
+    .animate-scale-in { animation: scale-in 0.6s ease-out forwards; }
+    .animate-spin-slow { animation: spin-slow 20s linear infinite; }
+
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+    .stagger-5 { animation-delay: 0.5s; }
+    .stagger-6 { animation-delay: 0.6s; }
+    .animate-fade-in-up, .animate-slide-in-left, .animate-slide-in-right, .animate-scale-in { animation-fill-mode: both; }
+
+    .lift-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .lift-card:hover { transform: translateY(-8px) scale(1.02); }
+
+    .text-gradient { background: linear-gradient(135deg, #F97316, #FBBF24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .border-glow:hover {
+      box-shadow: 0 0 0 2px #F97316, 0 0 25px rgba(249, 115, 22, 0.3);
+    }
+
+    .text-muted { color: #1E293B !important; }
+    body.dark-mode .text-muted { color: #CCCCCC !important; }
+
+    body.dark-mode { background: #000000 !important; color: #FFFFFF !important; }
+    body.dark-mode #mainNav { background: rgba(0,0,0,0.85) !important; backdrop-filter: blur(12px) !important; border-color: rgba(255,255,255,0.08) !important; }
+    body.dark-mode #mobilePanel { background: #111111 !important; border-color: rgba(255,255,255,0.08) !important; }
+    body.dark-mode #footer footer { background: #000000 !important; }
+    body.dark-mode #themeToggle, body.dark-mode #rtlToggle, body.dark-mode #mobileMenuBtn, body.dark-mode #mobileCloseBtn { background: #F8FAFC !important; border-color: #E2E4E9 !important; }
+    body.dark-mode #themeToggle i, body.dark-mode #rtlToggle i, body.dark-mode #mobileMenuBtn i, body.dark-mode #mobileCloseBtn i { color: #000000 !important; }
+    body.dark-mode .text-\[#F97316\] { color: #FFFFFF !important; }
+    body.dark-mode h1, body.dark-mode h2, body.dark-mode h3,
+    body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 { color: #FFFFFF !important; }
+    body.dark-mode p { color: #FFFFFF !important; }
+    body.dark-mode .text-\[#334155\] { color: #FFFFFF !important; }
+    body.dark-mode .text-\[#475569\] { color: #FFFFFF !important; }
+    body.dark-mode .text-white { color: #FFFFFF !important; }
+    body.dark-mode .text-white\/60, body.dark-mode .text-white\/70, body.dark-mode .text-white\/90 { color: #FFFFFF !important; }
+    body.dark-mode .text-\[#0F172A\], body.dark-mode .text-\[#151515\] { color: #FFFFFF !important; }
+    body.dark-mode .text-gradient { background: linear-gradient(135deg, #F97316, #FBBF24) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important; }
+    body.dark-mode .bg-\[#F97316\] .text-\[#0F172A\],
+    body.dark-mode .bg-\[#F97316\] .text-\[#151515\] { color: #0F172A !important; }
+
+    body.dark-mode .bg-white { background: #000000 !important; }
+    body.dark-mode .bg-white\/95 { background: #000000 !important; }
+    body.dark-mode .bg-\[#F8FAFC\] { background: #000000 !important; }
+    body.dark-mode .bg-\[#0F172A\] { background: #000000 !important; }
+    body.dark-mode .border-\[#E2E4E9\] { border-color: rgba(255,255,255,0.08) !important; }
+    body.dark-mode .divide-\[#E2E4E9\] > * { border-color: rgba(255,255,255,0.08) !important; }
+
+    body.dark-mode .bg-white\/90 { background: rgba(0,0,0,0.9) !important; }
+    body.dark-mode .bg-white\/80 { background: rgba(0,0,0,0.85) !important; }
+    body.dark-mode .bg-white\/15 { background: rgba(255,255,255,0.08) !important; }
+    body.dark-mode .border-white\/30 { border-color: rgba(255,255,255,0.12) !important; }
+
+    body.dark-mode .hover\:bg-\[#F8FAFC\]:hover { background: #1A1A1A !important; }
+
+    body.dark-mode .shadow-sm, body.dark-mode .shadow-md, body.dark-mode .shadow-lg,
+    body.dark-mode .shadow-xl, body.dark-mode .shadow-2xl { box-shadow: 0 0 0 1px rgba(255,255,255,0.06) !important; }
+
+    body.dark-mode .cat-card { background: #000000 !important; border-color: rgba(255,255,255,0.08) !important; }
+    body.dark-mode .dark-bg-soft { background: #000000 !important; }
+
+    body.dark-mode .hero-gradient {
+      background: linear-gradient(135deg, #000000 0%, #0A0A0A 50%, #000000 100%) !important;
+    }
+    body.dark-mode .hero-overlay {
+      background: radial-gradient(ellipse at 20% 50%, rgba(249,115,22,0.08) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 50%, rgba(249,115,22,0.05) 0%, transparent 60%) !important;
+    }
+
+    ::selection { background: rgba(234, 179, 8, 0.35); color: #0F172A; }
+    ::-moz-selection { background: rgba(234, 179, 8, 0.35); color: #0F172A; }
+    html, body { margin: 0; padding: 0; }
+
+    button, a, input, select { outline-offset: 2px; }
+    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid #F97316; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; }
+    }
+
+    /* COMPLETE DARK MODE BLACK BACKGROUND */
+
+body.dark-mode,
+body.dark-mode main,
+body.dark-mode section {
+    background: #000 !important;
+}
+
+/* All light backgrounds */
+body.dark-mode .bg-white,
+body.dark-mode .bg-\[\#F8FAFC\],
+body.dark-mode .bg-white\/95,
+body.dark-mode .bg-white\/90,
+body.dark-mode .bg-white\/80 {
+    background: #000 !important;
+}
+
+/* Cards */
+body.dark-mode .cat-card,
+body.dark-mode .card-dark-bg {
+    background: #111111 !important;
+    border-color: #2a2a2a !important;
+}
+
+/* Text */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode span {
+    color: #fff !important;
+}
+
+/* Footer */
+body.dark-mode footer {
+    background: #000 !important;
+}
+  </style>
+</head>
+<body class="bg-white text-[#F97316] antialiased overflow-x-hidden">
+  <div id="navbar"></div>
+
+  <main>
+    <!-- SECTION 1: HERO -->
+    <section class="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden">
+      <div class="absolute inset-0 bg-[#0F172A]"></div>
+      <div class="absolute inset-0 opacity-[0.12] pointer-events-none">
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&q=80" alt="" class="w-full h-full object-cover">
+      </div>
+      <div class="relative max-w-4xl mx-auto px-5 sm:px-8 w-full text-center">
+        <span class="inline-flex items-center gap-2 bg-[#F97316]/10 backdrop-blur-sm rounded-full px-4 py-1.5 text-[11px] font-semibold text-[#F97316] border border-[#F97316]/20 mb-5">
+          <i class="fa-solid fa-grid-2"></i>
+          <span>Categories</span>
+        </span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">
+          Browse by <span class="text-gradient">Category</span>
+        </h1>
+        <p class="text-white/60 text-sm md:text-base max-w-xl mx-auto mb-6 leading-relaxed">
+          Find exactly what you need — organized by trade and job type.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="#categories" class="bg-[#F97316] hover:bg-[#EA580C] text-[#0F172A] font-bold px-6 py-3 rounded-xl transition-all shadow-lg shadow-[#F97316]/25 hover:shadow-[#F97316]/40 flex items-center gap-2 text-sm">
+            <i class="fa-solid fa-list"></i> All Categories
+          </a>
+          <a href="contact.html" class="bg-white/5 backdrop-blur-sm border border-white/15 hover:bg-white/10 hover:border-white/30 text-white font-semibold px-6 py-3 rounded-xl transition-all flex items-center gap-2 text-sm">
+            <i class="fa-regular fa-circle-question"></i> Need Help?
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: CATEGORIES GRID -->
+    <section id="categories" class="py-16 md:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Equipment Categories</span>
+          <h2 class="text-3xl md:text-4xl font-black text-[#F97316] dm-white mt-2">Everything You Need, <span class="text-gradient">Organized</span></h2>
+          <p class="text-muted mt-3">From heavy iron to hand tools — we've categorized every piece of equipment for easy browsing.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Category 1: Heavy Equipment -->
+          <div class="cat-card bg-white border border-[#E2E4E9] rounded-3xl overflow-hidden lift-card group">
+            <div class="h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80" alt="Heavy Equipment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xl font-bold text-[#0F172A] dm-white">Heavy Equipment</h3>
+                <span class="text-xs font-semibold text-[#F97316] bg-[#F97316]/10 px-2.5 py-1 rounded-full">42 items</span>
+              </div>
+              <p class="text-sm text-muted leading-relaxed">Excavators, bulldozers, loaders — built for the toughest jobs on any job site.</p>
+              <a href="equipment.html" class="inline-flex items-center gap-1.5 text-[#F97316] font-semibold text-sm mt-4 hover:gap-2.5 transition-all">View Equipment <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <!-- Category 2: Power Tools -->
+          <div class="cat-card bg-white border border-[#E2E4E9] rounded-3xl overflow-hidden lift-card group">
+            <div class="h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1504148455328-c376907d081c?w=800&q=80" alt="Power Tools" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xl font-bold text-[#0F172A] dm-white">Power Tools</h3>
+                <span class="text-xs font-semibold text-[#F97316] bg-[#F97316]/10 px-2.5 py-1 rounded-full">68 items</span>
+              </div>
+              <p class="text-sm text-muted leading-relaxed">Drills, saws, grinders — professional-grade corded and cordless tools for every trade.</p>
+              <a href="equipment.html" class="inline-flex items-center gap-1.5 text-[#F97316] font-semibold text-sm mt-4 hover:gap-2.5 transition-all">View Equipment <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <!-- Category 3: Hand Tools -->
+          <div class="cat-card bg-white border border-[#E2E4E9] rounded-3xl overflow-hidden lift-card group">
+            <div class="h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=800&q=80" alt="Hand Tools" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xl font-bold text-[#0F172A] dm-white">Hand Tools</h3>
+                <span class="text-xs font-semibold text-[#F97316] bg-[#F97316]/10 px-2.5 py-1 rounded-full">120+ items</span>
+              </div>
+              <p class="text-sm text-muted leading-relaxed">Hammers, wrenches, levels — the essential toolkit for any job, from rough-in to finish.</p>
+              <a href="equipment.html" class="inline-flex items-center gap-1.5 text-[#F97316] font-semibold text-sm mt-4 hover:gap-2.5 transition-all">View Equipment <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <!-- Category 4: Landscaping -->
+          <div class="cat-card bg-white border border-[#E2E4E9] rounded-3xl overflow-hidden lift-card group">
+            <div class="h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80" alt="Landscaping" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xl font-bold text-[#0F172A] dm-white">Landscaping</h3>
+                <span class="text-xs font-semibold text-[#F97316] bg-[#F97316]/10 px-2.5 py-1 rounded-full">35 items</span>
+              </div>
+              <p class="text-sm text-muted leading-relaxed">Mowers, trimmers, aerators — keep properties pristine with our landscaping fleet.</p>
+              <a href="equipment.html" class="inline-flex items-center gap-1.5 text-[#F97316] font-semibold text-sm mt-4 hover:gap-2.5 transition-all">View Equipment <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <!-- Category 5: Safety Gear -->
+          <div class="cat-card bg-white border border-[#E2E4E9] rounded-3xl overflow-hidden lift-card group">
+            <div class="h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1605106702734-205df224ecce?w=800&q=80" alt="Safety Gear" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xl font-bold text-[#0F172A] dm-white">Safety Gear</h3>
+                <span class="text-xs font-semibold text-[#F97316] bg-[#F97316]/10 px-2.5 py-1 rounded-full">28 items</span>
+              </div>
+              <p class="text-sm text-muted leading-relaxed">Hard hats, harnesses, signs — OSHA-compliant safety equipment for every worksite.</p>
+              <a href="equipment.html" class="inline-flex items-center gap-1.5 text-[#F97316] font-semibold text-sm mt-4 hover:gap-2.5 transition-all">View Equipment <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <!-- Category 6: Concrete & Masonry -->
+          <div class="cat-card bg-white border border-[#E2E4E9] rounded-3xl overflow-hidden lift-card group">
+            <div class="h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1562184556-b11f15abdadb?w=800&q=80" alt="Concrete & Masonry" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xl font-bold text-[#0F172A] dm-white">Concrete & Masonry</h3>
+                <span class="text-xs font-semibold text-[#F97316] bg-[#F97316]/10 px-2.5 py-1 rounded-full">19 items</span>
+              </div>
+              <p class="text-sm text-muted leading-relaxed">Mixers, saws, vibrators — from small pours to big slabs, we have the concrete gear.</p>
+              <a href="equipment.html" class="inline-flex items-center gap-1.5 text-[#F97316] font-semibold text-sm mt-4 hover:gap-2.5 transition-all">View Equipment <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <!-- Category 7: Plumbing & Electrical -->
+          <div class="cat-card bg-white border border-[#E2E4E9] rounded-3xl overflow-hidden lift-card group">
+            <div class="h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80" alt="Plumbing & Electrical" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xl font-bold text-[#0F172A] dm-white">Plumbing & Electrical</h3>
+                <span class="text-xs font-semibold text-[#F97316] bg-[#F97316]/10 px-2.5 py-1 rounded-full">31 items</span>
+              </div>
+              <p class="text-sm text-muted leading-relaxed">Pipe tools, testers, crimpers — specialized equipment for MEP trades and contractors.</p>
+              <a href="equipment.html" class="inline-flex items-center gap-1.5 text-[#F97316] font-semibold text-sm mt-4 hover:gap-2.5 transition-all">View Equipment <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <!-- Category 8: Painting & Finishing -->
+          <div class="cat-card bg-white border border-[#E2E4E9] rounded-3xl overflow-hidden lift-card group">
+            <div class="h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=800&q=80" alt="Painting & Finishing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xl font-bold text-[#0F172A] dm-white">Painting & Finishing</h3>
+                <span class="text-xs font-semibold text-[#F97316] bg-[#F97316]/10 px-2.5 py-1 rounded-full">22 items</span>
+              </div>
+              <p class="text-sm text-muted leading-relaxed">Sprayers, sanders, polishers — get a flawless finish with our pro painting equipment.</p>
+              <a href="equipment.html" class="inline-flex items-center gap-1.5 text-[#F97316] font-semibold text-sm mt-4 hover:gap-2.5 transition-all">View Equipment <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <!-- Category 9: Material Handling -->
+          <div class="cat-card bg-white border border-[#E2E4E9] rounded-3xl overflow-hidden lift-card group">
+            <div class="h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1626808642875-0aa545482dfb?w=800&q=80" alt="Material Handling" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xl font-bold text-[#0F172A] dm-white">Material Handling</h3>
+                <span class="text-xs font-semibold text-[#F97316] bg-[#F97316]/10 px-2.5 py-1 rounded-full">16 items</span>
+              </div>
+              <p class="text-sm text-muted leading-relaxed">Forklifts, pallet jacks, hoists — move more with less effort using our material handling line.</p>
+              <a href="equipment.html" class="inline-flex items-center gap-1.5 text-[#F97316] font-semibold text-sm mt-4 hover:gap-2.5 transition-all">View Equipment <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: CAN'T FIND CTA -->
+    <section class="py-16 md:py-24 bg-[#F8FAFC] relative overflow-hidden">
+      <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=80" alt="" class="w-full h-full object-cover">
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-2xl mx-auto text-center">
+          <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Need Something Else?</span>
+          <h2 class="text-3xl md:text-4xl font-black text-[#F97316] dm-white mt-2">Can't Find What <span class="text-gradient">You Need?</span></h2>
+          <p class="text-muted mt-4 leading-relaxed">We carry hundreds of equipment types beyond what's listed here. If you don't see what you're looking for, our team can source it — often within 24 hours.</p>
+          <div class="flex flex-wrap justify-center gap-4 mt-8">
+            <a href="contact.html" class="inline-flex items-center gap-2 bg-[#F97316] hover:bg-[#EA580C] text-[#0F172A] font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-[#F97316]/25 hover:shadow-[#F97316]/40">
+              <i class="fa-regular fa-message"></i> Contact Us
+            </a>
+            <a href="equipment.html" class="inline-flex items-center gap-2 bg-white border border-[#E2E4E9] hover:border-[#F97316]/30 text-[#F97316] font-semibold px-8 py-3.5 rounded-xl transition-all shadow-sm">
+              View Full Inventory <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="js/navbar.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/footer.js"></script>
+</body>
+</html>

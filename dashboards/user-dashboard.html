@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToolHive — User Dashboard</title>
+  <meta name="description" content="Manage your rentals, payments, and account." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    html { scroll-behavior: smooth; }
+    .text-gradient { background: linear-gradient(135deg, #F97316, #FBBF24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .text-muted { color: #1E293B !important; }
+    body.dark-mode .text-muted { color: #CCCCCC !important; }
+    body.dark-mode { background: #000000 !important; color: #FFFFFF !important; }
+    body.dark-mode #mainNav { background: rgba(0,0,0,0.85) !important; backdrop-filter: blur(12px) !important; border-color: rgba(255,255,255,0.08) !important; }
+    body.dark-mode #mobilePanel { background: #111111 !important; border-color: rgba(255,255,255,0.08) !important; }
+    body.dark-mode #footer footer { background: #000000 !important; }
+    body.dark-mode #themeToggle, body.dark-mode #rtlToggle, body.dark-mode #mobileMenuBtn, body.dark-mode #mobileCloseBtn { background: #F8FAFC !important; border-color: #E2E4E9 !important; }
+    body.dark-mode #themeToggle i, body.dark-mode #rtlToggle i, body.dark-mode #mobileMenuBtn i, body.dark-mode #mobileCloseBtn i { color: #000000 !important; }
+    body.dark-mode .text-\[#F97316\] { color: #FFFFFF !important; }
+    body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 { color: #FFFFFF !important; }
+    body.dark-mode p { color: #FFFFFF !important; }
+    body.dark-mode .text-\[#334155\], body.dark-mode .text-\[#475569\] { color: #FFFFFF !important; }
+    body.dark-mode .text-white, body.dark-mode .text-white\/60, body.dark-mode .text-white\/70, body.dark-mode .text-white\/90 { color: #FFFFFF !important; }
+    body.dark-mode .text-\[#0F172A\], body.dark-mode .text-\[#151515\] { color: #FFFFFF !important; }
+    body.dark-mode .text-gradient { background: linear-gradient(135deg, #F97316, #FBBF24) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important; }
+    body.dark-mode .bg-\[#F97316\] .text-\[#0F172A\], body.dark-mode .bg-\[#F97316\] .text-\[#151515\] { color: #0F172A !important; }
+    body.dark-mode .bg-white { background: #000000 !important; }
+    body.dark-mode .bg-white\/95 { background: #000000 !important; }
+    body.dark-mode .bg-\[#F8FAFC\] { background: #000000 !important; }
+    body.dark-mode .bg-\[#0F172A\] { background: #000000 !important; }
+    body.dark-mode .border-\[#E2E4E9\] { border-color: rgba(255,255,255,0.08) !important; }
+    body.dark-mode .shadow-sm, body.dark-mode .shadow-md, body.dark-mode .shadow-lg,
+    body.dark-mode .shadow-xl, body.dark-mode .shadow-2xl { box-shadow: 0 0 0 1px rgba(255,255,255,0.06) !important; }
+    body.dark-mode .stat-card, body.dark-mode .dash-card { background: #111111 !important; border-color: #2a2a2a !important; }
+    body.dark-mode .dash-card-header { border-color: #2a2a2a !important; }
+    body.dark-mode .sidebar-item { color: #CCCCCC !important; }
+    body.dark-mode .sidebar-item:hover { background: rgba(249,115,22,0.1) !important; color: #F97316 !important; }
+    body.dark-mode .sidebar-item.active { background: rgba(249,115,22,0.15) !important; color: #F97316 !important; border-color: #F97316 !important; }
+    body.dark-mode .table-row { border-color: #2a2a2a !important; }
+    body.dark-mode .table-row:hover { background: #1a1a1a !important; }
+    body.dark-mode .activity-item { border-color: #2a2a2a !important; }
+    body.dark-mode .progress-bg { background: #2a2a2a !important; }
+    body.dark-mode .alert-card { background: rgba(239,68,68,0.08) !important; border-color: rgba(239,68,68,0.2) !important; }
+    body.dark-mode .hover-card:hover { background: #1a1a1a !important; }
+    body.dark-mode #userLogoutBtn { background: rgba(239,68,68,0.1) !important; border-color: rgba(239,68,68,0.2) !important; color: #EF4444 !important; }
+    body.dark-mode #userLogoutBtn:hover { background: #EF4444 !important; border-color: #EF4444 !important; color: #fff !important; }
+    body.dark-mode .welcome-banner { background: #0A0A0A !important; }
+    body.dark-mode .welcome-banner::before { background: radial-gradient(ellipse at 20% 50%, rgba(249,115,22,0.08) 0%, transparent 60%) !important; }
+    body.dark-mode .welcome-banner::after { background: rgba(249,115,22,0.03) !important; }
+    body.dark-mode .section-ornament::before,
+    body.dark-mode .section-ornament::after { background: linear-gradient(to right, transparent, #2a2a2a, transparent) !important; }
+    body.dark-mode .action-btn { border-color: #2a2a2a !important; }
+    body.dark-mode .action-btn:hover { border-color: #F97316 !important; }
+    body.dark-mode .bg-\[\#FFF9F0\] { background: rgba(249,115,22,0.08) !important; }
+    body.dark-mode .badge-orange { background: rgba(249,115,22,0.15) !important; color: #F97316 !important; }
+    body.dark-mode .badge-green { background: rgba(34,197,94,0.15) !important; color: #22C55E !important; }
+    body.dark-mode .badge-blue { background: rgba(59,130,246,0.15) !important; color: #3B82F6 !important; }
+    body.dark-mode .badge-red { background: rgba(239,68,68,0.15) !important; color: #EF4444 !important; }
+    ::selection { background: rgba(234, 179, 8, 0.35); color: #0F172A; }
+    ::-moz-selection { background: rgba(234, 179, 8, 0.35); color: #0F172A; }
+    html, body { margin: 0; padding: 0; }
+    button:focus-visible, a:focus-visible { outline: 2px solid #F97316; outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; } }
+    body.dark-mode main, body.dark-mode section { background: #000 !important; }
+    body.dark-mode .bg-white, body.dark-mode .bg-\[\#F8FAFC\], body.dark-mode .bg-white\/95,
+    body.dark-mode .bg-white\/90, body.dark-mode .bg-white\/80 { background: #000 !important; }
+    body.dark-mode .stat-card, body.dark-mode .dash-card { background: #111111 !important; border-color: #2a2a2a !important; }
+    body.dark-mode .rounded-2xl, body.dark-mode .rounded-3xl { border-color: rgba(255,255,255,0.08) !important; }
+    body.dark-mode .sidebar { background: #111111 !important; border-color: #2a2a2a !important; }
+    body.dark-mode header { background: #111111 !important; border-color: #2a2a2a !important; }
+    body.dark-mode header .text-\[#F97316\] { color: #FFFFFF !important; }
+    body.dark-mode header .bg-\[\#F8FAFC\] { background: #000 !important; border-color: #2a2a2a !important; }
+
+    /* RTL support */
+    html[dir="rtl"] .sidebar { left: auto !important; right: 0 !important; border-right: none !important; border-left: 1px solid; }
+    html[dir="rtl"] .lg\:ml-64 { margin-left: 0 !important; margin-right: 16rem !important; }
+    html[dir="rtl"] .sidebar-item i { margin-left: 0.75rem; margin-right: 0; }
+    html[dir="rtl"] .sidebar-item .ml-auto { margin-left: 0 !important; margin-right: auto !important; }
+    html[dir="rtl"] .ml-auto { margin-left: 0 !important; margin-right: auto !important; }
+    html[dir="rtl"] header .ml-auto { margin-left: 0 !important; margin-right: auto !important; }
+    html[dir="rtl"] table th, html[dir="rtl"] table td { text-align: right; }
+    html[dir="rtl"] table th:first-child, html[dir="rtl"] table td:first-child { padding-left: 1rem; padding-right: 1.25rem; }
+    html[dir="rtl"] table th:last-child, html[dir="rtl"] table td:last-child { text-align: left !important; }
+    html[dir="rtl"] .flex.items-center.gap-2 { flex-direction: row; }
+    html[dir="rtl"] .space-x-reverse > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 1; }
+    html[dir="rtl"] .-space-x-1\.5 > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 1; }
+    html[dir="rtl"] #mobileSidebar { left: auto !important; right: 0 !important; border-right: none !important; border-left: 1px solid; border-color: #E2E4E9; }
+    html[dir="rtl"] .-translate-x-full { transform: translateX(100%) !important; }
+
+    body, header, .sidebar, #mobileSidebar, .dash-card, .stat-card { transition: all 0.3s ease; }
+
+    .hover-card { transition: all 0.2s ease; }
+    .hover-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(249,115,22,0.08); }
+    .progress-bar { transition: width 0.6s ease; }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+    .chart-bar { transition: height 0.5s ease; min-height: 4px; }
+
+    .dash-card { box-shadow: 0 1px 3px rgba(0,0,0,0.03); }
+    .dash-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+    .stat-card { box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+
+    .welcome-banner {
+      background: linear-gradient(135deg, #0F172A 0%, #F97316 50%, #0F172A 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .welcome-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(249,115,22,0.12) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 50%, rgba(249,115,22,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .welcome-banner::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(249,115,22,0.04);
+      pointer-events: none;
+    }
+
+    .table-header-sticky thead { position: sticky; top: 0; z-index: 5; }
+    .table-header-sticky thead tr { background: white; }
+    body.dark-mode .table-header-sticky thead tr { background: #111111 !important; }
+
+    .section-ornament {
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .section-ornament::before,
+    .section-ornament::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #E2E4E9, transparent);
+    }
+
+    .kpi-spark { display: inline-flex; align-items: center; gap: 2px; }
+    .kpi-spark .bar { width: 3px; border-radius: 2px; background: #22C55E; }
+    .kpi-spark .bar:nth-child(1) { height: 8px; }
+    .kpi-spark .bar:nth-child(2) { height: 12px; }
+    .kpi-spark .bar:nth-child(3) { height: 16px; }
+    .kpi-spark .bar:nth-child(4) { height: 10px; }
+    .kpi-spark .bar:nth-child(5) { height: 14px; }
+
+    .action-btn { transition: all 0.2s ease; }
+    .action-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(249,115,22,0.1); }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] text-[#F97316] antialiased overflow-x-hidden">
+  <!-- TOP HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 h-16 bg-white border-b border-[#E2E4E9] flex items-center px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-2.5">
+      <div class="w-8 h-8 rounded-lg bg-[#F97316] flex items-center justify-center">
+        <span class="text-[#151515] font-black text-xs">YW</span>
+      </div>
+      <span class="font-black text-lg text-[#F97316]">Yard<span class="text-[#F97316]">Workx</span></span>
+      <span class="text-[10px] font-semibold text-muted bg-[#F8FAFC] px-2 py-0.5 rounded-full border border-[#E2E4E9] ml-2 hidden sm:inline-block">User</span>
+    </div>
+    <div class="flex items-center gap-1.5 ml-auto">
+      <button id="userThemeToggle" class="w-9 h-9 rounded-xl bg-[#F8FAFC] border border-[#E2E4E9] flex items-center justify-center text-muted hover:bg-[#F97316] hover:text-[#151515] hover:border-[#F97316] transition-all duration-200 active:scale-95" title="Toggle dark mode">
+        <i class="fa-solid fa-moon text-xs"></i>
+      </button>
+      <button id="userRtlToggle" class="w-9 h-9 rounded-xl bg-[#F8FAFC] border border-[#E2E4E9] flex items-center justify-center text-muted hover:bg-[#F97316] hover:text-[#151515] hover:border-[#F97316] transition-all duration-200 active:scale-95" title="Toggle RTL/LTR">
+        <i class="fa-solid fa-arrow-right text-xs"></i>
+      </button>
+      <button id="userNotifications" class="relative w-9 h-9 rounded-xl bg-[#F8FAFC] border border-[#E2E4E9] flex items-center justify-center text-muted hover:bg-[#F97316] hover:text-[#151515] hover:border-[#F97316] transition-all duration-200 active:scale-95" title="Notifications">
+        <i class="fa-regular fa-bell text-xs"></i>
+        <span class="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-[#EF4444] text-white text-[8px] font-bold flex items-center justify-center">5</span>
+      </button>
+      
+    </div>
+  </header>
+
+  <div class="flex pt-16 min-h-screen">
+    <!-- SIDEBAR -->
+    <aside class="sidebar w-64 flex-shrink-0 bg-white border-r border-[#E2E4E9] hidden lg:flex flex-col fixed h-[calc(100vh-64px)] top-16 left-0 z-30">
+      <div class="p-5 border-b border-[#E2E4E9]">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#F97316] to-[#EA580C] flex items-center justify-center shadow-lg shadow-[#F97316]/25">
+            <span class="text-[#151515] font-black text-sm">JD</span>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-[#0F172A] dm-white">John Doe</p>
+            <p class="text-[10px] text-muted">Member since 2023</p>
+          </div>
+        </div>
+      </div>
+      <nav class="flex-1 p-3 space-y-0.5 overflow-y-auto">
+        <a href="#" onclick="switchTab('overview'); return false;" class="sidebar-item active flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all border-l-2 border-transparent bg-[#F97316]/10 text-[#F97316] border-l-[#F97316]" data-tab="overview">
+          <i class="fa-solid fa-gauge-high w-4 text-center text-xs"></i> Overview
+        </a>
+        <a href="#" onclick="switchTab('rentals'); return false;" class="sidebar-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-muted hover:bg-[#F97316]/5 hover:text-[#F97316] transition-all border-l-2 border-transparent" data-tab="rentals">
+          <i class="fa-solid fa-toolbox w-4 text-center text-xs"></i> My Rentals
+          <span class="ml-auto text-[9px] font-bold bg-[#F97316]/10 text-[#F97316] px-1.5 py-0.5 rounded-full">3</span>
+        </a>
+        <a href="#" onclick="switchTab('payments'); return false;" class="sidebar-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-muted hover:bg-[#F97316]/5 hover:text-[#F97316] transition-all border-l-2 border-transparent" data-tab="payments">
+          <i class="fa-solid fa-credit-card w-4 text-center text-xs"></i> Payments
+          <span class="ml-auto text-[9px] font-bold bg-[#22C55E]/10 text-[#22C55E] px-1.5 py-0.5 rounded-full">Paid</span>
+        </a>
+        <a href="#" onclick="switchTab('favorites'); return false;" class="sidebar-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-muted hover:bg-[#F97316]/5 hover:text-[#F97316] transition-all border-l-2 border-transparent" data-tab="favorites">
+          <i class="fa-solid fa-heart w-4 text-center text-xs"></i> Favorites
+        </a>
+        <a href="#" onclick="switchTab('profile'); return false;" class="sidebar-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-muted hover:bg-[#F97316]/5 hover:text-[#F97316] transition-all border-l-2 border-transparent" data-tab="profile">
+          <i class="fa-solid fa-user w-4 text-center text-xs"></i> Profile
+        </a>
+        <a href="#" onclick="switchTab('support'); return false;" class="sidebar-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-muted hover:bg-[#F97316]/5 hover:text-[#F97316] transition-all border-l-2 border-transparent" data-tab="support">
+          <i class="fa-solid fa-headset w-4 text-center text-xs"></i> Support
+        </a>
+      </nav>
+      <div class="p-3 border-t border-[#E2E4E9] space-y-0.5">
+        <button onclick="confirmLogout()" class="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-bold text-[#EF4444] hover:text-white hover:bg-[#EF4444] transition-all group">
+          <div class="w-8 h-8 rounded-lg bg-[#EF4444]/10 flex items-center justify-center group-hover:bg-white/20 transition-all">
+            <i class="fa-solid fa-right-from-bracket text-xs text-[#EF4444] group-hover:text-white transition-all"></i>
+          </div>
+          <span>Logout</span>
+          <span class="ml-auto text-[9px] opacity-60 group-hover:opacity-100 transition-all">Ctrl+L</span>
+        </button>
+      </div>
+    </aside>
+
+    <button id="mobileSidebarBtn" class="lg:hidden fixed bottom-6 right-6 z-40 w-12 h-12 rounded-2xl bg-[#F97316] text-[#151515] shadow-lg shadow-[#F97316]/30 flex items-center justify-center">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- MAIN -->
+    <main class="flex-1 lg:ml-64 p-4 sm:p-6 lg:p-8">
+      <div class="max-w-6xl mx-auto">
+
+        <!-- OVERVIEW TAB -->
+        <div id="tab-overview" class="tab-content space-y-6">
+
+          <!-- WELCOME BANNER -->
+          <div class="welcome-banner rounded-2xl p-5 sm:p-7">
+            <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#F97316] to-[#EA580C] flex items-center justify-center shadow-lg shadow-[#F97316]/30 hidden sm:flex">
+                  <i class="fa-solid fa-gauge-high text-white text-lg"></i>
+                </div>
+                <div>
+                  <h1 class="text-xl sm:text-2xl font-black text-white">Welcome back, John! 👋</h1>
+                  <p class="text-sm text-white/60">You have <strong class="text-white">3 active rentals</strong> and <strong class="text-white">2 upcoming</strong> this week.</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] font-semibold text-white/70 bg-white/10 px-3 py-1.5 rounded-full border border-white/10">
+                  <i class="fa-regular fa-calendar mr-1"></i> Jun 22, 2026
+                </span>
+                <div class="flex -space-x-1.5">
+                  <div class="w-7 h-7 rounded-full bg-[#F97316]/20 border-2 border-[#0F172A] flex items-center justify-center"><span class="text-[8px] font-bold text-[#F97316]">JD</span></div>
+                  <div class="w-7 h-7 rounded-full bg-[#3B82F6]/20 border-2 border-[#0F172A] flex items-center justify-center"><span class="text-[8px] font-bold text-[#3B82F6]">SM</span></div>
+                  <div class="w-7 h-7 rounded-full bg-[#22C55E]/20 border-2 border-[#0F172A] flex items-center justify-center"><span class="text-[8px] font-bold text-[#22C55E]">MK</span></div>
+                  <div class="w-7 h-7 rounded-full bg-[#FBBF24]/20 border-2 border-[#0F172A] flex items-center justify-center"><span class="text-[8px] font-bold text-[#FBBF24]">+2</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STATS ROW -->
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="stat-card bg-white border border-[#E2E4E9] rounded-2xl p-4 sm:p-5 hover-card">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-semibold text-muted">Active Rentals</span>
+                <div class="w-9 h-9 rounded-xl bg-[#F97316]/10 flex items-center justify-center"><i class="fa-solid fa-toolbox text-[#F97316] text-sm"></i></div>
+              </div>
+              <div class="flex items-end justify-between">
+                <div>
+                  <span class="text-2xl font-black text-[#F97316] dm-white">3</span>
+                  <div class="flex items-center gap-1.5 mt-1">
+                    <span class="text-[10px] font-semibold text-[#22C55E]"><i class="fa-solid fa-arrow-up"></i> +1</span>
+                    <span class="text-[10px] text-muted">since last week</span>
+                  </div>
+                </div>
+                <div class="kpi-spark">
+                  <span class="bar" style="height:8px"></span>
+                  <span class="bar" style="height:12px"></span>
+                  <span class="bar" style="height:18px"></span>
+                  <span class="bar" style="height:10px"></span>
+                  <span class="bar" style="height:14px"></span>
+                </div>
+              </div>
+            </div>
+            <div class="stat-card bg-white border border-[#E2E4E9] rounded-2xl p-4 sm:p-5 hover-card">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-semibold text-muted">Upcoming</span>
+                <div class="w-9 h-9 rounded-xl bg-[#3B82F6]/10 flex items-center justify-center"><i class="fa-solid fa-calendar text-[#3B82F6] text-sm"></i></div>
+              </div>
+              <div class="flex items-end justify-between">
+                <div>
+                  <span class="text-2xl font-black text-[#F97316] dm-white">2</span>
+                  <p class="text-[10px] text-muted mt-1">Next: Jul 15, 2026</p>
+                </div>
+                <div class="kpi-spark">
+                  <span class="bar" style="height:6px;background:#3B82F6"></span>
+                  <span class="bar" style="height:10px;background:#3B82F6"></span>
+                  <span class="bar" style="height:14px;background:#3B82F6"></span>
+                  <span class="bar" style="height:8px;background:#3B82F6"></span>
+                  <span class="bar" style="height:12px;background:#3B82F6"></span>
+                </div>
+              </div>
+            </div>
+            <div class="stat-card bg-white border border-[#E2E4E9] rounded-2xl p-4 sm:p-5 hover-card">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-semibold text-muted">Past Rentals</span>
+                <div class="w-9 h-9 rounded-xl bg-[#22C55E]/10 flex items-center justify-center"><i class="fa-solid fa-clock-rotate-left text-[#22C55E] text-sm"></i></div>
+              </div>
+              <div class="flex items-end justify-between">
+                <div>
+                  <span class="text-2xl font-black text-[#F97316] dm-white">18</span>
+                  <p class="text-[10px] text-muted mt-1">Lifetime total</p>
+                </div>
+                <div class="kpi-spark">
+                  <span class="bar" style="height:10px;background:#22C55E"></span>
+                  <span class="bar" style="height:14px;background:#22C55E"></span>
+                  <span class="bar" style="height:20px;background:#22C55E"></span>
+                  <span class="bar" style="height:12px;background:#22C55E"></span>
+                  <span class="bar" style="height:16px;background:#22C55E"></span>
+                </div>
+              </div>
+            </div>
+            <div class="stat-card bg-white border border-[#E2E4E9] rounded-2xl p-4 sm:p-5 hover-card">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-semibold text-muted">Total Spent</span>
+                <div class="w-9 h-9 rounded-xl bg-[#F97316]/10 flex items-center justify-center"><i class="fa-solid fa-dollar-sign text-[#F97316] text-sm"></i></div>
+              </div>
+              <div class="flex items-end justify-between">
+                <div>
+                  <span class="text-2xl font-black text-[#F97316] dm-white">$12.4k</span>
+                  <div class="flex items-center gap-1.5 mt-1">
+                    <span class="text-[10px] font-semibold text-[#22C55E]"><i class="fa-solid fa-arrow-up"></i> +18%</span>
+                    <span class="text-[10px] text-muted">vs last month</span>
+                  </div>
+                </div>
+                <div class="kpi-spark">
+                  <span class="bar" style="height:12px"></span>
+                  <span class="bar" style="height:16px"></span>
+                  <span class="bar" style="height:10px"></span>
+                  <span class="bar" style="height:22px"></span>
+                  <span class="bar" style="height:15px"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- LOYALTY + CHARTS ROW -->
+          <div class="grid lg:grid-cols-2 gap-6">
+            <div class="dash-card bg-white border border-[#E2E4E9] rounded-2xl p-5">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-star text-[#FBBF24]"></i>
+                  <h2 class="text-base font-bold text-[#0F172A] dm-white">Rental Rewards</h2>
+                </div>
+                <span class="text-xs font-semibold text-[#F97316]">Silver Tier</span>
+              </div>
+              <div class="w-full h-2.5 bg-[#F8FAFC] rounded-full overflow-hidden progress-bg">
+                <div class="h-full bg-gradient-to-r from-[#F97316] to-[#FBBF24] rounded-full progress-bar" style="width: 62%"></div>
+              </div>
+              <div class="flex items-center justify-between mt-2 text-[10px] text-muted">
+                <span>12 rentals this year</span>
+                <span>8 more to reach <strong class="text-[#F97316]">Gold</strong></span>
+              </div>
+            </div>
+            <div class="dash-card bg-white border border-[#E2E4E9] rounded-2xl p-5">
+              <div class="flex items-center justify-between mb-5">
+                <h2 class="text-base font-bold text-[#0F172A] dm-white">Spending Overview</h2>
+                <span class="text-[10px] font-semibold text-[#22C55E]"><i class="fa-solid fa-arrow-up"></i> +12% MoM</span>
+              </div>
+              <div class="flex items-end justify-between gap-2 h-36 pt-2">
+                <div class="flex-1 flex flex-col items-center gap-1.5 chart-bar-wrap"><span class="chart-value">$1.2k</span><div class="w-full rounded-t-md chart-bar bg-gradient-to-t from-[#F97316] to-[#FBBF24]" style="height:42%"></div><span class="text-[9px] text-muted">Jan</span></div>
+                <div class="flex-1 flex flex-col items-center gap-1.5 chart-bar-wrap"><span class="chart-value">$1.8k</span><div class="w-full rounded-t-md chart-bar bg-gradient-to-t from-[#F97316] to-[#FBBF24]" style="height:58%"></div><span class="text-[9px] text-muted">Feb</span></div>
+                <div class="flex-1 flex flex-col items-center gap-1.5 chart-bar-wrap"><span class="chart-value">$1.0k</span><div class="w-full rounded-t-md chart-bar bg-gradient-to-t from-[#F97316] to-[#FBBF24]" style="height:35%"></div><span class="text-[9px] text-muted">Mar</span></div>
+                <div class="flex-1 flex flex-col items-center gap-1.5 chart-bar-wrap"><span class="chart-value">$2.4k</span><div class="w-full rounded-t-md chart-bar bg-gradient-to-t from-[#F97316] to-[#FBBF24]" style="height:75%"></div><span class="text-[9px] text-muted">Apr</span></div>
+                <div class="flex-1 flex flex-col items-center gap-1.5 chart-bar-wrap"><span class="chart-value">$2.1k</span><div class="w-full rounded-t-md chart-bar bg-gradient-to-t from-[#F97316] to-[#FBBF24]" style="height:65%"></div><span class="text-[9px] text-muted">May</span></div>
+                <div class="flex-1 flex flex-col items-center gap-1.5 chart-bar-wrap"><span class="chart-value">$3.1k</span><div class="w-full rounded-t-md chart-bar bg-gradient-to-t from-[#F97316] to-[#FBBF24]" style="height:92%"></div><span class="text-[9px] text-muted font-bold text-[#F97316]">Jun</span></div>
+              </div>
+              <div class="flex items-center justify-between mt-4 pt-3 border-t border-[#E2E4E9] text-[10px] text-muted">
+                <span>Total YTD: <strong class="text-[#F97316] dm-white">$12.4k</strong></span>
+                <span>Budget: <strong class="text-[#F97316] dm-white">$15k</strong></span>
+                <span class="text-[#22C55E] font-semibold">83%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ALERTS -->
+          <div class="flex items-start gap-3 p-4 rounded-2xl bg-red-50 border border-red-100 alert-card">
+            <div class="w-8 h-8 rounded-xl bg-[#EF4444]/10 flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-triangle-exclamation text-[#EF4444] text-xs"></i>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-bold text-[#0F172A] dm-white">Pressure Washer due for return today</p>
+              <p class="text-xs text-muted mt-0.5">Return by 5:00 PM or late fees apply. Extend now to avoid charges.</p>
+            </div>
+            <a href="#" class="text-xs font-semibold text-[#EF4444] hover:underline shrink-0">Extend</a>
+          </div>
+
+          <!-- SECTION DIVIDER -->
+          <div class="section-ornament text-[10px] font-semibold text-muted uppercase tracking-widest">Active Rentals &amp; Activity</div>
+
+          <!-- ACTIVE RENTALS + UPCOMING -->
+          <div class="grid lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 dash-card bg-white border border-[#E2E4E9] rounded-2xl overflow-hidden">
+              <div class="flex items-center justify-between p-4 sm:p-5 border-b border-[#E2E4E9] dash-card-header">
+                <h2 class="text-base font-bold text-[#0F172A] dm-white">Active Rentals</h2>
+                <a href="#" onclick="switchTab('rentals'); return false;" class="text-xs font-semibold text-[#F97316] hover:underline">View All</a>
+              </div>
+              <div class="overflow-x-auto table-header-sticky">
+                <table class="w-full text-sm">
+                  <thead>
+                    <tr class="text-left text-[10px] font-semibold text-muted uppercase tracking-wider border-b border-[#E2E4E9]">
+                      <th class="p-4 pl-5">Equipment</th>
+                      <th class="p-4">Period</th>
+                      <th class="p-4">Days Left</th>
+                      <th class="p-4">Status</th>
+                      <th class="p-4 pr-5 text-right">Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="table-row border-b border-[#E2E4E9] hover:bg-[#F8FAFC] transition-colors">
+                      <td class="p-4 pl-5">
+                        <div class="flex items-center gap-3">
+                          <div class="w-8 h-8 rounded-lg bg-[#F97316]/10 flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-tractor text-[#F97316] text-xs"></i>
+                          </div>
+                          <div>
+                            <span class="font-semibold text-sm text-[#F97316] dm-white block">Mini Excavator</span>
+                            <span class="text-[10px] text-muted">#RX-1024</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="p-4 text-sm text-muted whitespace-nowrap">Jun 20 – Jun 27</td>
+                      <td class="p-4">
+                        <div class="flex items-center gap-2">
+                          <div class="w-16 h-1.5 bg-[#F8FAFC] rounded-full overflow-hidden progress-bg">
+                            <div class="h-full bg-[#F97316] rounded-full" style="width: 45%"></div>
+                          </div>
+                          <span class="text-xs font-semibold text-muted">5</span>
+                        </div>
+                      </td>
+                      <td class="p-4">
+                        <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">Active</span>
+                      </td>
+                      <td class="p-4 pr-5 text-right text-sm font-semibold text-[#F97316] dm-white">$1,323</td>
+                    </tr>
+                    <tr class="table-row border-b border-[#E2E4E9] hover:bg-[#F8FAFC] transition-colors">
+                      <td class="p-4 pl-5">
+                        <div class="flex items-center gap-3">
+                          <div class="w-8 h-8 rounded-lg bg-[#3B82F6]/10 flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-up-right-and-down-left-from-center text-[#3B82F6] text-xs"></i>
+                          </div>
+                          <div>
+                            <span class="font-semibold text-sm text-[#F97316] dm-white block">60 ft Boom Lift</span>
+                            <span class="text-[10px] text-muted">#RX-1021</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="p-4 text-sm text-muted whitespace-nowrap">Jun 18 – Jun 25</td>
+                      <td class="p-4">
+                        <div class="flex items-center gap-2">
+                          <div class="w-16 h-1.5 bg-[#F8FAFC] rounded-full overflow-hidden progress-bg">
+                            <div class="h-full bg-[#3B82F6] rounded-full" style="width: 60%"></div>
+                          </div>
+                          <span class="text-xs font-semibold text-muted">3</span>
+                        </div>
+                      </td>
+                      <td class="p-4">
+                        <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">Active</span>
+                      </td>
+                      <td class="p-4 pr-5 text-right text-sm font-semibold text-[#F97316] dm-white">$2,392</td>
+                    </tr>
+                    <tr class="table-row hover:bg-[#F8FAFC] transition-colors">
+                      <td class="p-4 pl-5">
+                        <div class="flex items-center gap-3">
+                          <div class="w-8 h-8 rounded-lg bg-[#FBBF24]/10 flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-fan text-[#FBBF24] text-xs"></i>
+                          </div>
+                          <div>
+                            <span class="font-semibold text-sm text-[#F97316] dm-white block">4,000 PSI Washer</span>
+                            <span class="text-[10px] text-muted">#RX-1019</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="p-4 text-sm text-muted whitespace-nowrap">Jun 15 – Jun 22</td>
+                      <td class="p-4">
+                        <div class="flex items-center gap-2">
+                          <div class="w-16 h-1.5 bg-[#F8FAFC] rounded-full overflow-hidden progress-bg">
+                            <div class="h-full bg-[#EF4444] rounded-full" style="width: 88%"></div>
+                          </div>
+                          <span class="text-xs font-semibold text-muted">0</span>
+                        </div>
+                      </td>
+                      <td class="p-4">
+                        <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#F97316]/10 text-[#F97316]">Due Today</span>
+                      </td>
+                      <td class="p-4 pr-5 text-right text-sm font-semibold text-[#F97316] dm-white">$623</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="dash-card bg-white border border-[#E2E4E9] rounded-2xl p-5">
+              <h2 class="text-base font-bold text-[#0F172A] dm-white mb-4">Upcoming</h2>
+              <div class="space-y-3">
+                <div class="p-3 rounded-xl bg-[#FFF9F0] border border-[#F97316]/10">
+                  <div class="flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-[#F97316]/10 flex items-center justify-center flex-shrink-0">
+                      <i class="fa-solid fa-tractor text-[#F97316] text-xs"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <p class="text-sm font-bold text-[#0F172A] dm-white">Skid Steer Loader</p>
+                      <p class="text-[10px] text-muted">Jul 15 – Jul 22</p>
+                      <div class="flex items-center gap-2 mt-1">
+                        <span class="text-[10px] font-semibold text-[#F97316]">$1,743</span>
+                        <span class="text-[9px] text-muted">· 23 days away</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-3 rounded-xl bg-[#FFF9F0] border border-[#F97316]/10">
+                  <div class="flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-[#3B82F6]/10 flex items-center justify-center flex-shrink-0">
+                      <i class="fa-solid fa-up-right-and-down-left-from-center text-[#3B82F6] text-xs"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <p class="text-sm font-bold text-[#0F172A] dm-white">Scissor Lift</p>
+                      <p class="text-[10px] text-muted">Jul 20 – Jul 23</p>
+                      <div class="flex items-center gap-2 mt-1">
+                        <span class="text-[10px] font-semibold text-[#F97316]">$540</span>
+                        <span class="text-[9px] text-muted">· 28 days away</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOTTOM ROW -->
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="dash-card bg-white border border-[#E2E4E9] rounded-2xl p-5">
+              <h2 class="text-base font-bold text-[#0F172A] dm-white mb-4">Recent Activity</h2>
+              <div class="space-y-0">
+                <div class="flex items-start gap-3 py-3 border-b border-[#E2E4E9] activity-item">
+                  <div class="w-8 h-8 rounded-full bg-[#22C55E]/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-rotate-left text-[#22C55E] text-xs"></i>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-xs font-semibold text-[#F97316] dm-white">Returned Pressure Washer</p>
+                    <p class="text-[10px] text-muted">Today, 2:30 PM</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3 py-3 border-b border-[#E2E4E9] activity-item">
+                  <div class="w-8 h-8 rounded-full bg-[#3B82F6]/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-credit-card text-[#3B82F6] text-xs"></i>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-xs font-semibold text-[#F97316] dm-white">Payment of $1,323 confirmed</p>
+                    <p class="text-[10px] text-muted">Yesterday, 9:15 AM</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3 py-3 border-b border-[#E2E4E9] activity-item">
+                  <div class="w-8 h-8 rounded-full bg-[#F97316]/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-plus text-[#F97316] text-xs"></i>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-xs font-semibold text-[#F97316] dm-white">Booked Skid Steer Loader</p>
+                    <p class="text-[10px] text-muted">Jun 18, 2026</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3 py-3 activity-item">
+                  <div class="w-8 h-8 rounded-full bg-[#FBBF24]/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-star text-[#FBBF24] text-xs"></i>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-xs font-semibold text-[#F97316] dm-white">Reached Silver Rewards Tier</p>
+                    <p class="text-[10px] text-muted">Jun 15, 2026</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dash-card bg-white border border-[#E2E4E9] rounded-2xl p-5">
+              <h2 class="text-base font-bold text-[#0F172A] dm-white mb-4">Saved Equipment</h2>
+              <div class="space-y-2">
+                <div class="flex items-center gap-3 p-3 rounded-xl border border-[#E2E4E9] hover:border-[#F97316] hover:bg-[#F97316]/5 transition-all cursor-pointer">
+                  <div class="w-10 h-10 rounded-lg bg-[#F97316]/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-tractor text-[#F97316] text-sm"></i>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-sm font-bold text-[#0F172A] dm-white">Compact Excavator</p>
+                    <p class="text-[10px] text-muted">$189/day</p>
+                  </div>
+                  <i class="fa-solid fa-heart text-[#F97316] text-xs"></i>
+                </div>
+                <div class="flex items-center gap-3 p-3 rounded-xl border border-[#E2E4E9] hover:border-[#F97316] hover:bg-[#F97316]/5 transition-all cursor-pointer">
+                  <div class="w-10 h-10 rounded-lg bg-[#3B82F6]/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-up-right-and-down-left-from-center text-[#3B82F6] text-sm"></i>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-sm font-bold text-[#0F172A] dm-white">Boom Lift 60ft</p>
+                    <p class="text-[10px] text-muted">$299/day</p>
+                  </div>
+                  <i class="fa-regular fa-heart text-muted text-xs"></i>
+                </div>
+                <div class="flex items-center gap-3 p-3 rounded-xl border border-[#E2E4E9] hover:border-[#F97316] hover:bg-[#F97316]/5 transition-all cursor-pointer">
+                  <div class="w-10 h-10 rounded-lg bg-[#22C55E]/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-fan text-[#22C55E] text-sm"></i>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-sm font-bold text-[#0F172A] dm-white">Pressure Washer</p>
+                    <p class="text-[10px] text-muted">$89/day</p>
+                  </div>
+                  <i class="fa-regular fa-heart text-muted text-xs"></i>
+                </div>
+              </div>
+              <a href="../equipment.html" class="mt-4 text-xs font-semibold text-[#F97316] hover:underline inline-flex items-center gap-1">
+                Browse Equipment <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+
+            <div class="dash-card bg-white border border-[#E2E4E9] rounded-2xl p-5">
+              <h2 class="text-base font-bold text-[#0F172A] dm-white mb-4">Quick Actions</h2>
+              <div class="grid grid-cols-2 gap-2">
+                <a href="../rentals.html" class="action-btn flex flex-col items-center gap-2 p-3.5 rounded-xl border border-[#E2E4E9] hover:border-[#F97316] hover:bg-[#F97316]/5 transition-all">
+                  <div class="w-9 h-9 rounded-lg bg-[#F97316]/10 flex items-center justify-center"><i class="fa-solid fa-plus text-[#F97316] text-sm"></i></div>
+                  <span class="text-[9px] font-semibold text-muted text-center">New Rental</span>
+                </a>
+                <a href="#" class="action-btn flex flex-col items-center gap-2 p-3.5 rounded-xl border border-[#E2E4E9] hover:border-[#3B82F6] hover:bg-[#3B82F6]/5 transition-all">
+                  <div class="w-9 h-9 rounded-lg bg-[#3B82F6]/10 flex items-center justify-center"><i class="fa-solid fa-clock-rotate-left text-[#3B82F6] text-sm"></i></div>
+                  <span class="text-[9px] font-semibold text-muted text-center">Extend</span>
+                </a>
+                <a href="#" onclick="switchTab('payments'); return false;" class="action-btn flex flex-col items-center gap-2 p-3.5 rounded-xl border border-[#E2E4E9] hover:border-[#22C55E] hover:bg-[#22C55E]/5 transition-all">
+                  <div class="w-9 h-9 rounded-lg bg-[#22C55E]/10 flex items-center justify-center"><i class="fa-solid fa-file-invoice text-[#22C55E] text-sm"></i></div>
+                  <span class="text-[9px] font-semibold text-muted text-center">Invoices</span>
+                </a>
+                <a href="#" onclick="switchTab('support'); return false;" class="action-btn flex flex-col items-center gap-2 p-3.5 rounded-xl border border-[#E2E4E9] hover:border-[#F97316] hover:bg-[#F97316]/5 transition-all">
+                  <div class="w-9 h-9 rounded-lg bg-[#F97316]/10 flex items-center justify-center"><i class="fa-solid fa-headset text-[#F97316] text-sm"></i></div>
+                  <span class="text-[9px] font-semibold text-muted text-center">Support</span>
+                </a>
+              </div>
+              <div class="mt-4 pt-4 border-t border-[#E2E4E9]">
+                <div class="flex items-center gap-3 text-xs text-muted">
+                  <i class="fa-regular fa-clock"></i>
+                  <span>Last updated: 2 min ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RENTALS TAB -->
+        <div id="tab-rentals" class="tab-content hidden space-y-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <h1 class="text-xl sm:text-2xl font-black text-[#F97316] dm-white">My Rentals</h1>
+              <p class="text-sm text-muted">Track all your active, upcoming, and completed rentals.</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-semibold text-muted bg-[#F97316]/5 px-3 py-1.5 rounded-full border border-[#F97316]/10"><i class="fa-solid fa-play mr-1 text-[#22C55E]"></i> 3 Active</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="stat-card bg-white border border-[#E2E4E9] rounded-2xl p-4"><span class="text-xs font-semibold text-muted block mb-1">Active</span><span class="text-xl font-black text-[#22C55E]">3</span></div>
+            <div class="stat-card bg-white border border-[#E2E4E9] rounded-2xl p-4"><span class="text-xs font-semibold text-muted block mb-1">Upcoming</span><span class="text-xl font-black text-[#3B82F6]">2</span></div>
+            <div class="stat-card bg-white border border-[#E2E4E9] rounded-2xl p-4"><span class="text-xs font-semibold text-muted block mb-1">Completed</span><span class="text-xl font-black text-[#F97316] dm-white">18</span></div>
+            <div class="stat-card bg-white border border-[#E2E4E9] rounded-2xl p-4"><span class="text-xs font-semibold text-muted block mb-1">Canceled</span><span class="text-xl font-black text-[#EF4444]">1</span></div>
+          </div>
+          <div class="dash-card bg-white border border-[#E2E4E9] rounded-2xl overflow-hidden">
+            <div class="p-4 sm:p-5 border-b border-[#E2E4E9]"><h2 class="text-base font-bold text-[#0F172A] dm-white">Rental Orders</h2></div>
+            <div class="overflow-x-auto table-header-sticky">
+              <table class="w-full text-sm">
+                <thead>
+                  <tr class="text-left text-[10px] font-semibold text-muted uppercase tracking-wider border-b border-[#E2E4E9]">
+                    <th class="p-4 pl-5">Order</th>
+                    <th class="p-4">Equipment</th>
+                    <th class="p-4">Period</th>
+                    <th class="p-4">Status</th>
+                    <th class="p-4 pr-5 text-right">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-row border-b border-[#E2E4E9]">
+                    <td class="p-4 pl-5 text-sm font-semibold text-[#F97316]">#RX-1024</td>
+                    <td class="p-4 text-sm font-semibold text-[#F97316] dm-white">Mini Excavator</td>
+                    <td class="p-4 text-sm text-muted whitespace-nowrap">Jun 20 – Jun 27</td>
+                    <td class="p-4"><span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">Active</span></td>
+                    <td class="p-4 pr-5 text-right text-sm font-semibold text-[#F97316] dm-white">$1,323</td>
+                  </tr>
+                  <tr class="table-row border-b border-[#E2E4E9]">
+                    <td class="p-4 pl-5 text-sm font-semibold text-[#3B82F6]">#RX-1021</td>
+                    <td class="p-4 text-sm font-semibold text-[#F97316] dm-white">Boom Lift 60ft</td>
+                    <td class="p-4 text-sm text-muted whitespace-nowrap">Jun 18 – Jun 25</td>
+                    <td class="p-4"><span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">Active</span></td>
+                    <td class="p-4 pr-5 text-right text-sm font-semibold text-[#F97316] dm-white">$2,392</td>
+                  </tr>
+                  <tr class="table-row border-b border-[#E2E4E9]">
+                    <td class="p-4 pl-5 text-sm font-semibold text-[#22C55E]">#RX-1019</td>
+                    <td class="p-4 text-sm font-semibold text-[#F97316] dm-white">Pressure Washer</td>
+                    <td class="p-4 text-sm text-muted whitespace-nowrap">Jun 15 – Jun 22</td>
+                    <td class="p-4"><span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#F97316]/10 text-[#F97316]">Due Today</span></td>
+                    <td class="p-4 pr-5 text-right text-sm font-semibold text-[#F97316] dm-white">$623</td>
+                  </tr>
+                  <tr class="table-row border-b border-[#E2E4E9]">
+                    <td class="p-4 pl-5 text-sm font-semibold text-[#22C55E]">#RX-1015</td>
+                    <td class="p-4 text-sm font-semibold text-[#F97316] dm-white">Skid Steer</td>
+                    <td class="p-4 text-sm text-muted whitespace-nowrap">Jul 15 – Jul 22</td>
+                    <td class="p-4"><span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#3B82F6]/10 text-[#3B82F6]">Upcoming</span></td>
+                    <td class="p-4 pr-5 text-right text-sm font-semibold text-[#F97316] dm-white">$1,743</td>
+                  </tr>
+                  <tr class="table-row hover:bg-[#F8FAFC] transition-colors">
+                    <td class="p-4 pl-5 text-sm font-semibold text-[#22C55E]">#RX-1012</td>
+                    <td class="p-4 text-sm font-semibold text-[#F97316] dm-white">Scissor Lift</td>
+                    <td class="p-4 text-sm text-muted whitespace-nowrap">Jul 20 – Jul 23</td>
+                    <td class="p-4"><span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#3B82F6]/10 text-[#3B82F6]">Upcoming</span></td>
+                    <td class="p-4 pr-5 text-right text-sm font-semibold text-[#F97316] dm-white">$540</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAYMENTS TAB -->
+        <div id="tab-payments" class="tab-content hidden space-y-6">
+          <div>
+            <h1 class="text-xl sm:text-2xl font-black text-[#F97316] dm-white">Payments</h1>
+            <p class="text-sm text-muted">Track your transactions, invoices, and spending.</p>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="stat-card bg-white border border-[#E2E4E9] rounded-2xl p-4"><span class="text-xs font-semibold text-muted block mb-1">Total Spent</span><span class="text-xl font-black text-[#F97316] dm-white">$12,430</span></div>
+            <div class="stat-card bg-white border border-[#E2E4E9] rounded-2xl p-4"><span class="text-xs font-semibold text-muted block mb-1">Pending</span><span class="text-xl font-black text-[#F97316]">$623</span></div>
+            <div class="stat-card bg-white border border-[#E2E4E9] rounded-2xl p-4"><span class="text-xs font-semibold text-muted block mb-1">Avg. per Rental</span><span class="text-xl font-black text-[#3B82F6]">$690</span></div>
+            <div class="stat-card bg-white border border-[#E2E4E9] rounded-2xl p-4"><span class="text-xs font-semibold text-muted block mb-1">This Month</span><span class="text-xl font-black text-[#22C55E]">$4,338</span></div>
+          </div>
+          <div class="dash-card bg-white border border-[#E2E4E9] rounded-2xl overflow-hidden">
+            <div class="p-4 sm:p-5 border-b border-[#E2E4E9]"><h2 class="text-base font-bold text-[#0F172A] dm-white">Transaction History</h2></div>
+            <div class="overflow-x-auto table-header-sticky">
+              <table class="w-full text-sm">
+                <thead>
+                  <tr class="text-left text-[10px] font-semibold text-muted uppercase tracking-wider border-b border-[#E2E4E9]">
+                    <th class="p-4 pl-5">Invoice</th>
+                    <th class="p-4">Equipment</th>
+                    <th class="p-4">Date</th>
+                    <th class="p-4">Method</th>
+                    <th class="p-4">Status</th>
+                    <th class="p-4 pr-5 text-right">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-row border-b border-[#E2E4E9]">
+                    <td class="p-4 pl-5 text-sm font-semibold text-[#F97316]">#INV-2024</td>
+                    <td class="p-4 text-sm font-semibold text-[#F97316] dm-white">Mini Excavator</td>
+                    <td class="p-4 text-sm text-muted">Jun 20</td>
+                    <td class="p-4 text-sm text-muted"><i class="fa-brands fa-cc-visa mr-1"></i> Visa</td>
+                    <td class="p-4"><span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">Paid</span></td>
+                    <td class="p-4 pr-5 text-right text-sm font-semibold text-[#F97316] dm-white">$1,323</td>
+                  </tr>
+                  <tr class="table-row border-b border-[#E2E4E9]">
+                    <td class="p-4 pl-5 text-sm font-semibold text-[#3B82F6]">#INV-2023</td>
+                    <td class="p-4 text-sm font-semibold text-[#F97316] dm-white">Boom Lift 60ft</td>
+                    <td class="p-4 text-sm text-muted">Jun 18</td>
+                    <td class="p-4 text-sm text-muted"><i class="fa-brands fa-cc-mastercard mr-1"></i> MC</td>
+                    <td class="p-4"><span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">Paid</span></td>
+                    <td class="p-4 pr-5 text-right text-sm font-semibold text-[#F97316] dm-white">$2,392</td>
+                  </tr>
+                  <tr class="table-row border-b border-[#E2E4E9]">
+                    <td class="p-4 pl-5 text-sm font-semibold text-[#22C55E]">#INV-2022</td>
+                    <td class="p-4 text-sm font-semibold text-[#F97316] dm-white">Skid Steer</td>
+                    <td class="p-4 text-sm text-muted">Jun 10</td>
+                    <td class="p-4 text-sm text-muted"><i class="fa-regular fa-building-columns mr-1"></i> Wire</td>
+                    <td class="p-4"><span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">Paid</span></td>
+                    <td class="p-4 pr-5 text-right text-sm font-semibold text-[#F97316] dm-white">$1,743</td>
+                  </tr>
+                  <tr class="table-row border-b border-[#E2E4E9]">
+                    <td class="p-4 pl-5 text-sm font-semibold text-[#EF4444]">#INV-2021</td>
+                    <td class="p-4 text-sm font-semibold text-[#F97316] dm-white">Pressure Washer</td>
+                    <td class="p-4 text-sm text-muted">Jun 15</td>
+                    <td class="p-4 text-sm text-muted"><i class="fa-brands fa-cc-visa mr-1"></i> Visa</td>
+                    <td class="p-4"><span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#F97316]/10 text-[#F97316]">Pending</span></td>
+                    <td class="p-4 pr-5 text-right text-sm font-semibold text-[#F97316] dm-white">$623</td>
+                  </tr>
+                  <tr class="table-row hover:bg-[#F8FAFC] transition-colors">
+                    <td class="p-4 pl-5 text-sm font-semibold text-[#22C55E]">#INV-2019</td>
+                    <td class="p-4 text-sm font-semibold text-[#F97316] dm-white">Forklift 5k</td>
+                    <td class="p-4 text-sm text-muted">Jun 5</td>
+                    <td class="p-4 text-sm text-muted"><i class="fa-brands fa-cc-amex mr-1"></i> Amex</td>
+                    <td class="p-4"><span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">Paid</span></td>
+                    <td class="p-4 pr-5 text-right text-sm font-semibold text-[#F97316] dm-white">$1,125</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAVORITES TAB -->
+        <div id="tab-favorites" class="tab-content hidden space-y-6">
+          <div>
+            <h1 class="text-xl sm:text-2xl font-black text-[#F97316] dm-white">Saved Equipment</h1>
+            <p class="text-sm text-muted">Your bookmarked equipment for quick rental.</p>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="dash-card bg-white border border-[#E2E4E9] rounded-2xl p-5 flex items-center gap-4">
+              <div class="w-12 h-12 rounded-lg bg-[#F97316]/10 flex items-center justify-center">
+                <i class="fa-solid fa-tractor text-lg text-[#F97316]"></i>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-bold text-[#0F172A] dm-white">Compact Excavator</p>
+                <p class="text-[10px] text-muted">$189/day · Heavy Equipment</p>
+              </div>
+              <i class="fa-solid fa-heart text-[#F97316] text-lg"></i>
+            </div>
+            <div class="dash-card bg-white border border-[#E2E4E9] rounded-2xl p-5 flex items-center gap-4">
+              <div class="w-12 h-12 rounded-lg bg-[#3B82F6]/10 flex items-center justify-center">
+                <i class="fa-solid fa-up-right-and-down-left-from-center text-lg text-[#3B82F6]"></i>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-bold text-[#0F172A] dm-white">Boom Lift 60ft</p>
+                <p class="text-[10px] text-muted">$299/day · Aerial</p>
+              </div>
+              <i class="fa-regular fa-heart text-muted text-lg"></i>
+            </div>
+            <div class="dash-card bg-white border border-[#E2E4E9] rounded-2xl p-5 flex items-center gap-4">
+              <div class="w-12 h-12 rounded-lg bg-[#22C55E]/10 flex items-center justify-center">
+                <i class="fa-solid fa-fan text-lg text-[#22C55E]"></i>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-bold text-[#0F172A] dm-white">Pressure Washer 4k</p>
+                <p class="text-[10px] text-muted">$89/day · Cleaning</p>
+              </div>
+              <i class="fa-regular fa-heart text-muted text-lg"></i>
+            </div>
+            <div class="dash-card bg-white border border-[#E2E4E9] rounded-2xl p-5 flex items-center gap-4">
+              <div class="w-12 h-12 rounded-lg bg-[#FBBF24]/10 flex items-center justify-center">
+                <i class="fa-solid fa-tractor text-lg text-[#FBBF24]"></i>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-bold text-[#0F172A] dm-white">Skid Steer Loader</p>
+                <p class="text-[10px] text-muted">$249/day · Heavy Equipment</p>
+              </div>
+              <i class="fa-regular fa-heart text-muted text-lg"></i>
+            </div>
+            <div class="dash-card bg-white border border-[#E2E4E9] rounded-2xl p-5 flex items-center gap-4">
+              <div class="w-12 h-12 rounded-lg bg-[#EF4444]/10 flex items-center justify-center">
+                <i class="fa-solid fa-fan text-lg text-[#EF4444]"></i>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-bold text-[#0F172A] dm-white">Concrete Mixer</p>
+                <p class="text-[10px] text-muted">$159/day · Mixing</p>
+              </div>
+              <i class="fa-regular fa-heart text-muted text-lg"></i>
+            </div>
+            <div class="dash-card bg-white border border-[#E2E4E9] rounded-2xl p-5 flex items-center gap-4">
+              <div class="w-12 h-12 rounded-lg bg-[#8B5CF6]/10 flex items-center justify-center">
+                <i class="fa-solid fa-up-right-and-down-left-from-center text-lg text-[#8B5CF6]"></i>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-bold text-[#0F172A] dm-white">Scissor Lift 25ft</p>
+                <p class="text-[10px] text-muted">$109/day · Aerial</p>
+              </div>
+              <i class="fa-regular fa-heart text-muted text-lg"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROFILE TAB -->
+        <div id="tab-profile" class="tab-content hidden space-y-6">
+          <div>
+            <h1 class="text-xl sm:text-2xl font-black text-[#F97316] dm-white">Profile Settings</h1>
+            <p class="text-sm text-muted">Manage your account information and preferences.</p>
+          </div>
+          <div class="grid lg:grid-cols-2 gap-6">
+            <div class="dash-card bg-white border border-[#E2E4E9] rounded-2xl p-6">
+              <h2 class="text-base font-bold text-[#0F172A] dm-white mb-4">Personal Info</h2>
+              <div class="space-y-4">
+                <div>
+                  <label class="text-xs font-semibold text-muted block mb-1">Full Name</label>
+                  <input type="text" value="John Doe" class="w-full px-4 py-2.5 rounded-xl border border-[#E2E4E9] bg-white text-sm text-[#F97316] dm-white">
+                </div>
+                <div>
+                  <label class="text-xs font-semibold text-muted block mb-1">Email</label>
+                  <input type="email" value="john@example.com" class="w-full px-4 py-2.5 rounded-xl border border-[#E2E4E9] bg-white text-sm text-[#F97316] dm-white">
+                </div>
+                <div>
+                  <label class="text-xs font-semibold text-muted block mb-1">Phone</label>
+                  <input type="text" value="(800) 555-0101" class="w-full px-4 py-2.5 rounded-xl border border-[#E2E4E9] bg-white text-sm text-[#F97316] dm-white">
+                </div>
+                <div>
+                  <label class="text-xs font-semibold text-muted block mb-1">Company</label>
+                  <input type="text" value="Doe Construction LLC" class="w-full px-4 py-2.5 rounded-xl border border-[#E2E4E9] bg-white text-sm text-[#F97316] dm-white">
+                </div>
+              </div>
+            </div>
+            <div class="dash-card bg-white border border-[#E2E4E9] rounded-2xl p-6">
+              <h2 class="text-base font-bold text-[#0F172A] dm-white mb-4">Preferences</h2>
+              <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-muted">Email Notifications</span>
+                  <div class="w-10 h-5 rounded-full bg-[#F97316] relative cursor-pointer">
+                    <div class="w-4 h-4 rounded-full bg-white absolute top-0.5 right-0.5 shadow-sm"></div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-muted">SMS Alerts</span>
+                  <div class="w-10 h-5 rounded-full bg-[#E2E4E9] relative cursor-pointer">
+                    <div class="w-4 h-4 rounded-full bg-white absolute top-0.5 left-0.5 shadow-sm"></div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-muted">Marketing Emails</span>
+                  <div class="w-10 h-5 rounded-full bg-[#E2E4E9] relative cursor-pointer">
+                    <div class="w-4 h-4 rounded-full bg-white absolute top-0.5 left-0.5 shadow-sm"></div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-muted">Auto-extend Rentals</span>
+                  <div class="w-10 h-5 rounded-full bg-[#F97316] relative cursor-pointer">
+                    <div class="w-4 h-4 rounded-full bg-white absolute top-0.5 right-0.5 shadow-sm"></div>
+                  </div>
+                </div>
+                <div class="pt-2">
+                  <a href="#" class="bg-[#F97316] hover:bg-[#EA580C] text-[#0F172A] font-bold px-6 py-2.5 rounded-xl transition-all text-sm inline-flex items-center gap-2">Save Changes</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUPPORT TAB -->
+        <div id="tab-support" class="tab-content hidden space-y-6">
+          <div>
+            <h1 class="text-xl sm:text-2xl font-black text-[#F97316] dm-white">Help &amp; Support</h1>
+            <p class="text-sm text-muted">We're here to help 24/7.</p>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="stat-card bg-white border border-[#E2E4E9] rounded-2xl p-5 text-center hover-card cursor-pointer">
+              <div class="w-12 h-12 rounded-xl bg-[#F97316]/10 flex items-center justify-center mx-auto mb-3"><i class="fa-solid fa-phone text-[#F97316] text-lg"></i></div>
+              <h3 class="text-sm font-bold text-[#0F172A] dm-white">Call Us</h3>
+              <p class="text-[10px] text-muted mt-1">(800) 555-1234</p>
+            </div>
+            <div class="stat-card bg-white border border-[#E2E4E9] rounded-2xl p-5 text-center hover-card cursor-pointer">
+              <div class="w-12 h-12 rounded-xl bg-[#3B82F6]/10 flex items-center justify-center mx-auto mb-3"><i class="fa-regular fa-envelope text-[#3B82F6] text-lg"></i></div>
+              <h3 class="text-sm font-bold text-[#0F172A] dm-white">Email</h3>
+              <p class="text-[10px] text-muted mt-1">support@yardworkx.com</p>
+            </div>
+            <div class="stat-card bg-white border border-[#E2E4E9] rounded-2xl p-5 text-center hover-card cursor-pointer">
+              <div class="w-12 h-12 rounded-xl bg-[#22C55E]/10 flex items-center justify-center mx-auto mb-3"><i class="fa-solid fa-comment-dots text-[#22C55E] text-lg"></i></div>
+              <h3 class="text-sm font-bold text-[#0F172A] dm-white">Live Chat</h3>
+              <p class="text-[10px] text-muted mt-1">Avg. 2 min response</p>
+            </div>
+            <div class="stat-card bg-white border border-[#E2E4E9] rounded-2xl p-5 text-center hover-card cursor-pointer">
+              <div class="w-12 h-12 rounded-xl bg-[#FBBF24]/10 flex items-center justify-center mx-auto mb-3"><i class="fa-solid fa-circle-question text-[#FBBF24] text-lg"></i></div>
+              <h3 class="text-sm font-bold text-[#0F172A] dm-white">FAQ</h3>
+              <p class="text-[10px] text-muted mt-1">Find answers fast</p>
+            </div>
+          </div>
+          <div class="dash-card bg-white border border-[#E2E4E9] rounded-2xl p-6">
+            <h2 class="text-base font-bold text-[#0F172A] dm-white mb-4">Send us a message</h2>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="text-xs font-semibold text-muted block mb-1">Subject</label>
+                <input type="text" placeholder="How can we help?" class="w-full px-4 py-2.5 rounded-xl border border-[#E2E4E9] bg-white text-sm text-[#F97316] dm-white">
+              </div>
+              <div>
+                <label class="text-xs font-semibold text-muted block mb-1">Priority</label>
+                <select class="w-full px-4 py-2.5 rounded-xl border border-[#E2E4E9] bg-white text-sm text-[#F97316] dm-white">
+                  <option>Low</option>
+                  <option>Medium</option>
+                  <option>High</option>
+                  <option>Urgent</option>
+                </select>
+              </div>
+              <div class="sm:col-span-2">
+                <label class="text-xs font-semibold text-muted block mb-1">Message</label>
+                <textarea rows="4" placeholder="Describe your issue..." class="w-full px-4 py-2.5 rounded-xl border border-[#E2E4E9] bg-white text-sm text-[#F97316] dm-white"></textarea>
+              </div>
+              <div class="sm:col-span-2">
+                <a href="#" class="bg-[#F97316] hover:bg-[#EA580C] text-[#0F172A] font-bold px-6 py-2.5 rounded-xl transition-all text-sm inline-flex items-center gap-2">Send Message</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FOOTER -->
+      <div class="mt-8 pt-4 border-t border-[#E2E4E9] flex items-center justify-between text-[10px] text-muted">
+        <span>&copy; 2026 YardWorkx — My Dashboard</span>
+        <span>v2.4.1</span>
+      </div>
+    </main>
+  </div>
+
+  <!-- MOBILE SIDEBAR -->
+  <div id="mobileSidebarOverlay" class="fixed inset-0 z-30 bg-black/50 opacity-0 invisible transition-all duration-300 lg:hidden"></div>
+  <div id="mobileSidebar" class="fixed top-0 left-0 z-40 h-full w-72 bg-white shadow-2xl border-r border-[#E2E4E9] -translate-x-full transition-transform duration-300 ease-in-out lg:hidden overflow-y-auto">
+    <div class="flex items-center justify-between p-4 border-b border-[#E2E4E9]">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#F97316] to-[#EA580C] flex items-center justify-center">
+          <span class="text-[#151515] font-black text-xs">JD</span>
+        </div>
+        <div>
+          <p class="text-sm font-bold text-[#F97316]">John Doe</p>
+          <p class="text-[10px] text-muted">Member since 2023</p>
+        </div>
+      </div>
+      <button id="mobileSidebarClose" class="w-8 h-8 rounded-lg bg-[#F8FAFC] border border-[#E2E4E9] flex items-center justify-center text-muted hover:text-[#F97316] transition-all">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <nav class="p-3 space-y-0.5">
+      <a href="#" onclick="switchTab('overview'); return false;" data-tab="overview" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold bg-[#F97316]/10 text-[#F97316] transition-all"><i class="fa-solid fa-gauge-high w-4 text-center text-xs"></i> Overview</a>
+      <a href="#" onclick="switchTab('rentals'); return false;" data-tab="rentals" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-muted hover:bg-[#F97316]/5 hover:text-[#F97316] transition-all"><i class="fa-solid fa-toolbox w-4 text-center text-xs"></i> My Rentals</a>
+      <a href="#" onclick="switchTab('payments'); return false;" data-tab="payments" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-muted hover:bg-[#F97316]/5 hover:text-[#F97316] transition-all"><i class="fa-solid fa-credit-card w-4 text-center text-xs"></i> Payments</a>
+      <a href="#" onclick="switchTab('favorites'); return false;" data-tab="favorites" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-muted hover:bg-[#F97316]/5 hover:text-[#F97316] transition-all"><i class="fa-solid fa-heart w-4 text-center text-xs"></i> Favorites</a>
+      <a href="#" onclick="switchTab('profile'); return false;" data-tab="profile" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-muted hover:bg-[#F97316]/5 hover:text-[#F97316] transition-all"><i class="fa-solid fa-user w-4 text-center text-xs"></i> Profile</a>
+      <a href="#" onclick="switchTab('support'); return false;" data-tab="support" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-muted hover:bg-[#F97316]/5 hover:text-[#F97316] transition-all"><i class="fa-solid fa-headset w-4 text-center text-xs"></i> Support</a>
+    </nav>
+    <div class="p-3 border-t border-[#E2E4E9] mt-3">
+      <button onclick="confirmLogout()" class="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-bold text-[#EF4444] hover:text-white hover:bg-[#EF4444] transition-all group">
+        <div class="w-8 h-8 rounded-lg bg-[#EF4444]/10 flex items-center justify-center group-hover:bg-white/20 transition-all">
+          <i class="fa-solid fa-right-from-bracket text-xs text-[#EF4444] group-hover:text-white transition-all"></i>
+        </div>
+        <span>Logout</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script>
+    const sidebarBtn = document.getElementById('mobileSidebarBtn');
+    const sidebarClose = document.getElementById('mobileSidebarClose');
+    const sidebar = document.getElementById('mobileSidebar');
+    const overlay = document.getElementById('mobileSidebarOverlay');
+    function openSidebar() { sidebar.classList.remove('-translate-x-full'); overlay.classList.remove('opacity-0', 'invisible'); document.body.style.overflow = 'hidden'; }
+    function closeSidebar() { sidebar.classList.add('-translate-x-full'); overlay.classList.add('opacity-0', 'invisible'); document.body.style.overflow = ''; }
+    sidebarBtn?.addEventListener('click', openSidebar);
+    sidebarClose?.addEventListener('click', closeSidebar);
+    overlay?.addEventListener('click', closeSidebar);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSidebar(); });
+    document.addEventListener('keydown', (e) => { if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'l') { e.preventDefault(); confirmLogout(); } });
+
+    // Theme toggle
+    document.getElementById('userThemeToggle')?.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const icon = document.querySelector('#userThemeToggle i');
+      if (icon) icon.className = document.body.classList.contains('dark-mode') ? 'fa-solid fa-sun text-xs' : 'fa-solid fa-moon text-xs';
+    });
+
+    // RTL toggle
+    function applyRtl(dir) {
+      const html = document.documentElement;
+      const isRtl = dir === 'rtl';
+      const flipIcons = document.querySelectorAll('.fa-arrow-right, .fa-arrow-left, .fa-chevron-right, .fa-chevron-left, .fa-angle-right, .fa-angle-left, .fa-bars');
+      flipIcons.forEach(icon => {
+        if (icon.classList.contains('fa-arrow-right')) icon.classList.replace('fa-arrow-right', 'fa-arrow-left');
+        else if (icon.classList.contains('fa-arrow-left')) icon.classList.replace('fa-arrow-left', 'fa-arrow-right');
+        else if (icon.classList.contains('fa-chevron-right')) icon.classList.replace('fa-chevron-right', 'fa-chevron-left');
+        else if (icon.classList.contains('fa-chevron-left')) icon.classList.replace('fa-chevron-left', 'fa-chevron-right');
+        else if (icon.classList.contains('fa-angle-right')) icon.classList.replace('fa-angle-right', 'fa-angle-left');
+        else if (icon.classList.contains('fa-angle-left')) icon.classList.replace('fa-angle-left', 'fa-angle-right');
+      });
+      html.style.transition = 'all 0.35s ease';
+      html.dir = dir;
+      html.setAttribute('lang', isRtl ? 'ar' : 'en');
+      const toggle = document.querySelector('#userRtlToggle i');
+      if (toggle) toggle.className = `fa-solid ${isRtl ? 'fa-arrow-left' : 'fa-arrow-right'} text-xs`;
+      localStorage.setItem('yw-rtl', dir);
+      setTimeout(() => html.style.transition = '', 400);
+    }
+    const savedRtl = localStorage.getItem('yw-rtl');
+    if (savedRtl && savedRtl !== 'ltr') { applyRtl('rtl'); }
+    document.getElementById('userRtlToggle')?.addEventListener('click', () => {
+      applyRtl(document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl');
+    });
+
+    // Tab switching
+    window.switchTab = function(name) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById('tab-' + name);
+      if (target) target.classList.remove('hidden');
+      document.querySelectorAll('.sidebar-item').forEach(el => {
+        el.classList.remove('active', 'bg-[#F97316]/10', 'text-[#F97316]', 'border-l-[#F97316]');
+        el.classList.add('text-muted');
+        el.style.borderLeftColor = 'transparent';
+      });
+      const activeItem = document.querySelector(`.sidebar-item[data-tab="${name}"]`);
+      if (activeItem) {
+        activeItem.classList.add('active', 'bg-[#F97316]/10', 'text-[#F97316]', 'border-l-[#F97316]');
+        activeItem.classList.remove('text-muted');
+      }
+      // Update mobile sidebar active state
+      document.querySelectorAll('#mobileSidebar nav a').forEach(el => {
+        el.classList.remove('bg-[#F97316]/10', 'text-[#F97316]');
+        el.classList.add('text-muted');
+      });
+      const mobileItem = document.querySelector(`#mobileSidebar nav a[data-tab="${name}"]`);
+      if (mobileItem) {
+        mobileItem.classList.add('bg-[#F97316]/10', 'text-[#F97316]');
+        mobileItem.classList.remove('text-muted');
+      }
+      closeSidebar();
+    };
+
+    // Notification click
+    document.getElementById('userNotifications')?.addEventListener('click', () => {});
+
+    // Settings gear
+    document.getElementById('userSettings')?.addEventListener('click', () => {
+      switchTab('profile');
+    });
+
+    // Logout
+    document.getElementById('userLogoutBtn')?.addEventListener('click', () => window.location.href = '../login.html');
+
+    window.confirmLogout = function() {
+      window.location.href = '../login.html';
+    };
+  </script>
+  <script src="../js/footer.js"></script>
+</body>
+</html>

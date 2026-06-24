@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YardWorkx — Equipment Gallery</title>
+  <meta name="description" content="Browse our full equipment fleet gallery." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    html { scroll-behavior: smooth; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scale-in {
+      from { opacity: 0; transform: scale(0.85); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes nav-line {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(200%); }
+    }
+
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-fade-in-up { animation: fade-in-up 0.8s ease-out forwards; }
+    .animate-scale-in { animation: scale-in 0.6s ease-out forwards; }
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+
+    .text-gradient { background: linear-gradient(135deg, #F97316, #FBBF24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .text-muted { color: #1E293B !important; }
+    body.dark-mode .text-muted { color: #CCCCCC !important; }
+
+    body.dark-mode { background: #000000 !important; color: #FFFFFF !important; }
+    body.dark-mode h1, body.dark-mode h2, body.dark-mode h3,
+    body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 { color: #FFFFFF !important; }
+    body.dark-mode p { color: #FFFFFF !important; }
+    body.dark-mode .text-\[#334155\] { color: #FFFFFF !important; }
+    body.dark-mode .text-\[#475569\] { color: #FFFFFF !important; }
+    body.dark-mode .text-white { color: #FFFFFF !important; }
+    body.dark-mode .text-\[#0F172A\] { color: #FFFFFF !important; }
+    body.dark-mode .text-gradient { background: linear-gradient(135deg, #F97316, #FBBF24) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important; }
+    body.dark-mode .bg-white { background: #000000 !important; }
+    body.dark-mode .bg-\[#F8FAFC\] { background: #000000 !important; }
+    body.dark-mode .bg-\[#0F172A\] { background: #000000 !important; }
+    body.dark-mode .border-\[#E2E4E9\] { border-color: rgba(255,255,255,0.08) !important; }
+    body.dark-mode .shadow-sm, body.dark-mode .shadow-md, body.dark-mode .shadow-lg,
+    body.dark-mode .shadow-xl { box-shadow: 0 0 0 1px rgba(255,255,255,0.06) !important; }
+
+    ::selection { background: rgba(234, 179, 8, 0.35); color: #0F172A; }
+    html, body { margin: 0; padding: 0; }
+
+    button, a, input, select { outline-offset: 2px; }
+    button:focus-visible, a:focus-visible { outline: 2px solid #F97316; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; }
+    }
+
+    body.dark-mode,
+    body.dark-mode main,
+    body.dark-mode section {
+      background: #000 !important;
+    }
+    body.dark-mode .bg-white,
+    body.dark-mode .bg-\[\#F8FAFC\] {
+      background: #000 !important;
+    }
+    body.dark-mode .gallery-card {
+      border-color: rgba(255,255,255,0.08) !important;
+    }
+    body.dark-mode footer {
+      background: #000 !important;
+    }
+
+    .masonry-grid {
+      columns: 4;
+      column-gap: 1.25rem;
+    }
+    .masonry-grid > * {
+      break-inside: avoid;
+      margin-bottom: 1.25rem;
+    }
+    @media (max-width: 1279px) { .masonry-grid { columns: 3; } }
+    @media (max-width: 1023px) { .masonry-grid { columns: 2; } }
+    @media (max-width: 639px) { .masonry-grid { columns: 1; } }
+  </style>
+</head>
+<body class="bg-white text-[#0F172A] antialiased overflow-x-hidden">
+  <div id="navbar"></div>
+
+  <main>
+    <!-- HERO -->
+    <section class="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden">
+      <div class="absolute inset-0 bg-[#0F172A]"></div>
+      <div class="absolute inset-0 opacity-[0.12] pointer-events-none">
+        <img src="assets/images/hero-bg.jpg" alt="" class="w-full h-full object-cover">
+      </div>
+      <div class="relative max-w-4xl mx-auto px-5 sm:px-8 w-full text-center">
+        <span class="inline-flex items-center gap-2 bg-[#F97316]/10 backdrop-blur-sm rounded-full px-4 py-1.5 text-[11px] font-semibold text-[#F97316] border border-[#F97316]/20 mb-5">
+          <i class="fa-solid fa-images"></i>
+          <span>Gallery</span>
+        </span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">
+          Our Equipment <span class="text-gradient">Fleet</span>
+        </h1>
+        <p class="text-white/60 text-sm md:text-base max-w-xl mx-auto mb-6 leading-relaxed">
+          Browse our full collection of professional-grade equipment.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="#gallery" class="bg-[#F97316] hover:bg-[#EA580C] text-[#0F172A] font-bold px-6 py-3 rounded-xl transition-all shadow-lg shadow-[#F97316]/25 hover:shadow-[#F97316]/40 flex items-center gap-2 text-sm">
+            <i class="fa-solid fa-arrow-down"></i> Explore Gallery
+          </a>
+          <a href="equipment.html" class="bg-white/5 backdrop-blur-sm border border-white/15 hover:bg-white/10 hover:border-white/30 text-white font-semibold px-6 py-3 rounded-xl transition-all flex items-center gap-2 text-sm">
+            <i class="fa-solid fa-toolbox"></i> View Equipment
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="py-16 md:py-24 bg-[#F8FAFC]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Browse</span>
+          <h2 class="text-3xl md:text-4xl font-black text-[#0F172A] mt-2">Full Fleet <span class="text-gradient">Gallery</span></h2>
+          <p class="text-muted mt-3">Every machine in our fleet — ready to work for you.</p>
+        </div>
+
+        <div class="masonry-grid">
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/mini-excavator.jpg" alt="Mini Excavator" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Mini Excavator</h4>
+              <p class="text-white/60 text-xs mt-0.5">Kubota U17-3 · 1.5T</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/scissor-lift.jpg" alt="Scissor Lift" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Scissor Lift</h4>
+              <p class="text-white/60 text-xs mt-0.5">26 ft · Electric</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/chainsaw.jpg" alt="Chainsaw" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Chainsaw</h4>
+              <p class="text-white/60 text-xs mt-0.5">18" · 45cc · Gas</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/skid-steer.jpg" alt="Skid Steer" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Skid Steer Loader</h4>
+              <p class="text-white/60 text-xs mt-0.5">High-flow · Tracked</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/concrete-mixer.jpg" alt="Concrete Mixer" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Concrete Mixer</h4>
+              <p class="text-white/60 text-xs mt-0.5">6 cu ft · 110V</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/pressure-washer.jpg" alt="Pressure Washer" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Pressure Washer</h4>
+              <p class="text-white/60 text-xs mt-0.5">4,000 PSI · Gas</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/forklift.jpg" alt="Forklift" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Forklift</h4>
+              <p class="text-white/60 text-xs mt-0.5">5,000 lb · LPG</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/jackhammer.jpg" alt="Jackhammer" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Jackhammer</h4>
+              <p class="text-white/60 text-xs mt-0.5">60 lb · 1,500 BPM</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/lawn-aerator.jpg" alt="Lawn Aerator" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Lawn Aerator</h4>
+              <p class="text-white/60 text-xs mt-0.5">Walk-behind · Gas</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/plate-compactor.jpg" alt="Plate Compactor" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Plate Compactor</h4>
+              <p class="text-white/60 text-xs mt-0.5">18" · 5,600 vpm</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/boom-lift.jpg" alt="Boom Lift" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Boom Lift</h4>
+              <p class="text-white/60 text-xs mt-0.5">60 ft · Articulating</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/generator.jpg" alt="Generator" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Diesel Generator</h4>
+              <p class="text-white/60 text-xs mt-0.5">20 kW · Sound-attenuated</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/light-tower.jpg" alt="Light Tower" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">LED Light Tower</h4>
+              <p class="text-white/60 text-xs mt-0.5">6 kW · Telescoping mast</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/equipment-yard.jpg" alt="Equipment Yard" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Equipment Yard</h4>
+              <p class="text-white/60 text-xs mt-0.5">Full fleet overview</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/warehouse-forklift.jpg" alt="Warehouse Forklift" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Warehouse Forklift</h4>
+              <p class="text-white/60 text-xs mt-0.5">3,000 lb · Electric</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/backhoe-loader.jpg" alt="Backhoe Loader" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Backhoe Loader</h4>
+              <p class="text-white/60 text-xs mt-0.5">JCB · 4x4 · 1 yd³</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/bulldozer.jpg" alt="Bulldozer" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Bulldozer</h4>
+              <p class="text-white/60 text-xs mt-0.5">D6 · 200 HP · Tracked</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/trencher.jpg" alt="Trencher" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Trencher</h4>
+              <p class="text-white/60 text-xs mt-0.5">36" depth · Walk-behind</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/stump-grinder.jpg" alt="Stump Grinder" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Stump Grinder</h4>
+              <p class="text-white/60 text-xs mt-0.5">18" cutting · 25 HP</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/wood-chipper.jpg" alt="Wood Chipper" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Wood Chipper</h4>
+              <p class="text-white/60 text-xs mt-0.5">6" capacity · PTO</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/air-compressor.jpg" alt="Air Compressor" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Air Compressor</h4>
+              <p class="text-white/60 text-xs mt-0.5">185 CFM · Diesel</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/welder.jpg" alt="Welder" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Welder</h4>
+              <p class="text-white/60 text-xs mt-0.5">Multiprocess · 250A</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/tractor.jpg" alt="Tractor" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Tractor</h4>
+              <p class="text-white/60 text-xs mt-0.5">75 HP · 4WD · PTO</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/zero-turn-mower.jpg" alt="Zero Turn Mower" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Zero Turn Mower</h4>
+              <p class="text-white/60 text-xs mt-0.5">60" deck · 26 HP</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/water-pump.jpg" alt="Water Pump" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Water Pump</h4>
+              <p class="text-white/60 text-xs mt-0.5">3" trash · 158 GPM</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/hedge-trimmer.jpg" alt="Hedge Trimmer" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Hedge Trimmer</h4>
+              <p class="text-white/60 text-xs mt-0.5">30" dual · Gas</p>
+            </div>
+          </div>
+          <div class="group relative rounded-2xl overflow-hidden gallery-card">
+            <img src="assets/images/floor-saw.jpg" alt="Floor Saw" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-white font-bold text-sm">Floor Saw</h4>
+              <p class="text-white/60 text-xs mt-0.5">36" blade · Self-propelled</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 md:py-24 bg-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto">
+          <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Ready to Rent?</span>
+          <h2 class="text-3xl md:text-4xl font-black text-[#0F172A] mt-2">Find What You <span class="text-gradient">Need</span></h2>
+          <p class="text-muted mt-3">Browse detailed specs, compare rates, and book online.</p>
+          <div class="flex flex-wrap justify-center gap-3 mt-6">
+            <a href="equipment.html" class="inline-flex items-center gap-2 bg-[#F97316] hover:bg-[#EA580C] text-[#0F172A] font-bold px-6 py-3 rounded-xl transition-all shadow-lg shadow-[#F97316]/25 hover:shadow-[#F97316]/40">
+              View All Equipment <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="contact.html" class="inline-flex items-center gap-2 border border-[#E2E4E9] hover:border-[#F97316] text-muted hover:text-[#F97316] font-semibold px-6 py-3 rounded-xl transition-all">
+              <i class="fa-regular fa-circle-question"></i> Ask a Question
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="js/navbar.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/footer.js"></script>
+</body>
+</html>

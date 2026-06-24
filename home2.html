@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToolHive — Home 2</title>
+  <meta name="description" content="Tool & heavy equipment rental — fast, reliable, local." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    html { scroll-behavior: smooth; }
+
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slide-in-left {
+      from { opacity: 0; transform: translateX(-40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slide-in-right {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes scroll-track {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 rgba(249,115,22,0.4); }
+      70% { box-shadow: 0 0 0 20px rgba(249,115,22,0); }
+      100% { box-shadow: 0 0 0 0 rgba(249,115,22,0); }
+    }
+    @keyframes tilt-hover {
+      0%, 100% { transform: perspective(1000px) rotateY(0deg); }
+      50% { transform: perspective(1000px) rotateY(3deg); }
+    }
+
+    .animate-fade-in-up { animation: fade-in-up 0.7s ease-out forwards; }
+    .animate-slide-in-left { animation: slide-in-left 0.7s ease-out forwards; }
+    .animate-slide-in-right { animation: slide-in-right 0.7s ease-out forwards; }
+    .animate-scroll { animation: scroll-track 30s linear infinite; }
+    .animate-pulse-ring { animation: pulse-ring 2s infinite; }
+
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+    .stagger-5 { animation-delay: 0.5s; }
+
+    .text-muted { color: #1E293B !important; }
+    body.dark-mode .text-muted { color: #CCCCCC !important; }
+
+    .text-gradient { background: linear-gradient(135deg, #F97316, #FBBF24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .card-3d {
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .card-3d:hover {
+      transform: perspective(800px) rotateY(-4deg) rotateX(2deg) translateZ(10px);
+    }
+    .card-3d-reverse:hover {
+      transform: perspective(800px) rotateY(4deg) rotateX(2deg) translateZ(10px);
+    }
+
+    .hero-grid-bg {
+      background-image:
+        linear-gradient(rgba(249,115,22,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(249,115,22,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    body.dark-mode { background: #000000 !important; color: #FFFFFF !important; }
+    body.dark-mode #mainNav { background: rgba(0,0,0,0.85) !important; backdrop-filter: blur(12px) !important; border-color: rgba(255,255,255,0.08) !important; }
+    body.dark-mode #mobilePanel { background: #111111 !important; border-color: rgba(255,255,255,0.08) !important; }
+    body.dark-mode #footer footer { background: #000000 !important; }
+    body.dark-mode #themeToggle, body.dark-mode #rtlToggle, body.dark-mode #mobileMenuBtn, body.dark-mode #mobileCloseBtn { background: #F8FAFC !important; border-color: #E2E4E9 !important; }
+    body.dark-mode #themeToggle i, body.dark-mode #rtlToggle i, body.dark-mode #mobileMenuBtn i, body.dark-mode #mobileCloseBtn i { color: #000000 !important; }
+    body.dark-mode .text-\[#1E293B\] { color: #FFFFFF !important; }
+    body.dark-mode h1, body.dark-mode h2, body.dark-mode h3,
+    body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 { color: #FFFFFF !important; }
+    body.dark-mode p { color: #FFFFFF !important; }
+    body.dark-mode .bg-white { background: #000000 !important; }
+    body.dark-mode .bg-\[#F8FAFC\] { background: #000000 !important; }
+    body.dark-mode section.coverage-section { background: #000000 !important; }
+    body.dark-mode section.newsletter-section { background: #000000 !important; }
+    body.dark-mode .newsletter-card { background: #111111 !important; border-color: rgba(255,255,255,0.08) !important; }
+    body.dark-mode .border-\[#E2E4E9\] { border-color: rgba(255,255,255,0.08) !important; }
+    body.dark-mode .bg-white\/90 { background: rgba(17,17,17,0.9) !important; }
+    body.dark-mode .bg-white\/80 { background: rgba(0,0,0,0.85) !important; }
+    body.dark-mode .shadow-sm, body.dark-mode .shadow-md, body.dark-mode .shadow-lg,
+    body.dark-mode .shadow-xl, body.dark-mode .shadow-2xl { box-shadow: 0 0 0 1px rgba(255,255,255,0.06) !important; }
+    body.dark-mode .dm-white { color: #FFFFFF !important; }
+    body.dark-mode .dark-text-black { color: #000000 !important; }
+    body.dark-mode .dark-bg-keep { background-color: transparent !important; }
+    body.dark-mode .hero-grid-bg { background: #000000 !important; background-image: none !important; }
+    body.dark-mode .dm-text-hero { color: #FFFFFF !important; }
+    body.dark-mode .hero-secondary-btn { border-color: rgba(255,255,255,0.15) !important; color: #FFFFFF !important; }
+    body.dark-mode .hero-secondary-btn:hover { border-color: #F97316 !important; }
+    body.dark-mode .dm-badge-text { color: #FFFFFF !important; }
+    body.dark-mode .step-card-arrow::before { background: #000000 !important; border-color: rgba(255,255,255,0.08) !important; }
+    body.dark-mode .step-card-arrow-right::before { background: #000000 !important; border-color: rgba(255,255,255,0.08) !important; }
+    body.dark-mode .img-badge { background: rgba(255,255,255,0.15) !important; color: #FFFFFF !important; }
+    body.dark-mode .timeline-section { background: #000000 !important; }
+    body.dark-mode .case-study-section { background: #000000 !important; }
+    body.dark-mode .case-study-card { background: #111111 !important; }
+    body.dark-mode .why-choose-section { background: #000000 !important; }
+    body.dark-mode .why-card { background: #111111 !important; border-color: rgba(255,255,255,0.08) !important; }
+    @keyframes slide { 0% { background-position: 0% 0; } 100% { background-position: 200% 0; } }
+    .animate-slide { animation: slide 3s linear infinite; }
+
+    ::selection { background: rgba(249,115,22,0.3); color: #0F172A; }
+    ::-moz-selection { background: rgba(249,115,22,0.3); color: #0F172A; }
+    html, body { margin: 0; padding: 0; }
+    button, a, input, select { outline-offset: 2px; }
+    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid #F97316; }
+
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-white text-[#1E293B] antialiased overflow-x-hidden">
+  <div id="navbar"></div>
+
+  <main>
+    <!-- HERO: CENTERED BG IMAGE -->
+    <section class="relative min-h-screen flex items-center pt-28 md:pt-36 overflow-hidden">
+      <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=80" alt="" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
+      </div>
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="animate-fade-in-up stagger-1">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/90 text-xs font-semibold mb-8">
+            <span class="w-2 h-2 rounded-full bg-[#F97316] animate-pulse-ring"></span>
+            Available in your area — free delivery
+          </div>
+          <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.05] tracking-tight">
+            Tools &amp; Heavy<br>
+            <span class="text-gradient">Equipment</span><br>
+            On Demand
+          </h1>
+          <p class="text-white/70 text-lg md:text-xl mt-6 max-w-2xl mx-auto leading-relaxed">Skip the hardware store. Rent professional-grade tools and machinery by the day, week, or month — delivered to your site.</p>
+          <div class="flex flex-col sm:flex-row gap-4 mt-10 justify-center">
+            <a href="equipment.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[#F97316] text-white font-bold text-sm hover:bg-[#EA580C] transition-all shadow-xl shadow-[#F97316]/30">
+              Browse Fleet <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="rentals.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border-2 border-white/30 text-white font-semibold text-sm hover:border-[#F97316] hover:bg-white/10 transition-all">
+              <i class="fa-regular fa-circle-play"></i> See How It Works
+            </a>
+          </div>
+          <div class="flex items-center justify-center gap-6 mt-10 pt-8 border-t border-white/15 max-w-lg mx-auto">
+            <div class="flex -space-x-2">
+              <div class="w-10 h-10 rounded-full border-2 border-white/30 bg-[#F97316]/30 flex items-center justify-center text-xs font-bold text-white">JD</div>
+              <div class="w-10 h-10 rounded-full border-2 border-white/30 bg-[#22C55E]/30 flex items-center justify-center text-xs font-bold text-white">AK</div>
+              <div class="w-10 h-10 rounded-full border-2 border-white/30 bg-[#3B82F6]/30 flex items-center justify-center text-xs font-bold text-white">MR</div>
+              <div class="w-10 h-10 rounded-full border-2 border-white/30 bg-white/20 flex items-center justify-center text-xs font-bold text-white">+2k</div>
+            </div>
+            <span class="text-sm text-white/70"><span class="font-bold text-white">2,400+</span> contractors trust us</span>
+            <span class="w-px h-6 bg-white/20"></span>
+            <span class="text-sm text-white/70"><i class="fa-solid fa-star text-[#FBBF24] mr-1"></i> 4.9/5 rating</span>
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <i class="fa-solid fa-chevron-down text-white/40 text-xl"></i>
+      </div>
+    </section>
+
+    <!-- SECTION 2: QUICK BOOK WIDGET -->
+   
+
+    <!-- SECTION 3: FEATURED FLEET — HORIZONTAL SCROLL -->
+    <section class="py-16 md:py-24 bg-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+        <div class="flex items-end justify-between">
+          <div>
+            <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">The Fleet</span>
+            <h2 class="text-3xl md:text-4xl font-black text-[#1E293B] mt-2">Featured <span class="text-gradient">Machines</span></h2>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+
+          <div class="group relative rounded-2xl overflow-hidden bg-white border border-[#E2E4E9] shadow-md cursor-pointer h-[400px]">
+            <img src="https://images.unsplash.com/photo-1581147036324-f5f0f5e4c5e0?w=600&q=80" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#22C55E]/90 text-white text-xs font-bold z-10">Available Now</span>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs font-semibold text-[#F97316]">Heavy Equipment</span>
+                <span class="text-xs text-white/80"><i class="fa-regular fa-star mr-0.5"></i> 4.9</span>
+              </div>
+              <h3 class="font-bold text-white text-lg">Mini Excavator</h3>
+              <p class="text-xs text-white/60 mt-0.5">1.5T · Kubota U17-3</p>
+              <div class="flex items-center justify-between mt-3 pt-3 border-t border-white/20">
+                <span class="text-lg font-black text-white">$89<span class="text-xs font-medium text-white/60">/day</span></span>
+                <button class="px-4 py-2 rounded-lg bg-[#F97316] text-white text-xs font-bold hover:bg-[#EA580C] transition-all">Rent</button>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="group relative rounded-2xl overflow-hidden bg-white border border-[#E2E4E9] shadow-md cursor-pointer h-[400px]">
+            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#F59E0B]/90 text-white text-xs font-bold z-10">1 Left</span>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs font-semibold text-[#F97316]">Power Tools</span>
+                <span class="text-xs text-white/80"><i class="fa-regular fa-star mr-0.5"></i> 4.8</span>
+              </div>
+              <h3 class="font-bold text-white text-lg">Electric Jackhammer</h3>
+              <p class="text-xs text-white/60 mt-0.5">60 lb · 110V · 1,500 BPM</p>
+              <div class="flex items-center justify-between mt-3 pt-3 border-t border-white/20">
+                <span class="text-lg font-black text-white">$45<span class="text-xs font-medium text-white/60">/day</span></span>
+                <button class="px-4 py-2 rounded-lg bg-[#F97316] text-white text-xs font-bold hover:bg-[#EA580C] transition-all">Rent</button>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="group relative rounded-2xl overflow-hidden bg-white border border-[#E2E4E9] shadow-md cursor-pointer h-[400px]">
+            <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=600&q=80" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#EF4444]/90 text-white text-xs font-bold z-10">Rented</span>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs font-semibold text-[#F97316]">Heavy Equipment</span>
+                <span class="text-xs text-white/80"><i class="fa-regular fa-star mr-0.5"></i> 4.7</span>
+              </div>
+              <h3 class="font-bold text-white text-lg">Scissor Lift</h3>
+              <p class="text-xs text-white/60 mt-0.5">26 ft · 1,000 lb cap</p>
+              <div class="flex items-center justify-between mt-3 pt-3 border-t border-white/20">
+                <span class="text-lg font-black text-white">$120<span class="text-xs font-medium text-white/60">/day</span></span>
+                <button class="px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white/50 text-xs font-bold cursor-not-allowed" disabled>Unavailable</button>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="group relative rounded-2xl overflow-hidden bg-white border border-[#E2E4E9] shadow-md cursor-pointer h-[400px]">
+            <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=600&q=80" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#22C55E]/90 text-white text-xs font-bold z-10">Available Now</span>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs font-semibold text-[#F97316]">Power Tools</span>
+                <span class="text-xs text-white/80"><i class="fa-regular fa-star mr-0.5"></i> 4.9</span>
+              </div>
+              <h3 class="font-bold text-white text-lg">Welding Machine</h3>
+              <p class="text-xs text-white/60 mt-0.5">200A · MIG/TIG/Stick</p>
+              <div class="flex items-center justify-between mt-3 pt-3 border-t border-white/20">
+                <span class="text-lg font-black text-white">$75<span class="text-xs font-medium text-white/60">/day</span></span>
+                <button class="px-4 py-2 rounded-lg bg-[#F97316] text-white text-xs font-bold hover:bg-[#EA580C] transition-all">Rent</button>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="text-center mt-10">
+        <a href="equipment.html" class="inline-flex items-center gap-2 text-[#F97316] font-semibold text-sm hover:text-[#EA580C] transition-colors">
+          View Full Fleet <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- SECTION 4: TIMELINE STEPS -->
+    <section class="py-16 md:py-24 bg-[#F8FAFC] overflow-hidden timeline-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Simple Steps</span>
+          <h2 class="text-3xl md:text-4xl font-black text-[#1E293B] mt-2">Start Renting in <span class="text-gradient">Minutes</span></h2>
+          <p class="text-muted mt-3">No paperwork, no hassle. Just pick, book, and get to work.</p>
+        </div>
+        <div class="relative">
+          <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[#F97316]/40 via-[#F97316]/20 to-[#F97316]/40 -translate-x-1/2 rounded-full"></div>
+          <div class="space-y-16 md:space-y-24">
+            <div class="relative flex flex-col md:flex-row items-center gap-6 md:gap-12 group">
+              <div class="md:w-1/2 md:text-right md:pr-14">
+                <div class="bg-white rounded-2xl border border-[#E2E4E9] p-6 shadow-md hover:shadow-xl transition-all duration-300 max-w-md md:ml-auto relative before:hidden md:before:block before:absolute before:right-[-8px] before:top-1/2 before:-translate-y-1/2 before:w-4 before:h-4 before:bg-white before:border-r before:border-t before:border-[#E2E4E9] before:rotate-45 before:rounded-sm step-card-arrow">
+                  <div class="flex items-center gap-3 mb-3">
+                    <span class="px-3 py-1 rounded-full bg-[#F97316]/10 text-[#F97316] font-black text-xs">Step 01</span>
+                    <span class="text-xs text-muted"><i class="fa-regular fa-clock mr-1"></i> 2 min</span>
+                  </div>
+                  <h3 class="font-bold text-[#1E293B] text-xl">Pick Your Equipment</h3>
+                  <p class="text-sm text-muted mt-2 leading-relaxed">Browse our catalog of 850+ tools and machines. Filter by category, power type, or rental rate to find exactly what you need.</p>
+                  <div class="flex items-center gap-3 mt-4 pt-4 border-t border-[#E2E4E9]">
+                    <i class="fa-solid fa-check-circle text-[#22C55E] text-sm"></i>
+                    <span class="text-xs text-muted">Real-time availability</span>
+                    <i class="fa-solid fa-check-circle text-[#22C55E] text-sm ml-2"></i>
+                    <span class="text-xs text-muted">Compare rates</span>
+                  </div>
+                </div>
+              </div>
+              <div class="relative z-10 w-14 h-14 rounded-full bg-[#F97316] text-white flex items-center justify-center font-black text-sm shadow-xl shadow-[#F97316]/40 flex-shrink-0 border-4 border-[#F8FAFC] group-hover:scale-110 transition-transform duration-300">
+                <i class="fa-solid fa-magnifying-glass text-lg"></i>
+              </div>
+              <div class="md:w-1/2 md:pl-14">
+                <div class="relative rounded-2xl overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300">
+                  <img src="https://images.unsplash.com/photo-1581147036324-f5f0f5e4c5e0?w=500&q=80" alt="" class="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-700">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                  <div class="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-white/90 text-[#1E293B] text-xs font-bold img-badge"><i class="fa-solid fa-layer-group text-[#F97316] mr-1"></i> 850+ items</div>
+                </div>
+              </div>
+            </div>
+            <div class="relative flex flex-col md:flex-row-reverse items-center gap-6 md:gap-12 group">
+              <div class="md:w-1/2 md:pl-14">
+                <div class="bg-white rounded-2xl border border-[#E2E4E9] p-6 shadow-md hover:shadow-xl transition-all duration-300 max-w-md relative before:hidden md:before:block before:absolute before:left-[-8px] before:top-1/2 before:-translate-y-1/2 before:w-4 before:h-4 before:bg-white before:border-l before:border-t before:border-[#E2E4E9] before:rotate-45 before:rounded-sm step-card-arrow-right">
+                  <div class="flex items-center gap-3 mb-3">
+                    <span class="px-3 py-1 rounded-full bg-[#F97316]/10 text-[#F97316] font-black text-xs">Step 02</span>
+                    <span class="text-xs text-muted"><i class="fa-regular fa-clock mr-1"></i> 3 min</span>
+                  </div>
+                  <h3 class="font-bold text-[#1E293B] text-xl">Book Online</h3>
+                  <p class="text-sm text-muted mt-2 leading-relaxed">Select your rental dates, add delivery if needed, and pay securely. No deposit required for most items — instant confirmation.</p>
+                  <div class="flex items-center gap-3 mt-4 pt-4 border-t border-[#E2E4E9]">
+                    <i class="fa-solid fa-shield-halved text-[#22C55E] text-sm"></i>
+                    <span class="text-xs text-muted">Secure payment</span>
+                    <i class="fa-solid fa-receipt text-[#22C55E] text-sm ml-2"></i>
+                    <span class="text-xs text-muted">Instant receipt</span>
+                  </div>
+                </div>
+              </div>
+              <div class="relative z-10 w-14 h-14 rounded-full bg-[#F97316] text-white flex items-center justify-center font-black text-sm shadow-xl shadow-[#F97316]/40 flex-shrink-0 border-4 border-[#F8FAFC] group-hover:scale-110 transition-transform duration-300">
+                <i class="fa-solid fa-calendar-check text-lg"></i>
+              </div>
+              <div class="md:w-1/2 md:text-right md:pr-14">
+                <div class="relative rounded-2xl overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300">
+                  <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&q=80" alt="" class="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-700">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                  <div class="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-white/90 text-[#1E293B] text-xs font-bold img-badge"><i class="fa-solid fa-bolt text-[#F97316] mr-1"></i> Instant booking</div>
+                </div>
+              </div>
+            </div>
+            <div class="relative flex flex-col md:flex-row items-center gap-6 md:gap-12 group">
+              <div class="md:w-1/2 md:text-right md:pr-14">
+                <div class="bg-white rounded-2xl border border-[#E2E4E9] p-6 shadow-md hover:shadow-xl transition-all duration-300 max-w-md md:ml-auto relative before:hidden md:before:block before:absolute before:right-[-8px] before:top-1/2 before:-translate-y-1/2 before:w-4 before:h-4 before:bg-white before:border-r before:border-t before:border-[#E2E4E9] before:rotate-45 before:rounded-sm step-card-arrow">
+                  <div class="flex items-center gap-3 mb-3">
+                    <span class="px-3 py-1 rounded-full bg-[#F97316]/10 text-[#F97316] font-black text-xs">Step 03</span>
+                    <span class="text-xs text-muted"><i class="fa-regular fa-clock mr-1"></i> Same day</span>
+                  </div>
+                  <h3 class="font-bold text-[#1E293B] text-xl">Get to Work</h3>
+                  <p class="text-sm text-muted mt-2 leading-relaxed">Pick up from our yard or have it delivered to your site. Use it, return it — done. We handle all maintenance and storage.</p>
+                  <div class="flex items-center gap-3 mt-4 pt-4 border-t border-[#E2E4E9]">
+                    <i class="fa-solid fa-truck-fast text-[#22C55E] text-sm"></i>
+                    <span class="text-xs text-muted">Free delivery</span>
+                    <i class="fa-solid fa-wrench text-[#22C55E] text-sm ml-2"></i>
+                    <span class="text-xs text-muted">Fully maintained</span>
+                  </div>
+                </div>
+              </div>
+              <div class="relative z-10 w-14 h-14 rounded-full bg-[#F97316] text-white flex items-center justify-center font-black text-sm shadow-xl shadow-[#F97316]/40 flex-shrink-0 border-4 border-[#F8FAFC] group-hover:scale-110 transition-transform duration-300">
+                <i class="fa-solid fa-truck-fast text-lg"></i>
+              </div>
+              <div class="md:w-1/2 md:pl-14">
+                <div class="relative rounded-2xl overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300">
+                  <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=500&q=80" alt="" class="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-700">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                  <div class="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-white/90 text-[#1E293B] text-xs font-bold img-badge"><i class="fa-solid fa-location-dot text-[#F97316] mr-1"></i> Delivery available</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: REAL RESULTS — CASE STUDY CARDS -->
+    <section class="py-16 md:py-24 bg-white case-study-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Real Results</span>
+          <h2 class="text-3xl md:text-4xl font-black text-[#1E293B] mt-2">Trusted by <span class="text-gradient">Pros</span></h2>
+          <p class="text-muted mt-3">See how contractors and DIYers use ToolHive to get jobs done.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-[#F8FAFC] rounded-3xl border border-[#E2E4E9] overflow-hidden group hover:shadow-lg transition-all case-study-card flex flex-col h-full">
+            <div class="h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <div class="flex items-center gap-2 text-xs text-muted mb-3">
+                <span class="font-semibold text-[#F97316]">Construction</span>
+                <span class="w-1 h-1 rounded-full bg-[#E2E4E9]"></span>
+                <span class="text-muted">3 days rental</span>
+              </div>
+              <h3 class="font-bold text-[#1E293B]">"Rented an excavator for a weekend foundation dig — saved $12k vs buying."</h3>
+              <div class="flex items-center gap-3 mt-auto pt-4 border-t border-[#E2E4E9]">
+                <div class="w-9 h-9 rounded-full bg-[#F97316]/20 flex items-center justify-center text-xs font-bold text-[#F97316]">MT</div>
+                <div>
+                  <span class="text-sm font-semibold text-[#1E293B] dm-white">Mark T.</span>
+                  <p class="text-xs text-muted">General Contractor</p>
+                </div>
+              </div>
+            </div>
+          </div>
+            <div class="bg-[#F8FAFC] rounded-3xl border border-[#E2E4E9] overflow-hidden group hover:shadow-lg transition-all case-study-card flex flex-col h-full">
+            <div class="h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=600&q=80" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <div class="flex items-center gap-2 text-xs text-muted mb-3">
+                <span class="font-semibold text-[#F97316]">Landscaping</span>
+                <span class="w-1 h-1 rounded-full bg-[#E2E4E9]"></span>
+                <span class="text-muted">1 week rental</span>
+              </div>
+              <h3 class="font-bold text-[#1E293B]">"Concrete mixer, plate compactor, and sod cutter — all delivered to the job site."</h3>
+              <div class="flex items-center gap-3 mt-auto pt-4 border-t border-[#E2E4E9]">
+                <div class="w-9 h-9 rounded-full bg-[#22C55E]/20 flex items-center justify-center text-xs font-bold text-[#22C55E]">SR</div>
+                <div>
+                  <span class="text-sm font-semibold text-[#1E293B] dm-white">Sarah R.</span>
+                  <p class="text-xs text-muted">Landscape Designer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+            <div class="bg-[#F8FAFC] rounded-3xl border border-[#E2E4E9] overflow-hidden group hover:shadow-lg transition-all case-study-card flex flex-col h-full">
+            <div class="h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=600&q=80" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <div class="flex items-center gap-2 text-xs text-muted mb-3">
+                <span class="font-semibold text-[#F97316]">Renovation</span>
+                <span class="w-1 h-1 rounded-full bg-[#E2E4E9]"></span>
+                <span class="text-muted">2 day rental</span>
+              </div>
+              <h3 class="font-bold text-[#1E293B]">"Jackhammer and generator for a basement remodel. Quick pickup, great condition."</h3>
+              <div class="flex items-center gap-3 mt-auto pt-4 border-t border-[#E2E4E9]">
+                <div class="w-9 h-9 rounded-full bg-[#3B82F6]/20 flex items-center justify-center text-xs font-bold text-[#3B82F6]">JL</div>
+                <div>
+                  <span class="text-sm font-semibold text-[#1E293B] dm-white">Jose L.</span>
+                  <p class="text-xs text-muted">Home Renovator</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: COVERAGE MAP + CTA -->
+    <section class="relative py-16 md:py-24 bg-white overflow-hidden coverage-section">
+      <div class="absolute inset-0 opacity-10">
+        <div style="background-image: radial-gradient(circle at 25% 50%, #F97316 1px, transparent 1px); background-size: 30px 30px;" class="w-full h-full"></div>
+      </div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Service Area</span>
+            <h2 class="text-3xl md:text-4xl font-black text-[#1E293B] mt-2">We Cover the <span class="text-gradient">Region</span></h2>
+            <p class="text-muted mt-3 max-w-md">Free delivery within 15 miles. Extended coverage available for large projects.</p>
+            <div class="mt-8 space-y-4">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-[#F8FAFC] border border-[#E2E4E9] flex items-center justify-center">
+                  <i class="fa-solid fa-location-dot text-[#F97316]"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-sm text-[#1E293B]">Free Delivery Zone</h4>
+                  <p class="text-xs text-muted">Within 15 miles of our yard</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-[#F8FAFC] border border-[#E2E4E9] flex items-center justify-center">
+                  <i class="fa-solid fa-truck-fast text-[#F97316]"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-sm text-[#1E293B]">Extended Service</h4>
+                  <p class="text-xs text-muted">Up to 50 miles ($1.50/mi)</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-[#F8FAFC] border border-[#E2E4E9] flex items-center justify-center">
+                  <i class="fa-solid fa-clock text-[#F97316]"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-sm text-[#1E293B]">Same-Day Delivery</h4>
+                  <p class="text-xs text-muted">Order before 10 AM</p>
+                </div>
+              </div>
+            </div>
+            <a href="contact.html" class="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#F97316] text-white font-semibold text-sm hover:bg-[#EA580C] transition-all shadow-lg shadow-[#F97316]/25">
+              Check Coverage <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+          <div class="space-y-4">
+            <div class="rounded-2xl overflow-hidden shadow-lg">
+              <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&q=80" alt="" class="w-full h-64 md:h-72 object-cover">
+            </div>
+            <div class="grid grid-cols-3 gap-4">
+              <div class="rounded-2xl overflow-hidden shadow-lg">
+                <img src="https://images.unsplash.com/photo-1569336415962-a4a11f2ad7d5?w=500&q=80" alt="" class="w-full h-28 object-cover">
+              </div>
+              <div class="rounded-2xl overflow-hidden shadow-lg">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=500&q=80" alt="" class="w-full h-28 object-cover">
+              </div>
+              <div class="rounded-2xl overflow-hidden shadow-lg">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=500&q=80" alt="" class="w-full h-28 object-cover">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: WHY CHOOSE US -->
+    <section class="py-16 md:py-24 bg-white why-choose-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Why Choose Us</span>
+          <h2 class="text-3xl md:text-4xl font-black text-[#1E293B] mt-2">Built for <span class="text-gradient">Professionals</span></h2>
+          <p class="text-muted mt-3">Everything you need to get the job done — without the overhead of ownership.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="relative rounded-2xl overflow-hidden min-h-[18rem] p-6 bg-cover bg-center hover:shadow-lg transition-all dark-bg-keep" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80');">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30 rounded-2xl"></div>
+            <div class="relative z-10 h-full flex flex-col justify-end">
+              <h3 class="font-bold text-white text-lg">Top-Notch Equipment</h3>
+              <p class="text-sm text-white/70 mt-2 leading-relaxed">Every machine is serviced after each rental. You get gear that performs — no breakdowns, no excuses.</p>
+            </div>
+          </div>
+          <div class="relative rounded-2xl overflow-hidden min-h-[18rem] p-6 bg-cover bg-center hover:shadow-lg transition-all dark-bg-keep" style="background-image: url('https://images.unsplash.com/photo-1566576912324-bcb1277f58ef?w=600&q=80');">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30 rounded-2xl"></div>
+            <div class="relative z-10 h-full flex flex-col justify-end">
+              <h3 class="font-bold text-white text-lg">Free Local Delivery</h3>
+              <p class="text-sm text-white/70 mt-2 leading-relaxed">We deliver within 15 miles at no charge. Extended coverage available for larger projects.</p>
+            </div>
+          </div>
+          <div class="relative rounded-2xl overflow-hidden min-h-[18rem] p-6 bg-cover bg-center hover:shadow-lg transition-all dark-bg-keep" style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80');">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30 rounded-2xl"></div>
+            <div class="relative z-10 h-full flex flex-col justify-end">
+              <h3 class="font-bold text-white text-lg">Best Price Guarantee</h3>
+              <p class="text-sm text-white/70 mt-2 leading-relaxed">Found a lower rate? We'll match it. No hidden fees, no surprises — just straightforward pricing.</p>
+            </div>
+          </div>
+          <div class="relative rounded-2xl overflow-hidden min-h-[18rem] p-6 bg-cover bg-center hover:shadow-lg transition-all dark-bg-keep" style="background-image: url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=600&q=80');">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30 rounded-2xl"></div>
+            <div class="relative z-10 h-full flex flex-col justify-end">
+              <h3 class="font-bold text-white text-lg">24/7 Support</h3>
+              <p class="text-sm text-white/70 mt-2 leading-relaxed">Our team is on-call around the clock. Questions, issues, or last-minute changes — we've got you covered.</p>
+            </div>
+          </div>
+          <div class="relative rounded-2xl overflow-hidden min-h-[18rem] p-6 bg-cover bg-center hover:shadow-lg transition-all dark-bg-keep" style="background-image: url('https://images.unsplash.com/photo-1616077168070-5cb5f5f0b3b3?w=600&q=80');">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30 rounded-2xl"></div>
+            <div class="relative z-10 h-full flex flex-col justify-end">
+              <h3 class="font-bold text-white text-lg">Instant Booking</h3>
+              <p class="text-sm text-white/70 mt-2 leading-relaxed">Reserve online in under 2 minutes. Same-day pickup available for most equipment when you order before 10 AM.</p>
+            </div>
+          </div>
+          <div class="relative rounded-2xl overflow-hidden min-h-[18rem] p-6 bg-cover bg-center hover:shadow-lg transition-all dark-bg-keep" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80');">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30 rounded-2xl"></div>
+            <div class="relative z-10 h-full flex flex-col justify-end">
+              <h3 class="font-bold text-white text-lg">Safety Certified</h3>
+              <p class="text-sm text-white/70 mt-2 leading-relaxed">All equipment meets OSHA standards. We provide safety guides and briefings with every rental.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: NEWSLETTER / FINAL CTA -->
+    <section class="py-16 md:py-20 bg-white newsletter-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto bg-[#F8FAFC] rounded-3xl border border-[#E2E4E9] p-8 md:p-12 text-center newsletter-card">
+          <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Stay in the Loop</span>
+          <h2 class="text-3xl md:text-4xl font-black text-[#1E293B] mt-2">Get Deals &amp; <span class="text-gradient">Updates</span></h2>
+          <p class="text-muted mt-3 max-w-lg mx-auto">Sign up for our newsletter and be the first to know about new equipment, seasonal discounts, and rental tips.</p>
+          <form class="mt-8 flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+            <input type="email" placeholder="Enter your email" class="flex-1 px-5 py-3.5 rounded-xl bg-white border border-[#E2E4E9] text-sm text-[#1E293B] outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316] placeholder:text-muted">
+            <button class="px-6 py-3.5 rounded-xl bg-[#F97316] text-white font-bold text-sm hover:bg-[#EA580C] transition-all shadow-lg shadow-[#F97316]/25 whitespace-nowrap">
+              Subscribe <i class="fa-solid fa-paper-plane ml-1.5"></i>
+            </button>
+          </form>
+          <p class="text-xs text-muted mt-4">No spam. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="js/navbar.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/footer.js"></script>
+</body>
+</html>
