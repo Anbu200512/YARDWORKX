@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ToolHive — Rentals</title>
@@ -57,6 +58,7 @@
     body.dark-mode .text-muted { color: #CCCCCC !important; }
 
     body.dark-mode { background: #000000 !important; color: #FFFFFF !important; }
+    body.dark-mode section { background: #000000 !important; }
     body.dark-mode #mainNav { background: rgba(0,0,0,0.85) !important; backdrop-filter: blur(12px) !important; border-color: rgba(255,255,255,0.08) !important; }
     body.dark-mode #mobilePanel { background: #111111 !important; border-color: rgba(255,255,255,0.08) !important; }
     body.dark-mode #footer footer { background: #000000 !important; }
@@ -77,7 +79,7 @@
 
     body.dark-mode .bg-white { background: #000000 !important; }
     body.dark-mode .bg-white\/95 { background: #000000 !important; }
-    body.dark-mode .bg-\[#F8FAFC\] { background: #000000 !important; }
+    body.dark-mode .bg-[#F8FAFC] { background: #000000 !important; }
     body.dark-mode .bg-\[#0F172A\] { background: #000000 !important; }
     body.dark-mode .border-\[#E2E4E9\] { border-color: rgba(255,255,255,0.08) !important; }
 
@@ -103,12 +105,7 @@
       *, *::before, *::after { animation-duration: 0.01ms !important; }
     }
 
-    body.dark-mode main,
-    body.dark-mode section {
-      background: #000 !important;
-    }
     body.dark-mode .bg-white,
-    body.dark-mode .bg-\[\#F8FAFC\],
     body.dark-mode .bg-white\/95,
     body.dark-mode .bg-white\/90,
     body.dark-mode .bg-white\/80 {
@@ -133,14 +130,14 @@
     <section class="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden">
       <div class="absolute inset-0 bg-[#0F172A]"></div>
       <div class="absolute inset-0 opacity-[0.15] pointer-events-none">
-        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1920&q=80" alt="" class="w-full h-full object-cover">
+        <img src="assets/images/Book Your Equipment Rental.jpg" alt="" class="w-full h-full object-cover">
       </div>
       <div class="relative max-w-4xl mx-auto px-5 sm:px-8 w-full text-center">
         <span class="inline-flex items-center gap-2 bg-[#F97316]/10 backdrop-blur-sm rounded-full px-4 py-1.5 text-[11px] font-semibold text-[#F97316] border border-[#F97316]/20 mb-5">
           <i class="fa-solid fa-calendar-check"></i>
           <span>Rentals</span>
         </span>
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-4">
           Book Your <span class="text-gradient">Equipment</span> Rental
         </h1>
         <p class="text-white/60 text-sm md:text-base max-w-xl mx-auto mb-6 leading-relaxed">
@@ -162,7 +159,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12">
           <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Available Now</span>
-          <h2 class="text-3xl md:text-4xl font-black text-[#F97316] dm-white mt-2">Ready to <span class="text-gradient">Rent</span></h2>
+          <h2 class="text-3xl md:text-4xl font-semibold text-[#F97316] dm-white mt-2">Ready to <span class="text-gradient">Rent</span></h2>
           <p class="text-muted mt-3">All equipment is inspected, serviced, and ready for your job site.</p>
         </div>
 
@@ -177,15 +174,15 @@
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div class="rental-card bg-white border border-[#E2E4E9] rounded-2xl overflow-hidden lift-card">
-            <div class="h-48 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=800&q=80" alt="Mini Excavator" class="w-full h-full object-cover">
+            <div class="h-36 sm:h-48 overflow-hidden">
+              <img src="assets/images/mini-excavator.jpg" alt="Mini Excavator" class="w-full h-full object-cover">
             </div>
             <div class="p-5">
               <div class="flex items-center gap-2 mb-2">
                 <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#F97316]/10 text-[#F97316]">HEAVY</span>
                 <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">IN STOCK</span>
               </div>
-              <h3 class="text-base font-bold text-[#0F172A] dm-white">Compact Mini Excavator</h3>
+              <h3 class="text-base font-semibold text-[#0F172A] dm-white">Compact Mini Excavator</h3>
               <div class="flex items-center gap-3 mt-2 text-xs text-muted">
                 <span><i class="fa-regular fa-calendar mr-1"></i> Min 1 day</span>
                 <span><i class="fa-solid fa-weight-scale mr-1"></i> 1.5 ton</span>
@@ -200,15 +197,15 @@
             </div>
           </div>
           <div class="rental-card bg-white border border-[#E2E4E9] rounded-2xl overflow-hidden lift-card">
-            <div class="h-48 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80" alt="Skid Steer" class="w-full h-full object-cover">
+            <div class="h-36 sm:h-48 overflow-hidden">
+              <img src="assets/images/Skid Steer Loader.jpg" alt="Skid Steer" class="w-full h-full object-cover">
             </div>
             <div class="p-5">
               <div class="flex items-center gap-2 mb-2">
                 <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#F97316]/10 text-[#F97316]">HEAVY</span>
                 <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">IN STOCK</span>
               </div>
-              <h3 class="text-base font-bold text-[#0F172A] dm-white">Skid Steer Loader</h3>
+              <h3 class="text-base font-semibold text-[#0F172A] dm-white">Skid Steer Loader</h3>
               <div class="flex items-center gap-3 mt-2 text-xs text-muted">
                 <span><i class="fa-regular fa-calendar mr-1"></i> Min 1 day</span>
                 <span><i class="fa-solid fa-weight-scale mr-1"></i> Tracked</span>
@@ -223,15 +220,15 @@
             </div>
           </div>
           <div class="rental-card bg-white border border-[#E2E4E9] rounded-2xl overflow-hidden lift-card">
-            <div class="h-48 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1626808642875-0aa545482dfb?w=800&q=80" alt="Forklift" class="w-full h-full object-cover">
+            <div class="h-36 sm:h-48 overflow-hidden">
+              <img src="assets/images/Forklift.jpg" alt="Forklift" class="w-full h-full object-cover">
             </div>
             <div class="p-5">
               <div class="flex items-center gap-2 mb-2">
                 <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#3B82F6]/10 text-[#3B82F6]">HANDLING</span>
                 <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">IN STOCK</span>
               </div>
-              <h3 class="text-base font-bold text-[#0F172A] dm-white">5,000 lb Forklift</h3>
+              <h3 class="text-base font-semibold text-[#0F172A] dm-white">5,000 lb Forklift</h3>
               <div class="flex items-center gap-3 mt-2 text-xs text-muted">
                 <span><i class="fa-regular fa-calendar mr-1"></i> Min 1 day</span>
                 <span><i class="fa-solid fa-weight-scale mr-1"></i> LPG</span>
@@ -246,15 +243,15 @@
             </div>
           </div>
           <div class="rental-card bg-white border border-[#E2E4E9] rounded-2xl overflow-hidden lift-card">
-            <div class="h-48 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80" alt="Boom Lift" class="w-full h-full object-cover">
+            <div class="h-36 sm:h-48 overflow-hidden">
+              <img src="assets/images/60 ft Boom Lift.jpg" alt="Boom Lift" class="w-full h-full object-cover">
             </div>
             <div class="p-5">
               <div class="flex items-center gap-2 mb-2">
                 <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#3B82F6]/10 text-[#3B82F6]">LIFT</span>
                 <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">IN STOCK</span>
               </div>
-              <h3 class="text-base font-bold text-[#0F172A] dm-white">60 ft Boom Lift</h3>
+              <h3 class="text-base font-semibold text-[#0F172A] dm-white">60 ft Boom Lift</h3>
               <div class="flex items-center gap-3 mt-2 text-xs text-muted">
                 <span><i class="fa-regular fa-calendar mr-1"></i> Min 1 day</span>
                 <span><i class="fa-solid fa-ruler mr-1"></i> 60 ft</span>
@@ -269,15 +266,15 @@
             </div>
           </div>
           <div class="rental-card bg-white border border-[#E2E4E9] rounded-2xl overflow-hidden lift-card">
-            <div class="h-48 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1597676859930-ad94c8816a6c?w=800&q=80" alt="Pressure Washer" class="w-full h-full object-cover">
+            <div class="h-36 sm:h-48 overflow-hidden">
+              <img src="assets/images/4,000 PSI Pressure Washer.jpg" alt="Pressure Washer" class="w-full h-full object-cover">
             </div>
             <div class="p-5">
               <div class="flex items-center gap-2 mb-2">
                 <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#FBBF24]/10 text-[#FBBF24]">PUMPS</span>
                 <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">IN STOCK</span>
               </div>
-              <h3 class="text-base font-bold text-[#0F172A] dm-white">4,000 PSI Pressure Washer</h3>
+              <h3 class="text-base font-semibold text-[#0F172A] dm-white">4,000 PSI Pressure Washer</h3>
               <div class="flex items-center gap-3 mt-2 text-xs text-muted">
                 <span><i class="fa-regular fa-calendar mr-1"></i> Min 1 day</span>
                 <span><i class="fa-solid fa-gauge mr-1"></i> 4,000 PSI</span>
@@ -292,15 +289,15 @@
             </div>
           </div>
           <div class="rental-card bg-white border border-[#E2E4E9] rounded-2xl overflow-hidden lift-card">
-            <div class="h-48 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1578262825743-a199d7c8e7f6?w=800&q=80" alt="Generator" class="w-full h-full object-cover">
+            <div class="h-36 sm:h-48 overflow-hidden">
+              <img src="assets/images/20 kW Diesel Generator" alt="Generator" class="w-full h-full object-cover">
             </div>
             <div class="p-5">
               <div class="flex items-center gap-2 mb-2">
                 <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#EF4444]/10 text-[#EF4444]">SITE</span>
                 <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">IN STOCK</span>
               </div>
-              <h3 class="text-base font-bold text-[#0F172A] dm-white">20 kW Diesel Generator</h3>
+              <h3 class="text-base font-semibold text-[#0F172A] dm-white">20 kW Diesel Generator</h3>
               <div class="flex items-center gap-3 mt-2 text-xs text-muted">
                 <span><i class="fa-regular fa-calendar mr-1"></i> Min 1 day</span>
                 <span><i class="fa-solid fa-bolt mr-1"></i> 20 kW</span>
@@ -315,15 +312,15 @@
             </div>
           </div>
           <div class="rental-card bg-white border border-[#E2E4E9] rounded-2xl overflow-hidden lift-card">
-            <div class="h-48 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1611282293683-5d0021030151?w=800&q=80" alt="Light Tower" class="w-full h-full object-cover">
+            <div class="h-36 sm:h-48 overflow-hidden">
+              <img src="assets/images/LED Light Tower.jpg" alt="Light Tower" class="w-full h-full object-cover">
             </div>
             <div class="p-5">
               <div class="flex items-center gap-2 mb-2">
                 <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#EF4444]/10 text-[#EF4444]">SITE</span>
                 <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">IN STOCK</span>
               </div>
-              <h3 class="text-base font-bold text-[#0F172A] dm-white">LED Light Tower</h3>
+              <h3 class="text-base font-semibold text-[#0F172A] dm-white">LED Light Tower</h3>
               <div class="flex items-center gap-3 mt-2 text-xs text-muted">
                 <span><i class="fa-regular fa-calendar mr-1"></i> Min 1 day</span>
                 <span><i class="fa-solid fa-lightbulb mr-1"></i> 6 kW</span>
@@ -338,15 +335,15 @@
             </div>
           </div>
           <div class="rental-card bg-white border border-[#E2E4E9] rounded-2xl overflow-hidden lift-card">
-            <div class="h-48 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1562184556-b11f15abdadb?w=800&q=80" alt="Concrete Mixer" class="w-full h-full object-cover">
+            <div class="h-36 sm:h-48 overflow-hidden">
+              <img src="assets/images/concrete-mixer.jpg" alt="Concrete Mixer" class="w-full h-full object-cover">
             </div>
             <div class="p-5">
               <div class="flex items-center gap-2 mb-2">
                 <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#8B5CF6]/10 text-[#8B5CF6]">TOOLS</span>
                 <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">IN STOCK</span>
               </div>
-              <h3 class="text-base font-bold text-[#0F172A] dm-white">Concrete Mixer</h3>
+              <h3 class="text-base font-semibold text-[#0F172A] dm-white">Concrete Mixer</h3>
               <div class="flex items-center gap-3 mt-2 text-xs text-muted">
                 <span><i class="fa-regular fa-calendar mr-1"></i> Min 1 day</span>
                 <span><i class="fa-solid fa-weight-scale mr-1"></i> 9 cu ft</span>
@@ -361,15 +358,15 @@
             </div>
           </div>
           <div class="rental-card bg-white border border-[#E2E4E9] rounded-2xl overflow-hidden lift-card">
-            <div class="h-48 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1581664508259-39edff25c65e?w=800&q=80" alt="Compactor" class="w-full h-full object-cover">
+            <div class="h-36 sm:h-48 overflow-hidden">
+              <img src="assets/images/Plate.jpg" alt="Compactor" class="w-full h-full object-cover">
             </div>
             <div class="p-5">
               <div class="flex items-center gap-2 mb-2">
                 <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">GRADING</span>
                 <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#22C55E]/10 text-[#22C55E]">IN STOCK</span>
               </div>
-              <h3 class="text-base font-bold text-[#0F172A] dm-white">Plate Compactor</h3>
+              <h3 class="text-base font-semibold text-[#0F172A] dm-white">Plate Compactor</h3>
               <div class="flex items-center gap-3 mt-2 text-xs text-muted">
                 <span><i class="fa-regular fa-calendar mr-1"></i> Min 1 day</span>
                 <span><i class="fa-solid fa-weight-scale mr-1"></i> Honda engine</span>
@@ -397,7 +394,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-14">
           <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">How It Works</span>
-          <h2 class="text-3xl md:text-4xl font-black text-[#F97316] dm-white mt-2">Rent in <span class="text-gradient">4 Simple Steps</span></h2>
+          <h2 class="text-3xl md:text-4xl font-semibold text-[#F97316] dm-white mt-2">Rent in <span class="text-gradient">4 Simple Steps</span></h2>
           <p class="text-muted mt-3">From browsing to return — we make equipment rental easy.</p>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -406,7 +403,7 @@
               <i class="fa-solid fa-search text-2xl text-[#F97316]"></i>
             </div>
             <span class="absolute top-4 right-4 text-4xl font-black text-[#E2E4E9] dm-opacity-20">01</span>
-            <h3 class="text-lg font-bold text-[#0F172A] dm-white mb-2">Browse & Select</h3>
+            <h3 class="text-lg font-semibold text-[#0F172A] dm-white mb-2">Browse & Select</h3>
             <p class="text-sm text-muted leading-relaxed">Choose from 200+ equipment categories and find the right machine for your job.</p>
           </div>
           <div class="step-card bg-white border border-[#E2E4E9] rounded-3xl p-8 text-center lift-card relative">
@@ -414,7 +411,7 @@
               <i class="fa-solid fa-calendar-check text-2xl text-[#F97316]"></i>
             </div>
             <span class="absolute top-4 right-4 text-4xl font-black text-[#E2E4E9] dm-opacity-20">02</span>
-            <h3 class="text-lg font-bold text-[#0F172A] dm-white mb-2">Book Online</h3>
+            <h3 class="text-lg font-semibold text-[#0F172A] dm-white mb-2">Book Online</h3>
             <p class="text-sm text-muted leading-relaxed">Pick your dates, choose add-ons, and book in under two minutes — no phone call needed.</p>
           </div>
           <div class="step-card bg-white border border-[#E2E4E9] rounded-3xl p-8 text-center lift-card relative">
@@ -422,7 +419,7 @@
               <i class="fa-solid fa-truck-fast text-2xl text-[#F97316]"></i>
             </div>
             <span class="absolute top-4 right-4 text-4xl font-black text-[#E2E4E9] dm-opacity-20">03</span>
-            <h3 class="text-lg font-bold text-[#0F172A] dm-white mb-2">Delivery or Pickup</h3>
+            <h3 class="text-lg font-semibold text-[#0F172A] dm-white mb-2">Delivery or Pickup</h3>
             <p class="text-sm text-muted leading-relaxed">Get same-day delivery or pick up from our yard. We'll have it ready and running.</p>
           </div>
           <div class="step-card bg-white border border-[#E2E4E9] rounded-3xl p-8 text-center lift-card relative">
@@ -430,7 +427,7 @@
               <i class="fa-solid fa-rotate-left text-2xl text-[#F97316]"></i>
             </div>
             <span class="absolute top-4 right-4 text-4xl font-black text-[#E2E4E9] dm-opacity-20">04</span>
-            <h3 class="text-lg font-bold text-[#0F172A] dm-white mb-2">Return & Done</h3>
+            <h3 class="text-lg font-semibold text-[#0F172A] dm-white mb-2">Return & Done</h3>
             <p class="text-sm text-muted leading-relaxed">Return at our yard or schedule a pickup. We handle inspection and cleaning.</p>
           </div>
         </div>
@@ -442,7 +439,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="relative rounded-3xl overflow-hidden bg-[#0F172A]">
           <div class="absolute inset-0 opacity-[0.25] pointer-events-none">
-            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&q=80" alt="" class="w-full h-full object-cover">
+            <img src="assets/images/hero2.jpg" alt="" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-[#0F172A]/60"></div>
           </div>
           <div class="absolute inset-0 opacity-[0.04] pointer-events-none" style="background-image: radial-gradient(circle at 25% 50%, #F97316 1px, transparent 1px); background-size: 40px 40px;"></div>
@@ -452,7 +449,7 @@
                 <span class="inline-flex items-center gap-2 text-[#F97316] font-semibold text-sm tracking-widest uppercase mb-3">
                   <i class="fa-solid fa-bolt"></i> Fast Track
                 </span>
-                <h2 class="text-3xl md:text-4xl font-black text-white leading-tight">
+<h2 class="text-3xl md:text-4xl font-semibold text-white leading-tight">
                   Unlock Your<br class="hidden sm:block"/>
                   <span class="text-gradient">Rental Pass</span>
                 </h2>
@@ -504,7 +501,7 @@
                     </div>
                     <div class="flex items-center gap-2 mb-6">
                       <div class="w-8 h-8 rounded-lg bg-[#151515]/20 flex items-center justify-center">
-                        <span class="text-white font-black text-xs">YW</span>
+                        <i class="fa-solid fa-toolbox text-white text-xs"></i>
                       </div>
                       <span class="text-white/90 font-bold text-xs tracking-wider">RENTAL PASS</span>
                     </div>
@@ -545,3 +542,6 @@
   <script src="js/footer.js"></script>
 </body>
 </html>
+
+
+

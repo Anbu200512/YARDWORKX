@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ToolHive — Local Tool & Heavy Equipment Rental Hub</title>
@@ -181,51 +182,71 @@
     <!-- HERO -->
     <section class="relative min-h-screen flex items-center pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden bg-gradient-to-br from-[#F8FAFC] via-white to-[#F8FAFC]">
       <div class="absolute inset-0">
-        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=80" alt="" class="w-full h-full object-cover" />
-        <div id="heroOverlay" class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-black/5"></div>
+        <img src="assets/images/hero-bg.jpg" alt="" class="w-full h-full object-cover" />
+        <div id="heroOverlay" class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
       </div>
-      <div class="absolute inset-0 bg-gradient-radial from-[#F97316]/5 via-transparent to-transparent"></div>
-      <div class="absolute top-20 right-10 w-80 h-80 bg-[#F97316]/20 rounded-full blur-[120px] animate-pulse-glow"></div>
-      <div class="absolute bottom-20 left-10 w-80 h-80 bg-[#FBBF24]/15 rounded-full blur-[120px] animate-pulse-glow" style="animation-delay: 2s"></div>
+      <div class="absolute inset-0 bg-gradient-radial from-[#F97316]/15 via-transparent to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-conic from-[#F97316]/5 via-[#FBBF24]/5 via-[#8B5CF6]/5 via-[#F97316]/5 to-[#F97316]/5 opacity-30"></div>
+      <div class="absolute top-20 right-10 w-96 h-96 bg-[#F97316]/20 rounded-full blur-[150px] animate-pulse-glow"></div>
+      <div class="absolute bottom-20 left-10 w-96 h-96 bg-[#FBBF24]/15 rounded-full blur-[150px] animate-pulse-glow" style="animation-delay: 2s"></div>
+      <div class="absolute top-1/3 left-1/4 w-64 h-64 bg-[#8B5CF6]/10 rounded-full blur-[120px] animate-float"></div>
+      <div class="absolute bottom-1/3 right-1/4 w-64 h-64 bg-[#22C55E]/8 rounded-full blur-[120px] animate-float" style="animation-delay: 3s"></div>
+      <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: repeating-linear-gradient(45deg, #F97316 0px, #F97316 1px, transparent 1px, transparent 40px);"></div>
+      <!-- Gradient light beams -->
+      <div class="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-[#F97316]/5 via-transparent to-transparent pointer-events-none"></div>
+      <div class="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-l from-[#FBBF24]/5 via-transparent to-transparent pointer-events-none"></div>
+      <div class="absolute top-1/4 right-0 w-1/3 h-px bg-gradient-to-l from-[#F97316]/40 via-[#FBBF24]/20 to-transparent animate-scale-in"></div>
+      <div class="absolute bottom-1/3 left-0 w-1/4 h-px bg-gradient-to-r from-[#FBBF24]/30 via-[#F97316]/15 to-transparent animate-scale-in" style="animation-delay: 0.3s;"></div>
+      <!-- Decorative gradient shapes -->
+      <div class="absolute top-40 left-[15%] w-8 h-8 border-2 border-[#F97316]/20 rounded-lg rotate-45 animate-float" style="animation-delay: 1s;"></div>
+      <div class="absolute top-60 right-[20%] w-6 h-6 border-2 border-[#FBBF24]/20 rounded-full animate-float" style="animation-delay: 2.5s;"></div>
+      <div class="absolute bottom-40 left-[30%] w-4 h-4 bg-[#F97316]/10 rounded-full animate-pulse-glow" style="animation-delay: 0.5s;"></div>
+      <div class="absolute bottom-60 right-[15%] w-10 h-10 border border-[#8B5CF6]/15 rounded-lg rotate-12 animate-spin-slow"></div>
       <div class="relative max-w-7xl mx-auto px-5 sm:px-8 w-full">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <span class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 text-xs font-semibold text-white border border-white/25 mb-6">
+            <span class="inline-flex items-center gap-2 bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm rounded-full px-4 py-1.5 text-xs font-semibold text-white border border-white/25 mb-6">
               <i class="fa-solid fa-toolbox"></i>
               <span>Tool & Equipment Rental Hub</span>
             </span>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-5">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-tight mb-5" style="text-shadow: 0 0 40px rgba(249,115,22,0.15);">
               Rent Heavy Equipment<br/>
-              <span class="text-gradient">Without the Headache.</span>
+              <span class="text-gradient" style="text-shadow: 0 0 60px rgba(249,115,22,0.3);">Without the Headache.</span>
             </h1>
+            <div class="w-20 h-1 bg-gradient-to-r from-[#F97316] to-[#FBBF24] rounded-full mb-6 animate-scale-in"></div>
             <p class="text-white/95 text-base md:text-lg max-w-xl mb-8 leading-relaxed">
               Browse local inventory, compare transparent rates, check availability in real-time, and access safety documentation — all in one place.
             </p>
             <div class="flex flex-wrap gap-4">
-              <a href="#" class="bg-[#F97316] hover:bg-[#EA580C] text-[#0F172A] font-bold px-7 py-3.5 rounded-xl transition-all shadow-lg shadow-[#F97316]/25 hover:shadow-[#F97316]/40 flex items-center gap-2">
+              <a href="#" class="bg-gradient-to-r from-[#F97316] to-[#FBBF24] hover:from-[#EA580C] hover:to-[#F97316] text-[#0F172A] font-bold px-7 py-3.5 rounded-xl transition-all shadow-lg shadow-[#F97316]/30 hover:shadow-[#FBBF24]/30 flex items-center gap-2">
                 <i class="fa-solid fa-magnifying-glass"></i> Browse Equipment
               </a>
-              <a href="#" class="bg-white/15 backdrop-blur-sm border border-white/30 hover:bg-white/25 hover:border-white/50 text-white font-semibold px-7 py-3.5 rounded-xl transition-all flex items-center gap-2">
+              <a href="#" class="bg-white/15 backdrop-blur-sm border border-white/30 hover:bg-gradient-to-r hover:from-[#F97316] hover:to-[#FBBF24] hover:text-[#0F172A] text-white font-semibold px-7 py-3.5 rounded-xl transition-all flex items-center gap-2">
                 <i class="fa-regular fa-circle-play"></i> How It Works
               </a>
             </div>
             
           </div>
           <div class="relative">
-            <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-[#E2E4E9] bg-white p-2">
-              <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80" alt="Equipment" class="rounded-2xl w-full object-cover">
+            <div class="relative group rounded-3xl overflow-hidden shadow-2xl border border-[#E2E4E9] bg-white p-2 before:absolute before:inset-0 before:rounded-3xl before:p-[2px] before:bg-gradient-to-br before:from-[#F97316]/30 before:via-transparent before:to-[#FBBF24]/30 before:pointer-events-none before:-m-[2px]">
+              <img src="assets/images/hero-equipment.jpg" alt="Equipment" class="rounded-2xl w-full object-cover">
+              <div class="absolute inset-0 rounded-2xl bg-gradient-to-t from-[#F97316]/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
               <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3 rounded-xl flex items-center justify-between shadow-sm border border-[#E2E4E9]">
                 <div class="flex items-center gap-2 text-xs font-medium hero-info-text"><i class="fa-solid fa-clock text-[#F97316]"></i> Same-day pickup</div>
                 <div class="flex items-center gap-2 text-xs font-medium hero-info-text"><i class="fa-solid fa-star text-[#F97316]"></i> 4.9 / 5 rating</div>
               </div>
+              <!-- Gradient glow ring -->
+              <div class="absolute -inset-1 rounded-3xl bg-gradient-to-br from-[#F97316]/20 via-[#FBBF24]/10 to-[#8B5CF6]/10 opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-500 -z-10"></div>
             </div>
-            <div class="absolute -top-4 -right-4 bg-white rounded-2xl px-4 py-2 shadow-xl border border-[#F97316]/30 hidden md:flex items-center gap-2 animate-float">
-              <i class="fa-solid fa-bolt text-[#F97316]"></i>
-              <span class="text-xs font-bold hero-info-text">Free delivery</span>
+            <div class="absolute -top-4 -right-4 bg-gradient-to-br from-[#F97316] to-[#FBBF24] rounded-2xl px-4 py-2 shadow-xl hidden md:flex items-center gap-2 animate-float">
+              <i class="fa-solid fa-bolt text-[#0F172A]"></i>
+              <span class="text-xs font-bold text-[#0F172A]">Free delivery</span>
             </div>
           </div>
         </div>
       </div>
+      <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/40 to-transparent"></div>
     </section>
 
     <!-- HOW IT WORKS -->
@@ -233,7 +254,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-14">
           <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Simple Process</span>
-          <h2 class="text-3xl md:text-4xl font-black text-[#F97316] dm-white mt-2">How It <span class="text-gradient">Works</span></h2>
+          <h2 class="text-3xl md:text-4xl font-semibold text-[#F97316] dm-white mt-2">How It <span class="text-gradient">Works</span></h2>
           <p class="text-muted mt-3">Rent the equipment you need in three easy steps — no hassle, no hidden fees.</p>
         </div>
         <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
@@ -241,21 +262,21 @@
             <div class="w-16 h-16 rounded-2xl bg-[#F97316]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#F97316] transition-all duration-300">
               <i class="fa-solid fa-magnifying-glass text-2xl text-[#F97316] group-hover:text-white transition-colors duration-300"></i>
             </div>
-            <h3 class="text-lg font-bold text-[#F97316]">1. Browse & Select</h3>
+            <h3 class="text-lg font-semibold text-[#F97316]">1. Browse & Select</h3>
             <p class="text-sm text-muted mt-2 leading-relaxed">Search our catalog of premium tools and heavy equipment. Filter by category, availability, and rate.</p>
           </div>
           <div class="text-center group">
             <div class="w-16 h-16 rounded-2xl bg-[#F97316]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#F97316] transition-all duration-300">
               <i class="fa-solid fa-calendar-check text-2xl text-[#F97316] group-hover:text-white transition-colors duration-300"></i>
             </div>
-            <h3 class="text-lg font-bold text-[#F97316]">2. Reserve & Pay</h3>
+            <h3 class="text-lg font-semibold text-[#F97316]">2. Reserve & Pay</h3>
             <p class="text-sm text-muted mt-2 leading-relaxed">Choose your rental period, reserve online, and pay securely. No deposit required for most items.</p>
           </div>
           <div class="text-center group">
             <div class="w-16 h-16 rounded-2xl bg-[#F97316]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#F97316] transition-all duration-300">
               <i class="fa-solid fa-truck-fast text-2xl text-[#F97316] group-hover:text-white transition-colors duration-300"></i>
             </div>
-            <h3 class="text-lg font-bold text-[#F97316]">3. Pick Up & Work</h3>
+            <h3 class="text-lg font-semibold text-[#F97316]">3. Pick Up & Work</h3>
             <p class="text-sm text-muted mt-2 leading-relaxed">Grab your equipment from our yard or get it delivered. Use it, return it — that's it.</p>
           </div>
         </div>
@@ -272,7 +293,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12">
           <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Gallery</span>
-          <h2 class="text-3xl md:text-4xl font-black text-[#F97316] dm-white mt-2">See Our <span class="text-gradient">Fleet</span></h2>
+          <h2 class="text-3xl md:text-4xl font-semibold text-[#F97316] dm-white mt-2">See Our <span class="text-gradient">Fleet</span></h2>
           <p class="text-muted mt-3">A glimpse at the equipment that powers your projects.</p>
         </div>
         <style>
@@ -293,42 +314,42 @@
         </style>
         <div class="masonry-grid">
           <div class="group relative rounded-2xl overflow-hidden">
-            <img src="assets/images/" alt="" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <img src="assets/images/mini-excavator.jpg" alt="" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
             <div class="absolute bottom-4 left-4 right-4">
-              <h4 class="text-white font-bold text-sm">Mini Excavator</h4>
+              <h4 class="text-white font-semibold text-sm">Mini Excavator</h4>
               <p class="text-white/60 text-xs mt-0.5">Kubota U17-3 · 1.5T</p>
             </div>
           </div>
           <div class="group relative rounded-2xl overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1623476403873-c12d5a0dd8c7?w=600&q=80" alt="" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <img src="assets/images/Chainsaw.jpg" alt="" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
             <div class="absolute bottom-4 left-4 right-4">
-              <h4 class="text-white font-bold text-sm">Chainsaw</h4>
+              <h4 class="text-white font-semibold text-sm">Chainsaw</h4>
               <p class="text-white/60 text-xs mt-0.5">18" · 45cc · Gas</p>
             </div>
           </div>
           <div class="group relative rounded-2xl overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=600&q=80" alt="" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <img src="assets/images/scissor-lift.jpg" alt="" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
             <div class="absolute bottom-4 left-4 right-4">
-              <h4 class="text-white font-bold text-sm">Scissor Lift</h4>
+              <h4 class="text-white font-semibold text-sm">Scissor Lift</h4>
               <p class="text-white/60 text-xs mt-0.5">26 ft · Electric</p>
             </div>
           </div>
           <div class="group relative rounded-2xl overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b8?w=600&q=80" alt="" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <img src="assets/images/Forklift.jpg" alt="" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
             <div class="absolute bottom-4 left-4 right-4">
-              <h4 class="text-white font-bold text-sm">Forklift</h4>
+              <h4 class="text-white font-semibold text-sm">Forklift</h4>
               <p class="text-white/60 text-xs mt-0.5">5,000 lb · LPG</p>
             </div>
           </div>
           <div class="group relative rounded-2xl overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=600&q=80" alt="" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <img src="assets/images/concrete-mixer.jpg" alt="" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
             <div class="absolute bottom-4 left-4 right-4">
-              <h4 class="text-white font-bold text-sm">Concrete Mixer</h4>
+              <h4 class="text-white font-semibold text-sm">Concrete Mixer</h4>
               <p class="text-white/60 text-xs mt-0.5">6 cu ft · 110V</p>
             </div>
           </div>
@@ -336,23 +357,23 @@
             <img src="assets/images/jackhammer.jpg" alt="" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
             <div class="absolute bottom-4 left-4 right-4">
-              <h4 class="text-white font-bold text-sm">Jackhammer</h4>
+              <h4 class="text-white font-semibold text-sm">Jackhammer</h4>
               <p class="text-white/60 text-xs mt-0.5">60 lb · 1,500 BPM</p>
             </div>
           </div>
           <div class="group relative rounded-2xl overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&q=80" alt="" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <img src="assets/images/Lawn Aerator.jpg" alt="" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
             <div class="absolute bottom-4 left-4 right-4">
-              <h4 class="text-white font-bold text-sm">Lawn Aerator</h4>
+              <h4 class="text-white font-semibold text-sm">Lawn Aerator</h4>
               <p class="text-white/60 text-xs mt-0.5">Walk-behind · Gas</p>
             </div>
           </div>
           <div class="group relative rounded-2xl overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=600&q=80" alt="" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <img src="assets/images/Plate Compactor.jpg" alt="" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
             <div class="absolute bottom-4 left-4 right-4">
-              <h4 class="text-white font-bold text-sm">Plate Compactor</h4>
+              <h4 class="text-white font-semibold text-sm">Plate Compactor</h4>
               <p class="text-white/60 text-xs mt-0.5">18" · 5,600 vpm</p>
             </div>
           </div>
@@ -370,55 +391,55 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12">
           <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Smart Picks</span>
-          <h2 class="text-3xl md:text-4xl font-black text-[#F97316] dm-white mt-2">What's Your <span class="text-gradient">Project</span>?</h2>
+          <h2 class="text-3xl md:text-4xl font-semibold text-[#F97316] dm-white mt-2">What's Your <span class="text-gradient">Project</span>?</h2>
           <p class="text-muted mt-3">Tell us what you're working on and we'll recommend the right equipment.</p>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
-          <div class="relative group cursor-pointer rounded-2xl overflow-hidden h-72">
-            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="relative group cursor-pointer rounded-2xl overflow-hidden h-48 sm:h-64 md:h-72">
+            <img src="assets/images/Demolition.jpg" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-5">
-              <h3 class="font-bold text-sm text-white">Demolition</h3>
+              <h3 class="font-semibold text-sm text-white">Demolition</h3>
               <p class="text-[10px] text-white/60 mt-0.5">7 tools</p>
             </div>
           </div>
-          <div class="relative group cursor-pointer rounded-2xl overflow-hidden h-72">
-            <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=600&q=80" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="relative group cursor-pointer rounded-2xl overflow-hidden h-48 sm:h-64 md:h-72">
+            <img src="assets/images/Landscaping.jpg" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-5">
-              <h3 class="font-bold text-sm text-white">Landscaping</h3>
+              <h3 class="font-semibold text-sm text-white">Landscaping</h3>
               <p class="text-[10px] text-white/60 mt-0.5">12 tools</p>
             </div>
           </div>
-          <div class="relative group cursor-pointer rounded-2xl overflow-hidden h-72">
-            <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="relative group cursor-pointer rounded-2xl overflow-hidden h-48 sm:h-64 md:h-72">
+            <img src="assets/images/Construction.jpg" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-5">
-              <h3 class="font-bold text-sm text-white">Construction</h3>
+              <h3 class="font-semibold text-sm text-white">Construction</h3>
               <p class="text-[10px] text-white/60 mt-0.5">18 tools</p>
             </div>
           </div>
-          <div class="relative group cursor-pointer rounded-2xl overflow-hidden h-72">
-            <img src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=600&q=80" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="relative group cursor-pointer rounded-2xl overflow-hidden h-48 sm:h-64 md:h-72">
+            <img src="assets/images/Painting.jpg" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-5">
-              <h3 class="font-bold text-sm text-white">Painting</h3>
+              <h3 class="font-semibold text-sm text-white">Painting</h3>
               <p class="text-[10px] text-white/60 mt-0.5">6 tools</p>
             </div>
           </div>
-          <div class="relative group cursor-pointer rounded-2xl overflow-hidden h-72">
-            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="relative group cursor-pointer rounded-2xl overflow-hidden h-48 sm:h-64 md:h-72">
+            <img src="assets/images/Plumbing.jpg" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-5">
-              <h3 class="font-bold text-sm text-white">Plumbing</h3>
+              <h3 class="font-semibold text-sm text-white">Plumbing</h3>
               <p class="text-[10px] text-white/60 mt-0.5">5 tools</p>
             </div>
           </div>
-          <div class="relative group cursor-pointer rounded-2xl overflow-hidden h-72">
-            <img src="https://images.unsplash.com/photo-1581147036324-f5f0f5e4c5e0?w=600&q=80" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="relative group cursor-pointer rounded-2xl overflow-hidden h-48 sm:h-64 md:h-72">
+            <img src="assets/images/Renovation.jpg" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-5">
-              <h3 class="font-bold text-sm text-white">Renovation</h3>
+              <h3 class="font-semibold text-sm text-white">Renovation</h3>
               <p class="text-[10px] text-white/60 mt-0.5">14 tools</p>
             </div>
           </div>
@@ -432,7 +453,7 @@
         <div class="grid md:grid-cols-2 gap-10 items-center">
           <div>
             <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Safe & Sound</span>
-            <h2 class="text-3xl md:text-4xl font-black text-[#F97316] dm-white mt-2">Safety <span class="text-gradient">First</span>, Always</h2>
+            <h2 class="text-3xl md:text-4xl font-semibold text-[#F97316] dm-white mt-2">Safety <span class="text-gradient">First</span>, Always</h2>
             <p class="text-muted mt-3 leading-relaxed">Every piece of equipment is inspected, serviced, and certified before it reaches you. We don't cut corners — because your safety is non-negotiable.</p>
             <div class="mt-8 space-y-4">
               <div class="flex items-start gap-4">
@@ -440,7 +461,7 @@
                   <i class="fa-solid fa-clipboard-check text-[#22C55E]"></i>
                 </div>
                 <div>
-                  <h4 class="font-bold text-sm text-[#F97316] dm-white">Pre-Rental Inspection</h4>
+                  <h4 class="font-semibold text-sm text-[#F97316] dm-white">Pre-Rental Inspection</h4>
                   <p class="text-xs text-muted mt-0.5">Each machine goes through a 52-point checklist before every rental.</p>
                 </div>
               </div>
@@ -449,7 +470,7 @@
                   <i class="fa-solid fa-screwdriver-wrench text-[#3B82F6]"></i>
                 </div>
                 <div>
-                  <h4 class="font-bold text-sm text-[#F97316] dm-white">OEM Parts & Service</h4>
+                  <h4 class="font-semibold text-sm text-[#F97316] dm-white">OEM Parts & Service</h4>
                   <p class="text-xs text-muted mt-0.5">We use only manufacturer-approved parts and certified technicians.</p>
                 </div>
               </div>
@@ -458,7 +479,7 @@
                   <i class="fa-solid fa-helmet-safety text-[#F97316]"></i>
                 </div>
                 <div>
-                  <h4 class="font-bold text-sm text-[#F97316] dm-white">Safety Briefing Included</h4>
+                  <h4 class="font-semibold text-sm text-[#F97316] dm-white">Safety Briefing Included</h4>
                   <p class="text-xs text-muted mt-0.5">Every rental comes with a walkthrough safety orientation and PPE guide.</p>
                 </div>
               </div>
@@ -467,7 +488,7 @@
                   <i class="fa-solid fa-shield-halved text-[#8B5CF6]"></i>
                 </div>
                 <div>
-                  <h4 class="font-bold text-sm text-[#F97316] dm-white">Liability Coverage</h4>
+                  <h4 class="font-semibold text-sm text-[#F97316] dm-white">Liability Coverage</h4>
                   <p class="text-xs text-muted mt-0.5">Damage waivers and liability coverage available at checkout.</p>
                 </div>
               </div>
@@ -476,8 +497,8 @@
               View Safety Guide <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
-          <div class="relative rounded-3xl overflow-hidden h-[500px]">
-            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80" alt="" class="w-full h-full object-cover">
+          <div class="relative rounded-3xl overflow-hidden h-64 md:h-[500px]">
+            <img src="assets/images/safe-sound.jpg" alt="" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             <div class="absolute bottom-6 left-6 right-6">
               <div class="bg-white/95 backdrop-blur-md rounded-2xl p-5">
@@ -506,7 +527,7 @@
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Rent vs Buy</span>
-            <h2 class="text-3xl md:text-4xl font-black text-[#F97316] dm-white mt-2">Why Rent <span class="text-gradient">Smart</span>?</h2>
+            <h2 class="text-3xl md:text-4xl font-semibold text-[#F97316] dm-white mt-2">Why Rent <span class="text-gradient">Smart</span>?</h2>
             <p class="text-muted mt-3 leading-relaxed">Buying equipment you'll use once doesn't make sense. Renting gives you access to premium gear without the burden of ownership.</p>
             <div class="mt-8 space-y-4">
               <div class="flex items-start gap-3">
@@ -582,7 +603,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12">
           <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Testimonials</span>
-          <h2 class="text-3xl md:text-4xl font-black text-[#F97316] dm-white mt-2">Trusted by <span class="text-gradient">Contractors</span></h2>
+          <h2 class="text-3xl md:text-4xl font-semibold text-[#F97316] dm-white mt-2">Trusted by <span class="text-gradient">Contractors</span></h2>
           <p class="text-muted mt-3">Hear from the pros who rent from us every day.</p>
         </div>
         <div class="grid md:grid-cols-3 gap-6">
@@ -598,7 +619,7 @@
             <div class="flex items-center gap-3">
               <div class="w-11 h-11 rounded-full bg-[#F97316] flex items-center justify-center text-white font-bold text-sm">MK</div>
               <div>
-                <h4 class="font-bold text-sm text-[#F97316] dm-white">Mike Kowalski</h4>
+                <h4 class="font-semibold text-sm text-[#F97316] dm-white">Mike Kowalski</h4>
                 <p class="text-xs text-muted">General Contractor</p>
               </div>
             </div>
@@ -615,7 +636,7 @@
             <div class="flex items-center gap-3">
               <div class="w-11 h-11 rounded-full bg-[#22C55E] flex items-center justify-center text-white font-bold text-sm">SR</div>
               <div>
-                <h4 class="font-bold text-sm text-[#F97316] dm-white">Sarah Reyes</h4>
+                <h4 class="font-semibold text-sm text-[#F97316] dm-white">Sarah Reyes</h4>
                 <p class="text-xs text-muted">Landscape Designer</p>
               </div>
             </div>
@@ -632,7 +653,7 @@
             <div class="flex items-center gap-3">
               <div class="w-11 h-11 rounded-full bg-[#3B82F6] flex items-center justify-center text-white font-bold text-sm">DC</div>
               <div>
-                <h4 class="font-bold text-sm text-[#F97316] dm-white">David Chen</h4>
+                <h4 class="font-semibold text-sm text-[#F97316] dm-white">David Chen</h4>
                 <p class="text-xs text-muted">Commercial Electrician</p>
               </div>
             </div>
@@ -670,7 +691,7 @@
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Mobile App</span>
-            <h2 class="text-3xl md:text-4xl font-black text-[#F97316] dm-white mt-2">Rent from <span class="text-gradient">Anywhere</span></h2>
+            <h2 class="text-3xl md:text-4xl font-semibold text-[#F97316] dm-white mt-2">Rent from <span class="text-gradient">Anywhere</span></h2>
             <p class="text-muted mt-3 leading-relaxed">Browse, book, and track your rentals right from your phone. Get real-time availability, push notifications, and digital checkout — no paperwork needed.</p>
             <div class="mt-8 space-y-4">
               <div class="flex items-center gap-4">
@@ -736,9 +757,9 @@
                     </div>
                     <div class="mt-8 text-center">
                       <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center mx-auto">
-                        <span class="text-white font-black text-xl">YW</span>
+                        <i class="fa-solid fa-toolbox text-white text-xl"></i>
                       </div>
-                      <h3 class="text-white font-bold text-lg mt-3">YardWorkx</h3>
+                      <h3 class="text-white font-semibold text-lg mt-3">YardWorkx</h3>
                       <p class="text-white/70 text-xs mt-1">Your gear. Anytime.</p>
                     </div>
                   </div>

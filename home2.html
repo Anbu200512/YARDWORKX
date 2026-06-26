@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ToolHive — Home 2</title>
@@ -86,8 +87,6 @@
     body.dark-mode p { color: #FFFFFF !important; }
     body.dark-mode .bg-white { background: #000000 !important; }
     body.dark-mode .bg-\[#F8FAFC\] { background: #000000 !important; }
-    body.dark-mode section.coverage-section { background: #000000 !important; }
-    body.dark-mode section.newsletter-section { background: #000000 !important; }
     body.dark-mode .newsletter-card { background: #111111 !important; border-color: rgba(255,255,255,0.08) !important; }
     body.dark-mode .border-\[#E2E4E9\] { border-color: rgba(255,255,255,0.08) !important; }
     body.dark-mode .bg-white\/90 { background: rgba(17,17,17,0.9) !important; }
@@ -105,10 +104,7 @@
     body.dark-mode .step-card-arrow::before { background: #000000 !important; border-color: rgba(255,255,255,0.08) !important; }
     body.dark-mode .step-card-arrow-right::before { background: #000000 !important; border-color: rgba(255,255,255,0.08) !important; }
     body.dark-mode .img-badge { background: rgba(255,255,255,0.15) !important; color: #FFFFFF !important; }
-    body.dark-mode .timeline-section { background: #000000 !important; }
-    body.dark-mode .case-study-section { background: #000000 !important; }
     body.dark-mode .case-study-card { background: #111111 !important; }
-    body.dark-mode .why-choose-section { background: #000000 !important; }
     body.dark-mode .why-card { background: #111111 !important; border-color: rgba(255,255,255,0.08) !important; }
     @keyframes slide { 0% { background-position: 0% 0; } 100% { background-position: 200% 0; } }
     .animate-slide { animation: slide 3s linear infinite; }
@@ -128,10 +124,14 @@
 
   <main>
     <!-- HERO: CENTERED BG IMAGE -->
-    <section class="relative min-h-screen flex items-center pt-28 md:pt-36 overflow-hidden">
+    <section class="relative min-h-screen flex items-center pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden">
       <div class="absolute inset-0">
-        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=80" alt="" class="w-full h-full object-cover">
+        <img src="assets/images/hero-bg.jpg" alt="" class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
+        <div class="absolute inset-0 bg-gradient-to-tr from-[#F97316]/20 via-transparent to-[#FBBF24]/10"></div>
+        <div class="absolute inset-0 hero-grid-bg"></div>
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#F97316]/10 via-transparent to-transparent"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[#F97316]/10 blur-3xl pointer-events-none"></div>
       </div>
       <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div class="animate-fade-in-up stagger-1">
@@ -139,7 +139,7 @@
             <span class="w-2 h-2 rounded-full bg-[#F97316] animate-pulse-ring"></span>
             Available in your area — free delivery
           </div>
-          <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.05] tracking-tight">
+          <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-semibold text-white leading-[1.05] tracking-tight">
             Tools &amp; Heavy<br>
             <span class="text-gradient">Equipment</span><br>
             On Demand
@@ -180,7 +180,7 @@
         <div class="flex items-end justify-between">
           <div>
             <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">The Fleet</span>
-            <h2 class="text-3xl md:text-4xl font-black text-[#1E293B] mt-2">Featured <span class="text-gradient">Machines</span></h2>
+            <h2 class="text-3xl md:text-4xl font-semibold text-[#1E293B] mt-2">Featured <span class="text-gradient">Machines</span></h2>
           </div>
         </div>
       </div>
@@ -188,8 +188,8 @@
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
 
-          <div class="group relative rounded-2xl overflow-hidden bg-white border border-[#E2E4E9] shadow-md cursor-pointer h-[400px]">
-            <img src="https://images.unsplash.com/photo-1581147036324-f5f0f5e4c5e0?w=600&q=80" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="group relative rounded-2xl overflow-hidden bg-white border border-[#E2E4E9] shadow-md cursor-pointer h-56 md:h-[400px]">
+            <img src="assets/images/mini-excavator.jpg" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
             <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#22C55E]/90 text-white text-xs font-bold z-10">Available Now</span>
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div class="absolute bottom-0 left-0 right-0 p-5 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
@@ -197,7 +197,7 @@
                 <span class="text-xs font-semibold text-[#F97316]">Heavy Equipment</span>
                 <span class="text-xs text-white/80"><i class="fa-regular fa-star mr-0.5"></i> 4.9</span>
               </div>
-              <h3 class="font-bold text-white text-lg">Mini Excavator</h3>
+              <h3 class="font-semibold text-white text-lg">Mini Excavator</h3>
               <p class="text-xs text-white/60 mt-0.5">1.5T · Kubota U17-3</p>
               <div class="flex items-center justify-between mt-3 pt-3 border-t border-white/20">
                 <span class="text-lg font-black text-white">$89<span class="text-xs font-medium text-white/60">/day</span></span>
@@ -207,8 +207,8 @@
           </div>
 
 
-          <div class="group relative rounded-2xl overflow-hidden bg-white border border-[#E2E4E9] shadow-md cursor-pointer h-[400px]">
-            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="group relative rounded-2xl overflow-hidden bg-white border border-[#E2E4E9] shadow-md cursor-pointer h-56 md:h-[400px]">
+            <img src="assets/images/jackhammer.jpg" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
             <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#F59E0B]/90 text-white text-xs font-bold z-10">1 Left</span>
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div class="absolute bottom-0 left-0 right-0 p-5 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
@@ -216,7 +216,7 @@
                 <span class="text-xs font-semibold text-[#F97316]">Power Tools</span>
                 <span class="text-xs text-white/80"><i class="fa-regular fa-star mr-0.5"></i> 4.8</span>
               </div>
-              <h3 class="font-bold text-white text-lg">Electric Jackhammer</h3>
+              <h3 class="font-semibold text-white text-lg">Electric Jackhammer</h3>
               <p class="text-xs text-white/60 mt-0.5">60 lb · 110V · 1,500 BPM</p>
               <div class="flex items-center justify-between mt-3 pt-3 border-t border-white/20">
                 <span class="text-lg font-black text-white">$45<span class="text-xs font-medium text-white/60">/day</span></span>
@@ -226,8 +226,8 @@
           </div>
 
 
-          <div class="group relative rounded-2xl overflow-hidden bg-white border border-[#E2E4E9] shadow-md cursor-pointer h-[400px]">
-            <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=600&q=80" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="group relative rounded-2xl overflow-hidden bg-white border border-[#E2E4E9] shadow-md cursor-pointer h-56 md:h-[400px]">
+            <img src="assets/images/scissor-lift.jpg" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
             <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#EF4444]/90 text-white text-xs font-bold z-10">Rented</span>
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div class="absolute bottom-0 left-0 right-0 p-5 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
@@ -235,7 +235,7 @@
                 <span class="text-xs font-semibold text-[#F97316]">Heavy Equipment</span>
                 <span class="text-xs text-white/80"><i class="fa-regular fa-star mr-0.5"></i> 4.7</span>
               </div>
-              <h3 class="font-bold text-white text-lg">Scissor Lift</h3>
+              <h3 class="font-semibold text-white text-lg">Scissor Lift</h3>
               <p class="text-xs text-white/60 mt-0.5">26 ft · 1,000 lb cap</p>
               <div class="flex items-center justify-between mt-3 pt-3 border-t border-white/20">
                 <span class="text-lg font-black text-white">$120<span class="text-xs font-medium text-white/60">/day</span></span>
@@ -245,8 +245,8 @@
           </div>
 
 
-          <div class="group relative rounded-2xl overflow-hidden bg-white border border-[#E2E4E9] shadow-md cursor-pointer h-[400px]">
-            <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=600&q=80" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="group relative rounded-2xl overflow-hidden bg-white border border-[#E2E4E9] shadow-md cursor-pointer h-56 md:h-[400px]">
+            <img src="assets/images/welding-machine.jpg" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
             <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#22C55E]/90 text-white text-xs font-bold z-10">Available Now</span>
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div class="absolute bottom-0 left-0 right-0 p-5 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
@@ -254,7 +254,7 @@
                 <span class="text-xs font-semibold text-[#F97316]">Power Tools</span>
                 <span class="text-xs text-white/80"><i class="fa-regular fa-star mr-0.5"></i> 4.9</span>
               </div>
-              <h3 class="font-bold text-white text-lg">Welding Machine</h3>
+              <h3 class="font-semibold text-white text-lg">Welding Machine</h3>
               <p class="text-xs text-white/60 mt-0.5">200A · MIG/TIG/Stick</p>
               <div class="flex items-center justify-between mt-3 pt-3 border-t border-white/20">
                 <span class="text-lg font-black text-white">$75<span class="text-xs font-medium text-white/60">/day</span></span>
@@ -278,7 +278,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-14">
           <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Simple Steps</span>
-          <h2 class="text-3xl md:text-4xl font-black text-[#1E293B] mt-2">Start Renting in <span class="text-gradient">Minutes</span></h2>
+          <h2 class="text-3xl md:text-4xl font-semibold text-[#1E293B] mt-2">Start Renting in <span class="text-gradient">Minutes</span></h2>
           <p class="text-muted mt-3">No paperwork, no hassle. Just pick, book, and get to work.</p>
         </div>
         <div class="relative">
@@ -291,7 +291,7 @@
                     <span class="px-3 py-1 rounded-full bg-[#F97316]/10 text-[#F97316] font-black text-xs">Step 01</span>
                     <span class="text-xs text-muted"><i class="fa-regular fa-clock mr-1"></i> 2 min</span>
                   </div>
-                  <h3 class="font-bold text-[#1E293B] text-xl">Pick Your Equipment</h3>
+                  <h3 class="font-semibold text-[#1E293B] text-xl">Pick Your Equipment</h3>
                   <p class="text-sm text-muted mt-2 leading-relaxed">Browse our catalog of 850+ tools and machines. Filter by category, power type, or rental rate to find exactly what you need.</p>
                   <div class="flex items-center gap-3 mt-4 pt-4 border-t border-[#E2E4E9]">
                     <i class="fa-solid fa-check-circle text-[#22C55E] text-sm"></i>
@@ -306,7 +306,7 @@
               </div>
               <div class="md:w-1/2 md:pl-14">
                 <div class="relative rounded-2xl overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300">
-                  <img src="https://images.unsplash.com/photo-1581147036324-f5f0f5e4c5e0?w=500&q=80" alt="" class="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-700">
+                  <img src="assets/images/PickYourEquipment.jpg" alt="" class="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-700">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                   <div class="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-white/90 text-[#1E293B] text-xs font-bold img-badge"><i class="fa-solid fa-layer-group text-[#F97316] mr-1"></i> 850+ items</div>
                 </div>
@@ -319,7 +319,7 @@
                     <span class="px-3 py-1 rounded-full bg-[#F97316]/10 text-[#F97316] font-black text-xs">Step 02</span>
                     <span class="text-xs text-muted"><i class="fa-regular fa-clock mr-1"></i> 3 min</span>
                   </div>
-                  <h3 class="font-bold text-[#1E293B] text-xl">Book Online</h3>
+                  <h3 class="font-semibold text-[#1E293B] text-xl">Book Online</h3>
                   <p class="text-sm text-muted mt-2 leading-relaxed">Select your rental dates, add delivery if needed, and pay securely. No deposit required for most items — instant confirmation.</p>
                   <div class="flex items-center gap-3 mt-4 pt-4 border-t border-[#E2E4E9]">
                     <i class="fa-solid fa-shield-halved text-[#22C55E] text-sm"></i>
@@ -334,7 +334,7 @@
               </div>
               <div class="md:w-1/2 md:text-right md:pr-14">
                 <div class="relative rounded-2xl overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300">
-                  <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&q=80" alt="" class="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-700">
+                  <img src="assets/images/Book Online.jpg" alt="" class="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-700">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                   <div class="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-white/90 text-[#1E293B] text-xs font-bold img-badge"><i class="fa-solid fa-bolt text-[#F97316] mr-1"></i> Instant booking</div>
                 </div>
@@ -347,7 +347,7 @@
                     <span class="px-3 py-1 rounded-full bg-[#F97316]/10 text-[#F97316] font-black text-xs">Step 03</span>
                     <span class="text-xs text-muted"><i class="fa-regular fa-clock mr-1"></i> Same day</span>
                   </div>
-                  <h3 class="font-bold text-[#1E293B] text-xl">Get to Work</h3>
+                  <h3 class="font-semibold text-[#1E293B] text-xl">Get to Work</h3>
                   <p class="text-sm text-muted mt-2 leading-relaxed">Pick up from our yard or have it delivered to your site. Use it, return it — done. We handle all maintenance and storage.</p>
                   <div class="flex items-center gap-3 mt-4 pt-4 border-t border-[#E2E4E9]">
                     <i class="fa-solid fa-truck-fast text-[#22C55E] text-sm"></i>
@@ -362,7 +362,7 @@
               </div>
               <div class="md:w-1/2 md:pl-14">
                 <div class="relative rounded-2xl overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300">
-                  <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=500&q=80" alt="" class="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-700">
+                  <img src="assets/images/get-to-work.jpg" alt="" class="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-700">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                   <div class="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-white/90 text-[#1E293B] text-xs font-bold img-badge"><i class="fa-solid fa-location-dot text-[#F97316] mr-1"></i> Delivery available</div>
                 </div>
@@ -378,13 +378,13 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12">
           <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Real Results</span>
-          <h2 class="text-3xl md:text-4xl font-black text-[#1E293B] mt-2">Trusted by <span class="text-gradient">Pros</span></h2>
+          <h2 class="text-3xl md:text-4xl font-semibold text-[#1E293B] mt-2">Trusted by <span class="text-gradient">Pros</span></h2>
           <p class="text-muted mt-3">See how contractors and DIYers use ToolHive to get jobs done.</p>
         </div>
         <div class="grid md:grid-cols-3 gap-8">
             <div class="bg-[#F8FAFC] rounded-3xl border border-[#E2E4E9] overflow-hidden group hover:shadow-lg transition-all case-study-card flex flex-col h-full">
             <div class="h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <img src="assets/images/Construction.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             </div>
             <div class="p-6 flex flex-col flex-1">
               <div class="flex items-center gap-2 text-xs text-muted mb-3">
@@ -392,7 +392,7 @@
                 <span class="w-1 h-1 rounded-full bg-[#E2E4E9]"></span>
                 <span class="text-muted">3 days rental</span>
               </div>
-              <h3 class="font-bold text-[#1E293B]">"Rented an excavator for a weekend foundation dig — saved $12k vs buying."</h3>
+              <h3 class="font-semibold text-[#1E293B]">"Rented an excavator for a weekend foundation dig — saved $12k vs buying."</h3>
               <div class="flex items-center gap-3 mt-auto pt-4 border-t border-[#E2E4E9]">
                 <div class="w-9 h-9 rounded-full bg-[#F97316]/20 flex items-center justify-center text-xs font-bold text-[#F97316]">MT</div>
                 <div>
@@ -404,7 +404,7 @@
           </div>
             <div class="bg-[#F8FAFC] rounded-3xl border border-[#E2E4E9] overflow-hidden group hover:shadow-lg transition-all case-study-card flex flex-col h-full">
             <div class="h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=600&q=80" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <img src="assets/images/Landscaping.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             </div>
             <div class="p-6 flex flex-col flex-1">
               <div class="flex items-center gap-2 text-xs text-muted mb-3">
@@ -412,7 +412,7 @@
                 <span class="w-1 h-1 rounded-full bg-[#E2E4E9]"></span>
                 <span class="text-muted">1 week rental</span>
               </div>
-              <h3 class="font-bold text-[#1E293B]">"Concrete mixer, plate compactor, and sod cutter — all delivered to the job site."</h3>
+              <h3 class="font-semibold text-[#1E293B]">"Concrete mixer, plate compactor, and sod cutter — all delivered to the job site."</h3>
               <div class="flex items-center gap-3 mt-auto pt-4 border-t border-[#E2E4E9]">
                 <div class="w-9 h-9 rounded-full bg-[#22C55E]/20 flex items-center justify-center text-xs font-bold text-[#22C55E]">SR</div>
                 <div>
@@ -424,7 +424,7 @@
           </div>
             <div class="bg-[#F8FAFC] rounded-3xl border border-[#E2E4E9] overflow-hidden group hover:shadow-lg transition-all case-study-card flex flex-col h-full">
             <div class="h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=600&q=80" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <img src="assets/images/Renovation.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             </div>
             <div class="p-6 flex flex-col flex-1">
               <div class="flex items-center gap-2 text-xs text-muted mb-3">
@@ -432,7 +432,7 @@
                 <span class="w-1 h-1 rounded-full bg-[#E2E4E9]"></span>
                 <span class="text-muted">2 day rental</span>
               </div>
-              <h3 class="font-bold text-[#1E293B]">"Jackhammer and generator for a basement remodel. Quick pickup, great condition."</h3>
+              <h3 class="font-semibold text-[#1E293B]">"Jackhammer and generator for a basement remodel. Quick pickup, great condition."</h3>
               <div class="flex items-center gap-3 mt-auto pt-4 border-t border-[#E2E4E9]">
                 <div class="w-9 h-9 rounded-full bg-[#3B82F6]/20 flex items-center justify-center text-xs font-bold text-[#3B82F6]">JL</div>
                 <div>
@@ -455,7 +455,7 @@
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Service Area</span>
-            <h2 class="text-3xl md:text-4xl font-black text-[#1E293B] mt-2">We Cover the <span class="text-gradient">Region</span></h2>
+            <h2 class="text-3xl md:text-4xl font-semibold text-[#1E293B] mt-2">We Cover the <span class="text-gradient">Region</span></h2>
             <p class="text-muted mt-3 max-w-md">Free delivery within 15 miles. Extended coverage available for large projects.</p>
             <div class="mt-8 space-y-4">
               <div class="flex items-center gap-4">
@@ -492,17 +492,17 @@
           </div>
           <div class="space-y-4">
             <div class="rounded-2xl overflow-hidden shadow-lg">
-              <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&q=80" alt="" class="w-full h-64 md:h-72 object-cover">
+              <img src="assets/images/map.jpg" alt="" class="w-full h-64 md:h-72 object-cover">
             </div>
             <div class="grid grid-cols-3 gap-4">
               <div class="rounded-2xl overflow-hidden shadow-lg">
-                <img src="https://images.unsplash.com/photo-1569336415962-a4a11f2ad7d5?w=500&q=80" alt="" class="w-full h-28 object-cover">
+                <img src="assets/images/d1.jpg" alt="" class="w-full h-20 sm:h-28 object-cover">
               </div>
               <div class="rounded-2xl overflow-hidden shadow-lg">
-                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=500&q=80" alt="" class="w-full h-28 object-cover">
+                <img src="assets/images/d2.jpg" alt="" class="w-full h-20 sm:h-28 object-cover">
               </div>
               <div class="rounded-2xl overflow-hidden shadow-lg">
-                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=500&q=80" alt="" class="w-full h-28 object-cover">
+                <img src="assets/images/d3.jpg" alt="" class="w-full h-20 sm:h-28 object-cover">
               </div>
             </div>
           </div>
@@ -515,49 +515,49 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12">
           <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Why Choose Us</span>
-          <h2 class="text-3xl md:text-4xl font-black text-[#1E293B] mt-2">Built for <span class="text-gradient">Professionals</span></h2>
+          <h2 class="text-3xl md:text-4xl font-semibold text-[#1E293B] mt-2">Built for <span class="text-gradient">Professionals</span></h2>
           <p class="text-muted mt-3">Everything you need to get the job done — without the overhead of ownership.</p>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="relative rounded-2xl overflow-hidden min-h-[18rem] p-6 bg-cover bg-center hover:shadow-lg transition-all dark-bg-keep" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80');">
+          <div class="relative rounded-2xl overflow-hidden min-h-[14rem] md:min-h-[18rem] p-6 bg-cover bg-center hover:shadow-lg transition-all dark-bg-keep" style="background-image: url('assets/images/top-notch-equipment.jpg');">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30 rounded-2xl"></div>
             <div class="relative z-10 h-full flex flex-col justify-end">
-              <h3 class="font-bold text-white text-lg">Top-Notch Equipment</h3>
+              <h3 class="font-semibold text-white text-lg">Top-Notch Equipment</h3>
               <p class="text-sm text-white/70 mt-2 leading-relaxed">Every machine is serviced after each rental. You get gear that performs — no breakdowns, no excuses.</p>
             </div>
           </div>
-          <div class="relative rounded-2xl overflow-hidden min-h-[18rem] p-6 bg-cover bg-center hover:shadow-lg transition-all dark-bg-keep" style="background-image: url('https://images.unsplash.com/photo-1566576912324-bcb1277f58ef?w=600&q=80');">
+          <div class="relative rounded-2xl overflow-hidden min-h-[14rem] md:min-h-[18rem] p-6 bg-cover bg-center hover:shadow-lg transition-all dark-bg-keep" style="background-image: url('assets/images/free-local-delivery.jpg');">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30 rounded-2xl"></div>
             <div class="relative z-10 h-full flex flex-col justify-end">
-              <h3 class="font-bold text-white text-lg">Free Local Delivery</h3>
+              <h3 class="font-semibold text-white text-lg">Free Local Delivery</h3>
               <p class="text-sm text-white/70 mt-2 leading-relaxed">We deliver within 15 miles at no charge. Extended coverage available for larger projects.</p>
             </div>
           </div>
-          <div class="relative rounded-2xl overflow-hidden min-h-[18rem] p-6 bg-cover bg-center hover:shadow-lg transition-all dark-bg-keep" style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80');">
+          <div class="relative rounded-2xl overflow-hidden min-h-[14rem] md:min-h-[18rem] p-6 bg-cover bg-center hover:shadow-lg transition-all dark-bg-keep" style="background-image: url('assets/images/best-price-guarantee.jpg');">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30 rounded-2xl"></div>
             <div class="relative z-10 h-full flex flex-col justify-end">
-              <h3 class="font-bold text-white text-lg">Best Price Guarantee</h3>
+              <h3 class="font-semibold text-white text-lg">Best Price Guarantee</h3>
               <p class="text-sm text-white/70 mt-2 leading-relaxed">Found a lower rate? We'll match it. No hidden fees, no surprises — just straightforward pricing.</p>
             </div>
           </div>
-          <div class="relative rounded-2xl overflow-hidden min-h-[18rem] p-6 bg-cover bg-center hover:shadow-lg transition-all dark-bg-keep" style="background-image: url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=600&q=80');">
+          <div class="relative rounded-2xl overflow-hidden min-h-[14rem] md:min-h-[18rem] p-6 bg-cover bg-center hover:shadow-lg transition-all dark-bg-keep" style="background-image: url('assets/images/247-support.jpg');">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30 rounded-2xl"></div>
             <div class="relative z-10 h-full flex flex-col justify-end">
-              <h3 class="font-bold text-white text-lg">24/7 Support</h3>
+              <h3 class="font-semibold text-white text-lg">24/7 Support</h3>
               <p class="text-sm text-white/70 mt-2 leading-relaxed">Our team is on-call around the clock. Questions, issues, or last-minute changes — we've got you covered.</p>
             </div>
           </div>
-          <div class="relative rounded-2xl overflow-hidden min-h-[18rem] p-6 bg-cover bg-center hover:shadow-lg transition-all dark-bg-keep" style="background-image: url('https://images.unsplash.com/photo-1616077168070-5cb5f5f0b3b3?w=600&q=80');">
+          <div class="relative rounded-2xl overflow-hidden min-h-[14rem] md:min-h-[18rem] p-6 bg-cover bg-center hover:shadow-lg transition-all dark-bg-keep" style="background-image: url('assets/images/instant-booking.jpg');">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30 rounded-2xl"></div>
             <div class="relative z-10 h-full flex flex-col justify-end">
-              <h3 class="font-bold text-white text-lg">Instant Booking</h3>
+              <h3 class="font-semibold text-white text-lg">Instant Booking</h3>
               <p class="text-sm text-white/70 mt-2 leading-relaxed">Reserve online in under 2 minutes. Same-day pickup available for most equipment when you order before 10 AM.</p>
             </div>
           </div>
-          <div class="relative rounded-2xl overflow-hidden min-h-[18rem] p-6 bg-cover bg-center hover:shadow-lg transition-all dark-bg-keep" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80');">
+          <div class="relative rounded-2xl overflow-hidden min-h-[14rem] md:min-h-[18rem] p-6 bg-cover bg-center hover:shadow-lg transition-all dark-bg-keep" style="background-image: url('assets/images/safety-certified.jpg');">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30 rounded-2xl"></div>
             <div class="relative z-10 h-full flex flex-col justify-end">
-              <h3 class="font-bold text-white text-lg">Safety Certified</h3>
+              <h3 class="font-semibold text-white text-lg">Safety Certified</h3>
               <p class="text-sm text-white/70 mt-2 leading-relaxed">All equipment meets OSHA standards. We provide safety guides and briefings with every rental.</p>
             </div>
           </div>
@@ -570,7 +570,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto bg-[#F8FAFC] rounded-3xl border border-[#E2E4E9] p-8 md:p-12 text-center newsletter-card">
           <span class="text-[#F97316] font-semibold text-sm tracking-widest uppercase">Stay in the Loop</span>
-          <h2 class="text-3xl md:text-4xl font-black text-[#1E293B] mt-2">Get Deals &amp; <span class="text-gradient">Updates</span></h2>
+          <h2 class="text-3xl md:text-4xl font-semibold text-[#1E293B] mt-2">Get Deals &amp; <span class="text-gradient">Updates</span></h2>
           <p class="text-muted mt-3 max-w-lg mx-auto">Sign up for our newsletter and be the first to know about new equipment, seasonal discounts, and rental tips.</p>
           <form class="mt-8 flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
             <input type="email" placeholder="Enter your email" class="flex-1 px-5 py-3.5 rounded-xl bg-white border border-[#E2E4E9] text-sm text-[#1E293B] outline-none focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316] placeholder:text-muted">

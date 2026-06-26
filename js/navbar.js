@@ -14,9 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="flex-1 flex justify-start">
             <a href="index.html" class="flex items-center gap-2.5 group">
               <div class="w-9 h-9 rounded-lg bg-[#F97316] flex items-center justify-center transition-transform duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-[#F97316]/30">
-                <span class="text-[#151515] font-black text-sm">YW</span>
+                <i class="fa-solid fa-toolbox text-[#151515] text-sm"></i>
               </div>
-              <span class="font-black text-xl text-[#F97316]">Yard<span class="text-[#F97316] logo-accent">Workx</span></span>
+              <div>
+                <span class="font-black text-xl text-[#F97316]">Yard<span class="text-[#F97316] logo-accent">Workx</span></span>
+                <span class="block text-[10px] text-muted tracking-[0.2em] uppercase font-medium">Rental Equipment</span>
+              </div>
             </a>
           </div>
           <div class="flex items-center gap-1.5">
@@ -41,9 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="flex-1 flex justify-start">
             <a href="index.html" class="flex items-center gap-2.5 group">
               <div class="w-9 h-9 rounded-lg bg-[#F97316] flex items-center justify-center transition-transform duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-[#F97316]/30">
-                <span class="text-[#151515] font-black text-sm">YW</span>
+                <i class="fa-solid fa-toolbox text-[#151515] text-sm"></i>
               </div>
-              <span class="font-black text-xl text-[#F97316]">Yard<span class="text-[#F97316] logo-accent">Workx</span></span>
+              <div>
+                <span class="font-black text-xl text-[#F97316]">Yard<span class="text-[#F97316] logo-accent">Workx</span></span>
+                <span class="block text-[10px] text-muted tracking-[0.2em] uppercase font-medium">Rental Equipment</span>
+              </div>
             </a>
           </div>
             <div id="desktopNav" class="hidden lg:flex items-center justify-center flex-1 gap-1 -ml-12">
@@ -121,9 +127,12 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="flex items-center justify-between p-4 border-b border-[#E2E4E9]">
         <a href="index.html" class="flex items-center gap-2">
           <div class="w-8 h-8 rounded-lg bg-[#F97316] flex items-center justify-center">
-            <span class="text-[#151515] font-black text-xs">YW</span>
+            <i class="fa-solid fa-toolbox text-[#151515] text-xs"></i>
           </div>
-          <span class="font-black text-lg text-[#F97316]">Yard<span class="text-[#F97316] logo-accent">Workx</span></span>
+          <div>
+            <span class="font-black text-lg text-[#F97316]">Yard<span class="text-[#F97316] logo-accent">Workx</span></span>
+            <span class="block text-[9px] text-muted tracking-[0.2em] uppercase font-medium">Rental Equipment</span>
+          </div>
         </a>
         <button id="mobileCloseBtn" class="w-8 h-8 rounded-lg bg-[#F8FAFC] border border-[#E2E4E9] flex items-center justify-center text-muted hover:text-[#F97316] transition-all">
           <i class="fa-solid fa-xmark"></i>

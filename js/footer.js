@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="lg:col-span-4">
             <div class="flex items-center gap-3 mb-5">
               <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#F97316] to-[#EA580C] flex items-center justify-center shadow-lg shadow-[#F97316]/25">
-                <span class="text-white font-black text-base">YW</span>
+                <i class="fa-solid fa-toolbox text-[#151515] text-base"></i>
               </div>
               <div>
                 <span class="font-black text-xl text-[#F97316] tracking-tight">Yard<span class="text-[#F97316]">Workx</span></span>
