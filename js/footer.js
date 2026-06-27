@@ -9,13 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-4">
         <div class="grid sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10">
           <div class="lg:col-span-4">
-            <div class="flex items-center gap-3 mb-5">
-              <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#F97316] to-[#EA580C] flex items-center justify-center shadow-lg shadow-[#F97316]/25">
-                <i class="fa-solid fa-toolbox text-[#151515] text-base"></i>
+            <div class="flex items-center gap-2 sm:gap-3 mb-5">
+              <div class="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-xl bg-gradient-to-br from-[#F97316] to-[#EA580C] flex items-center justify-center shadow-lg shadow-[#F97316]/25">
+                <i class="fa-solid fa-toolbox text-sm sm:text-base text-[#151515]"></i>
               </div>
               <div>
-                <span class="font-black text-xl text-[#F97316] tracking-tight">Yard<span class="text-[#F97316]">Workx</span></span>
-                <span class="block text-[10px] text-muted tracking-[0.2em] uppercase font-medium">Rental Equipment</span>
+                <span class="font-black text-base sm:text-lg md:text-xl text-[#F97316] tracking-tight">Yard<span class="text-[#F97316]">Workx</span></span>
+                <span class="block text-[9px] sm:text-[10px] text-muted tracking-[0.2em] uppercase font-medium">Rental Equipment</span>
               </div>
             </div>
             <p class="text-sm text-muted leading-relaxed max-w-xs">Local tool and heavy equipment rental hub trusted by contractors and DIYers nationwide.</p>
